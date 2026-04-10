@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pulse of Hong Kong Tourism: From Passenger Flow to Economic Impact</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root {
+    --bg: #141416;
+    --card: #1e1e22;
+    --border: #2d2d35;
+    --text: #e8e4df;
+    --muted: #a09a90;
+    --accent: #c8b496;
+    --accent2: #d97a7a;
+    --accent3: #a896d3;
+    --accent4: #7ecba1;
+    --accent5: #e8a87c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, #141416 0%, #1e1e22 40%, #24211e 60%, #141416 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #c8b496, #e8a87c, #d97a7a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .hero p { color: var(--muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+  .section {
+    margin: 48px 0;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-header .num {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.3;
+    line-height: 1;
+  }
+  .section-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .section-header .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .insight-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .insight-box strong { color: var(--accent); }
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .chart-container { width: 100%; height: 500px; }
+  .chart-container-tall { width: 100%; height: 700px; }
+  .chart-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .chart-row .chart-card { margin-top: 0; }
+  .chart-row .chart-container { height: 420px; }
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .map-section {
+    position: relative;
+    background: #1a1a20;
+    border-bottom: 1px solid #2d2d35;
+  }
+  .map-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 24px 0;
+  }
+  .map-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .map-title-row h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #e8e4df;
+  }
+  .map-title-row .tag {
+    background: rgba(200,180,150,0.15);
+    color: #c8b496;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  #map-container { width: 100%; height: 700px; }
+  .map-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0 24px;
+  }
+  .map-controls button {
+    background: #28282f;
+    border: 1px solid #3d3d45;
+    color: #c8b496;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .map-controls button:hover { background: #35353d; }
+  .map-controls button.active { background: #c8b496; color: #1a1a20; font-weight: 600; border-color: #c8b496; }
+  .map-month-label {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e8e4df;
+    min-width: 120px;
+    text-align: center;
+  }
+  #map-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: #3d3d45;
+    outline: none;
+  }
+  #map-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #c8b496;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(200,180,150,0.4);
+  }
+  .map-zone-btns {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 12px;
+  }
+  .map-zone-btns button {
+    background: #28282f;
+    border: 1px solid #3d3d45;
+    color: #a09a90;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.25s;
+  }
+  .map-zone-btns button:hover { background: #35353d; border-color: #555; }
+  .map-zone-btns button.active { background: #c8b496; color: #1a1a20; border-color: #c8b496; font-weight: 600; }
+  .map-legend {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 16px;
+    font-size: 0.85rem;
+    color: #a09a90;
+  }
+  .map-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .map-legend .dot {
+    display: inline-block;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 2px solid #3d3d45;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+  }
+  /* Map detail popup */
+  .map-popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9998;
+  }
+  .map-popup-overlay.show { display: block; }
+  .map-popup {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1e1e22;
+    border: 1px solid #2d2d35;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    z-index: 9999;
+    width: 720px;
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: popIn 0.2s ease-out;
+  }
+  .map-popup.show { display: block; }
+  @keyframes popIn { from { opacity: 0; transform: translate(-50%,-50%) scale(0.92); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+  .map-popup-header {
+    padding: 18px 22px 14px;
+    padding-right: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #2d2d35;
+  }
+  .map-popup-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e8e4df;
+  }
+  .map-popup-header .popup-month {
+    font-size: 0.82rem;
+    color: #a09a90;
+    background: #28282f;
+    padding: 3px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .map-popup-close {
+    position: absolute;
+    top: 14px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: #706b63;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .map-popup-close:hover { color: #d97a7a; }
+  .map-popup-body {
+    padding: 16px 22px 22px;
+  }
+  .popup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .popup-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .popup-card .popup-label {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .popup-card .popup-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  .popup-card .popup-growth {
+    font-size: 0.78rem;
+    margin-top: 3px;
+  }
+  .popup-card .popup-growth .up { color: #7ecba1; }
+  .popup-card .popup-growth .down { color: #d97a7a; }
+  .popup-card .popup-growth .na { color: #4a4a52; }
+  .popup-divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 2px 0;
+  }
+  @media (max-width: 900px) {
+    .chart-row { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.6rem; }
+    #map-container { height: 450px; }
+    .map-month-label { font-size: 1.2rem; min-width: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>The Pulse of Hong Kong Tourism</h1>
+  <p>From Passenger Flow to Economic Impact — A Multi-dimensional Visual Analysis of Hong Kong Immigration and Industry Data (2021–2026)</p>
+</div>
+
+<!-- ===== Interactive Map ===== -->
+<div class="map-section">
+  <div class="map-wrap">
+    <div class="map-title-row">
+      <h2>Hong Kong Port Passenger Pulse Map</h2>
+      <span class="tag">Interactive Map</span>
+    </div>
+    <div class="map-zone-btns" id="map-zone-btns">
+      <button class="active" data-zone="all">🗺 Overview</button>
+      <button data-zone="north">⬆ Northern Land Ports</button>
+      <button data-zone="west">⬅ Western Ports</button>
+      <button data-zone="central">📍 Central Urban Ports</button>
+    </div>
+    <div class="map-legend">
+      <span><i class="dot" style="background:#e8a87c"></i> Airport</span>
+      <span><i class="dot" style="background:#d4a853"></i> HK-Zhuhai-Macao Bridge</span>
+      <span><i class="dot" style="background:#7ecba1"></i> XRL West Kowloon</span>
+      <span><i class="dot" style="background:#d97a7a"></i> Land Ports</span>
+      <span><i class="dot" style="background:#a896d3"></i> Sea Ports</span>
+      <span style="margin-left:8px; color:#706b63;">● Ripple size = Total Passengers</span>
+    </div>
+    <div id="map-container"></div>
+    <div class="map-popup-overlay" id="popup-overlay"></div>
+    <div class="map-popup" id="map-popup">
+      <div class="map-popup-header">
+        <h3 id="popup-cp-name">—</h3>
+        <span class="popup-month" id="popup-month">—</span>
+        <button class="map-popup-close" id="popup-close">&times;</button>
+      </div>
+      <div class="map-popup-body">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div id="popup-chart-pax" style="height:260px;"></div>
+          <div id="popup-chart-dir" style="height:260px;"></div>
+        </div>
+        <div id="popup-chart-vehicle" style="height:220px; margin-top:8px;"></div>
+      </div>
+    </div>
+    <div class="map-controls">
+      <button id="btn-play" class="active">▶ Play</button>
+      <button id="btn-pause">⏸ Pause</button>
+      <span class="map-month-label" id="map-month-label">2021-01</span>
+      <input type="range" id="map-slider" min="0" max="63" value="0">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Chart 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="num">01</span>
+      <div>
+        <h2>Tides of Travel — Passenger Volume Timeline</h2>
+        <div class="subtitle">Monthly immigration passenger composition from 2021 to present</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div id="chart1" class="chart-container"></div>
+    </div>
+    <div class="insight-box" id="insight1"></div>
+  </div>
+
+  <!-- Chart 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="num">02</span>
+      <div>
+        <h2>Gateway Codes — Port Traffic Heatmap</h2>
+        <div class="subtitle">Monthly passenger throughput distribution by control point</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div id="chart2" class="chart-container-tall"></div>
+    </div>
+    <div class="insight-box" id="insight2"></div>
+  </div>
+
+  <!-- Chart 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="num">03</span>
+      <div>
+        <h2>Holiday Effect — Holiday vs Regular Day Passenger Comparison</h2>
+        <div class="subtitle">Impact of major holidays on passenger volume and visitor composition</div>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card">
+        <div id="chart3a" class="chart-container"></div>
+      </div>
+      <div class="chart-card">
+        <div id="chart3b" class="chart-container"></div>
+      </div>
+    </div>
+    <div class="insight-box" id="insight3"></div>
+  </div>
+
+  <!-- Chart 4 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="num">04</span>
+      <div>
+        <h2>Ripple Effect — Tourism Economic Chain</h2>
+        <div class="subtitle">Correlation between passenger volume and hotel, dining, and retail industries</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div id="chart4" class="chart-container-tall"></div>
+    </div>
+    <div class="insight-box" id="insight4"></div>
+  </div>
+
+  <!-- Chart 5 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="num">05</span>
+      <div>
+        <h2>Exchange Rate Leverage — FX Rate and Mainland Visitor Sensitivity</h2>
+        <div class="subtitle">Impact of HKD/RMB exchange rate changes on Mainland visitor travel intent</div>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card">
+        <div id="chart5a" class="chart-container"></div>
+      </div>
+      <div class="chart-card">
+        <div id="chart5b" class="chart-container"></div>
+      </div>
+    </div>
+    <div class="insight-box" id="insight5"></div>
+  </div>
+
+  <!-- Chart 6 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="num">06</span>
+      <div>
+        <h2>Hub Profiles — Port Traffic Overview</h2>
+        <div class="subtitle">Comprehensive passenger and vehicle capacity structure by port</div>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card">
+        <div id="chart6a" class="chart-container"></div>
+      </div>
+      <div class="chart-card">
+        <div id="chart6b" class="chart-container"></div>
+      </div>
+    </div>
+    <div class="insight-box" id="insight6"></div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Data Source: Census and Statistics Department, HKSAR Government | Visual Analytics © 2026
+</div>
+
+<script>
+const COLORS = {
+  blue: '#38bdf8',
+  pink: '#f472b6',
+  purple: '#a78bfa',
+  green: '#34d399',
+  orange: '#fb923c',
+  yellow: '#fbbf24',
+  red: '#f87171',
+  cyan: '#22d3ee',
+  lime: '#a3e635',
+};
+
+const HK_GEOJSON_URL = 'https://echarts.apache.org/examples/data/asset/geo/HK.json';
+
+Promise.all([
+  fetch('viz_data.json').then(r => r.json()),
+  fetch(HK_GEOJSON_URL).then(r => r.json()),
+]).then(([D, geoData]) => {
+  echarts.registerMap('HK', geoData);
+  renderMap(D.chart_map);
+  renderChart1(D.chart1);
+  renderChart2(D.chart2);
+  renderChart3(D.chart3);
+  renderChart4(D.chart4);
+  renderChart5(D.chart5);
+  renderChart6(D.chart6);
+}).catch(() => {
+  fetch('viz_data.json').then(r => r.json()).then(D => {
+    renderMapFallback(D.chart_map);
+    renderChart1(D.chart1);
+    renderChart2(D.chart2);
+    renderChart3(D.chart3);
+    renderChart4(D.chart4);
+    renderChart5(D.chart5);
+    renderChart6(D.chart6);
+  });
+});
+
+function fmt(n) {
+  if (n == null) return '-';
+  return n.toLocaleString('en-US');
+}
+
+function fmtGrowth(v) {
+  if (v == null) return '<span class="na">—</span>';
+  const cls = v >= 0 ? 'up' : 'down';
+  const arrow = v >= 0 ? '↑' : '↓';
+  return `<span class="${cls}">${arrow} ${Math.abs(v).toFixed(2)}%</span>`;
+}
+
+let _popupCharts = {};
+function showMapPopup(cpName, month, detail) {
+  const d = detail || {};
+  document.getElementById('popup-cp-name').textContent = cpName;
+  document.getElementById('popup-month').textContent = month;
+  document.getElementById('popup-overlay').classList.add('show');
+  document.getElementById('map-popup').classList.add('show');
+
+  Object.values(_popupCharts).forEach(c => c.dispose());
+  _popupCharts = {};
+
+  const hkTotal = (d.in_hk || 0) + (d.out_hk || 0);
+  const mainlandTotal = (d.in_mainland || 0) + (d.out_mainland || 0);
+  const otherTotal = (d.in_other || 0) + (d.out_other || 0);
+  const grandTotal = (d.in_total || 0) + (d.out_total || 0);
+
+  // Chart 1: Doughnut – Passenger composition
+  const c1 = echarts.init(document.getElementById('popup-chart-pax'));
+  _popupCharts.pax = c1;
+  c1.setOption({
+    title: { text: 'Passenger Composition', left: 'center', top: 0,
+      textStyle: { fontSize: 13, fontWeight: 600, color: '#e8e4df' },
+    },
+    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)',
+      backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#3d3d45', textStyle: { color: '#e8e4df' } },
+    legend: { bottom: 0, itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 10, color: '#a09a90' } },
+    graphic: [{ type: 'text', left: 'center', top: '47%',
+      style: { text: `Total\n${fmt(grandTotal)}`, textAlign: 'center',
+        fill: '#a09a90', fontSize: 11, lineHeight: 16 } }],
+    series: [{
+      type: 'pie', radius: ['38%', '62%'], center: ['50%', '50%'],
+      startAngle: 180,
+      avoidLabelOverlap: true,
+      label: { show: true, fontSize: 10, formatter: '{d}%', color: '#a09a90', position: 'outside' },
+      labelLine: { length: 8, length2: 6, lineStyle: { color: '#4a4a52' } },
+      emphasis: { label: { fontWeight: 'bold', fontSize: 12 } },
+      data: [
+        { value: hkTotal, name: 'HK Residents', itemStyle: { color: '#e8a87c' } },
+        { value: mainlandTotal, name: 'Mainland', itemStyle: { color: '#d97a7a' } },
+        { value: otherTotal, name: 'Other', itemStyle: { color: '#a896d3' } },
+      ],
+    }],
+  });
+
+  // Chart 2: Horizontal bar – Inbound vs Outbound breakdown
+  const c2 = echarts.init(document.getElementById('popup-chart-dir'));
+  _popupCharts.dir = c2;
+  const cats = ['HK Residents', 'Mainland', 'Other'];
+  const inVals = [d.in_hk || 0, d.in_mainland || 0, d.in_other || 0];
+  const outVals = [d.out_hk || 0, d.out_mainland || 0, d.out_other || 0];
+  const growthText = (d.total_mom != null || d.total_yoy != null)
+    ? `Pax MoM: ${d.total_mom != null ? d.total_mom + '%' : '—'}  YoY: ${d.total_yoy != null ? d.total_yoy + '%' : '—'}`
+    : '';
+  c2.setOption({
+    title: { text: 'Inbound vs Outbound', left: 'center', top: 0,
+      textStyle: { fontSize: 13, fontWeight: 600, color: '#e8e4df' },
+      subtext: growthText,
+      subtextStyle: { fontSize: 10, color: '#a09a90' },
+    },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' },
+      backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#3d3d45', textStyle: { color: '#e8e4df' },
+      formatter: params => { let s = params[0].axisValue; params.forEach(p => {
+        s += `<br/>${p.marker}${p.seriesName}: ${fmt(Math.abs(p.value))}`;
+      }); return s; } },
+    legend: { bottom: 0, itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 10, color: '#a09a90' } },
+    grid: { left: 10, right: 10, top: 50, bottom: 30, containLabel: true },
+    xAxis: { type: 'value', axisLabel: { fontSize: 9, color: '#706b63', formatter: v => {
+      const a = Math.abs(v); return a >= 1e6 ? (a/1e6).toFixed(1)+'M' : a >= 1e3 ? (a/1e3).toFixed(0)+'K' : a;
+    }}, splitLine: { lineStyle: { color: '#2d2d35' } } },
+    yAxis: { type: 'category', data: cats, axisLabel: { fontSize: 9, color: '#a09a90', width: 70, overflow: 'truncate' },
+      axisTick: { show: false }, axisLine: { show: false } },
+    series: [
+      { name: 'Inbound', type: 'bar', stack: 'flow', data: inVals, barWidth: 20,
+        itemStyle: { color: '#7ecba1', borderRadius: [0, 3, 3, 0] },
+        label: { show: true, fontSize: 8, color: '#fff', position: 'inside',
+          formatter: p => { const v = p.value; return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v > 0 ? v : ''; } } },
+      { name: 'Outbound', type: 'bar', stack: 'flow', data: outVals.map(v => -v), barWidth: 20,
+        itemStyle: { color: '#e8a87c', borderRadius: [3, 0, 0, 3] },
+        label: { show: true, fontSize: 8, color: '#fff', position: 'inside',
+          formatter: p => { const v = -p.value; return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v > 0 ? v : ''; } } },
+    ],
+  });
+
+  // Chart 3: Vehicle stacked bar (only if has_vehicle)
+  const vehEl = document.getElementById('popup-chart-vehicle');
+  if (d.has_vehicle) {
+    vehEl.style.display = 'block';
+    const c3 = echarts.init(vehEl);
+    _popupCharts.veh = c3;
+    const totalV = (d.private_cars||0) + (d.tour_coaches||0) + (d.shuttle_buses||0) + (d.freight_vehicles||0);
+    const vGrowth = (d.vehicle_mom != null || d.vehicle_yoy != null)
+      ? `MoM: ${d.vehicle_mom != null ? d.vehicle_mom + '%' : '—'}  YoY: ${d.vehicle_yoy != null ? d.vehicle_yoy + '%' : '—'}`
+      : '';
+    c3.setOption({
+      title: { text: `Vehicle Traffic  (Total: ${fmt(totalV)})`, left: 'center', top: 0,
+        textStyle: { fontSize: 13, fontWeight: 600, color: '#e8e4df' },
+        subtext: vGrowth,
+        subtextStyle: { fontSize: 10, color: '#a09a90' },
+      },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' },
+        backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#3d3d45', textStyle: { color: '#e8e4df' },
+        formatter: params => { let s = 'Vehicles'; params.forEach(p => {
+          if (p.value > 0) s += `<br/>${p.marker}${p.seriesName}: ${fmt(p.value)}`;
+        }); return s; } },
+      legend: { bottom: 0, itemWidth: 10, itemHeight: 10, textStyle: { fontSize: 10, color: '#a09a90' } },
+      grid: { left: 20, right: 20, top: 50, bottom: 30, containLabel: true },
+      xAxis: { type: 'value', axisLabel: { fontSize: 9, color: '#706b63',
+        formatter: v => v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v },
+        splitLine: { lineStyle: { color: '#2d2d35' } } },
+      yAxis: { type: 'category', data: ['Vehicles'], show: false },
+      series: [
+        { name: 'Private Cars', type: 'bar', stack: 'v', data: [d.private_cars || 0],
+          itemStyle: { color: '#c8b496' }, barWidth: 36,
+          label: { show: (d.private_cars||0) > 0, position: 'inside', fontSize: 9, color: '#1e1e22',
+            formatter: p => { const v = p.value; return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v; } } },
+        { name: 'Tour Coaches', type: 'bar', stack: 'v', data: [d.tour_coaches || 0],
+          itemStyle: { color: '#7ecba1' },
+          label: { show: (d.tour_coaches||0) > 0, position: 'inside', fontSize: 9, color: '#1e1e22',
+            formatter: p => { const v = p.value; return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v; } } },
+        { name: 'Shuttle Buses', type: 'bar', stack: 'v', data: [d.shuttle_buses || 0],
+          itemStyle: { color: '#e8a87c' },
+          label: { show: (d.shuttle_buses||0) > 0, position: 'inside', fontSize: 9, color: '#1e1e22',
+            formatter: p => { const v = p.value; return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v; } } },
+        { name: 'Freight Vehicles', type: 'bar', stack: 'v', data: [d.freight_vehicles || 0],
+          itemStyle: { color: '#a896d3' },
+          label: { show: (d.freight_vehicles||0) > 0, position: 'inside', fontSize: 9, color: '#fff',
+            formatter: p => { const v = p.value; return v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v; } } },
+      ],
+    });
+  } else {
+    vehEl.style.display = 'none';
+    vehEl.innerHTML = '';
+  }
+}
+
+function hideMapPopup() {
+  document.getElementById('popup-overlay').classList.remove('show');
+  document.getElementById('map-popup').classList.remove('show');
+  Object.values(_popupCharts).forEach(c => c.dispose());
+  _popupCharts = {};
+}
+
+document.getElementById('popup-close').addEventListener('click', hideMapPopup);
+document.getElementById('popup-overlay').addEventListener('click', hideMapPopup);
+
+/* ===== Map: Pulse map with ripple effect ===== */
+const TYPE_COLORS = {
+  'Aviation':       '#e8a87c',
+  'HK-Zhuhai-Macao Bridge': '#d4a853',
+  'XRL West Kowloon': '#7ecba1',
+  'Land':       '#d97a7a',
+  'Sea':       '#a896d3',
+};
+
+const LABEL_OFFSETS = {
+  'Airport':         [-60, -20],
+  'HK-Zhuhai-Macao Bridge':   [-30, 18],
+  'Tuen Mun Ferry Terminal': [-30, 16],
+  'Shenzhen Bay':       [0, -18],
+  'Lok Ma Chau':       [-65, 8],
+  'Lok Ma Chau Spur Line':   [-80, -8],
+  'Man Kam To':       [15, -12],
+  'Lo Wu':         [-10, -16],
+  'Heung Yuen Wai':       [15, 8],
+  'Sha Tau Kok':       [15, 0],
+  'XRL West Kowloon':   [-30, -18],
+  'Hung Hom':         [15, -12],
+  'HK-Macau Ferry Terminal': [-90, 10],
+  'China Ferry Terminal': [15, 10],
+  'Kai Tak Cruise Terminal': [20, -16],
+  'Harbour Control':     [-60, 14],
+};
+const LABEL_SHORT = {
+  'Kai Tak Cruise Terminal': 'Kai Tak\nCruise Terminal',
+  'HK-Macau Ferry Terminal': 'HK-Macau\nFerry Terminal',
+  'China Ferry Terminal': 'China Ferry\nTerminal',
+  'Tuen Mun Ferry Terminal': 'Tuen Mun\nFerry Terminal',
+  'Lok Ma Chau Spur Line': 'Lok Ma Chau\nSpur Line',
+  'HK-Zhuhai-Macao Bridge': 'HK-Zhuhai-Macao\nBridge',
+};
+
+const MAP_ZONES = {
+  all:     { center: [114.06, 22.42], zoom: 1.75 },
+  north:   { center: [114.09, 22.50], zoom: 3 },
+  west:    { center: [113.94, 22.31], zoom: 10 },
+  central: { center: [114.18, 22.295], zoom: 13},
+};
+const MAP_ZONES_FALLBACK = {
+  all:     { xMin: 113.88, xMax: 114.28, yMin: 22.26, yMax: 22.57 },
+  north:   { xMin: 113.92, xMax: 114.26, yMin: 22.48, yMax: 22.56 },
+  west:    { xMin: 113.90, xMax: 113.98, yMin: 22.30, yMax: 22.39 },
+  central: { xMin: 114.12, xMax: 114.24, yMin: 22.27, yMax: 22.32 },
+};
+
+function setupMapControls(mapChart, d, buildFn, useGeo) {
+  const months = d.months;
+  const slider = document.getElementById('map-slider');
+  const label = document.getElementById('map-month-label');
+  const btnPlay = document.getElementById('btn-play');
+  const btnPause = document.getElementById('btn-pause');
+  slider.max = months.length - 1;
+  let currentIdx = 0, timer = null;
+
+  function update(idx) {
+    currentIdx = idx;
+    slider.value = idx;
+    label.textContent = months[idx];
+    const { effectData, deadData, totalThisMonth, month } = buildFn(idx);
+    mapChart.setOption({
+      title: { text: month, subtext: `Monthly Total Passengers: ${fmt(totalThisMonth)}` },
+      series: [{ data: effectData }, { data: deadData }],
+    });
+  }
+  function play() {
+    if (timer) return;
+    btnPlay.classList.add('active'); btnPause.classList.remove('active');
+    timer = setInterval(() => { currentIdx = (currentIdx + 1) % months.length; update(currentIdx); }, 600);
+  }
+  function pause() {
+    clearInterval(timer); timer = null;
+    btnPause.classList.add('active'); btnPlay.classList.remove('active');
+  }
+  slider.addEventListener('input', () => { pause(); update(parseInt(slider.value)); });
+  btnPlay.addEventListener('click', play);
+  btnPause.addEventListener('click', pause);
+  update(0);
+  play();
+
+  const zoneBtns = document.querySelectorAll('#map-zone-btns button');
+  zoneBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      zoneBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.zone;
+      if (useGeo) {
+        const zone = MAP_ZONES[key];
+        if (zone) mapChart.setOption({ geo: { center: zone.center, zoom: zone.zoom } });
+      } else {
+        const z = MAP_ZONES_FALLBACK[key];
+        if (z) mapChart.setOption({ xAxis: { min: z.xMin, max: z.xMax }, yAxis: { min: z.yMin, max: z.yMax } });
+      }
+    });
+  });
+
+  mapChart.on('click', function(params) {
+    if (params.name && d.detail) {
+      const month = months[currentIdx];
+      const cpDetail = (d.detail[month] || {})[params.name];
+      if (cpDetail) {
+        pause();
+        showMapPopup(params.name, month, cpDetail);
+      }
+    }
+  });
+
+  window.addEventListener('resize', () => mapChart.resize());
+}
+
+function renderMap(d) {
+  const mapChart = echarts.init(document.getElementById('map-container'));
+  let allMaxTotal = 0;
+  Object.values(d.data).forEach(arr => arr.forEach(e => { if (e.total > allMaxTotal) allMaxTotal = e.total; }));
+
+  mapChart.setOption({
+    geo: {
+      map: 'HK', roam: true,
+      center: [114.06, 22.42], zoom: 1.75,
+      aspectScale: 1.0,
+      itemStyle: { areaColor: '#2a2a30', borderColor: '#4a4a52', borderWidth: 1.2 },
+      emphasis: { itemStyle: { areaColor: '#38383f' } },
+      label: { show: false },
+    },
+    backgroundColor: '#1a1a20',
+    tooltip: {
+      trigger: 'item',
+      backgroundColor: 'rgba(30,30,36,0.95)',
+      borderColor: '#4a4a52',
+      textStyle: { color: '#e8e4df' },
+      formatter: p => {
+        if (!p.value || p.value.length < 7) return p.name;
+        return `<b style="font-size:13px">${p.name}</b><br/>` +
+          `Total Passengers: <b>${fmt(p.value[2])}</b><br/>` +
+          `<span style="color:#a09a90">HK Residents: ${fmt(p.value[3])}</span><br/>` +
+          `<span style="color:#a09a90">Mainland Visitors: ${fmt(p.value[4])}</span><br/>` +
+          `<span style="color:#a09a90">Other Visitors: ${fmt(p.value[5])}</span>`;
+      },
+    },
+    title: { left: 20, top: 20, text: '', subtext: '',
+      textStyle: { color: '#e8e4df', fontSize: 28, fontWeight: 700 },
+      subtextStyle: { color: '#a09a90', fontSize: 14 },
+    },
+    series: [
+      { name: 'pulse', type: 'effectScatter', coordinateSystem: 'geo', data: [], showEffectOn: 'render',
+        rippleEffect: { brushType: 'stroke', scale: 4, period: 5, number: 2 },
+        label: { show: true, formatter: '{b}', color: '#f0ece6', fontSize: 12, fontWeight: 600,
+          fontFamily: 'Georgia, "Times New Roman", serif',
+          textShadowColor: 'rgba(0,0,0,0.85)', textShadowBlur: 6,
+          textShadowOffsetX: 1, textShadowOffsetY: 1,
+          textBorderColor: 'rgba(0,0,0,0.4)', textBorderWidth: 2 },
+        labelLayout: { hideOverlap: true },
+        z: 10 },
+      { name: 'idle', type: 'scatter', coordinateSystem: 'geo', data: [], symbolSize: 5,
+        itemStyle: { color: '#5a5a62', borderColor: '#7a7a82', borderWidth: 1, opacity: 0.7 },
+        label: { show: true, formatter: '{b}', color: '#8a857d', fontSize: 11, fontWeight: 500,
+          fontFamily: 'Georgia, "Times New Roman", serif',
+          textShadowColor: 'rgba(0,0,0,0.6)', textShadowBlur: 4,
+          textBorderColor: 'rgba(0,0,0,0.3)', textBorderWidth: 1.5 },
+        labelLayout: { hideOverlap: true },
+        z: 5 },
+    ],
+  });
+
+  function buildSeriesData(monthIdx) {
+    const m = d.months[monthIdx];
+    const entries = d.data[m] || [];
+    const maxR = 55, minR = 6;
+
+    const effectData = entries.filter(e => e.total > 0).map(e => {
+      const ratio = e.total / allMaxTotal;
+      const off = LABEL_OFFSETS[e.name] || [15, 0];
+      const short = LABEL_SHORT[e.name];
+      return {
+        name: e.name,
+        value: [...e.coord, e.total, e.hk, e.mainland, e.other],
+        symbolSize: minR + ratio * (maxR - minR),
+        itemStyle: { color: TYPE_COLORS[e.type] || '#5a5a62',
+          shadowBlur: 12 + ratio * 20, shadowColor: TYPE_COLORS[e.type] || '#5a5a62' },
+        label: { offset: off, formatter: short ? short : '{b}' },
+      };
+    });
+
+    const deadData = entries.filter(e => e.total === 0).map(e => {
+      const off = LABEL_OFFSETS[e.name] || [15, 0];
+      const short = LABEL_SHORT[e.name];
+      return {
+        name: e.name, value: [...e.coord, 0, 0, 0, 0],
+        label: { offset: off, formatter: short ? short : '{b}' },
+      };
+    });
+
+    const totalThisMonth = entries.reduce((s, e) => s + e.total, 0);
+    return { effectData, deadData, totalThisMonth, month: m };
+  }
+
+  setupMapControls(mapChart, d, buildSeriesData, true);
+}
+
+function renderMapFallback(d) {
+  const mapChart = echarts.init(document.getElementById('map-container'));
+  let allMaxTotal = 0;
+  Object.values(d.data).forEach(arr => arr.forEach(e => { if (e.total > allMaxTotal) allMaxTotal = e.total; }));
+
+  mapChart.setOption({
+    backgroundColor: '#1a1a20',
+    title: { left: 20, top: 20, text: '', subtext: '',
+      textStyle: { color: '#e8e4df', fontSize: 28, fontWeight: 700 },
+      subtextStyle: { color: '#a09a90', fontSize: 14 },
+    },
+    tooltip: {
+      trigger: 'item',
+      backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#4a4a52', textStyle: { color: '#e8e4df' },
+      formatter: p => {
+        if (!p.value || p.value.length < 6) return p.name;
+        return `<b>${p.name}</b><br/>Total Passengers: <b>${fmt(p.value[2])}</b><br/>` +
+          `HK Residents: ${fmt(p.value[3])}<br/>Mainland Visitors: ${fmt(p.value[4])}<br/>Other Visitors: ${fmt(p.value[5])}`;
+      },
+    },
+    xAxis: { min: 113.88, max: 114.28, show: false },
+    yAxis: { min: 22.26, max: 22.57, show: false },
+    series: [
+      { type: 'effectScatter', data: [], encode: { x: 0, y: 1 }, showEffectOn: 'render',
+        rippleEffect: { brushType: 'stroke', scale: 4, period: 5, number: 2 },
+        label: { show: true, formatter: '{b}', color: '#f0ece6', fontSize: 12, fontWeight: 600,
+          fontFamily: 'Georgia, "Times New Roman", serif',
+          textShadowColor: 'rgba(0,0,0,0.85)', textShadowBlur: 6,
+          textShadowOffsetX: 1, textShadowOffsetY: 1,
+          textBorderColor: 'rgba(0,0,0,0.4)', textBorderWidth: 2 },
+        labelLayout: { hideOverlap: true } },
+      { type: 'scatter', data: [], encode: { x: 0, y: 1 }, symbolSize: 5,
+        itemStyle: { color: '#5a5a62', borderColor: '#7a7a82', borderWidth: 1, opacity: 0.7 },
+        label: { show: true, formatter: '{b}', color: '#8a857d', fontSize: 11, fontWeight: 500,
+          fontFamily: 'Georgia, "Times New Roman", serif',
+          textShadowColor: 'rgba(0,0,0,0.6)', textShadowBlur: 4,
+          textBorderColor: 'rgba(0,0,0,0.3)', textBorderWidth: 1.5 },
+        labelLayout: { hideOverlap: true } },
+    ],
+  });
+
+  function buildFallbackData(monthIdx) {
+    const m = d.months[monthIdx];
+    const entries = d.data[m] || [];
+    const maxR = 50, minR = 6;
+
+    const effectData = entries.filter(e => e.total > 0).map(e => {
+      const ratio = e.total / allMaxTotal;
+      const off = LABEL_OFFSETS[e.name] || [15, 0];
+      const short = LABEL_SHORT[e.name];
+      return {
+        name: e.name,
+        value: [e.coord[0], e.coord[1], e.total, e.hk, e.mainland, e.other],
+        symbolSize: minR + ratio * (maxR - minR),
+        itemStyle: { color: TYPE_COLORS[e.type] || '#5a5a62',
+          shadowBlur: 12 + ratio * 20, shadowColor: TYPE_COLORS[e.type] || '#5a5a62' },
+        label: { offset: off, formatter: short ? short : '{b}' },
+      };
+    });
+
+    const deadData = entries.filter(e => e.total === 0).map(e => {
+      const off = LABEL_OFFSETS[e.name] || [15, 0];
+      const short = LABEL_SHORT[e.name];
+      return { name: e.name, value: [e.coord[0], e.coord[1], 0, 0, 0, 0], label: { offset: off, formatter: short ? short : '{b}' } };
+    });
+
+    const totalThisMonth = entries.reduce((s, e) => s + e.total, 0);
+    return { effectData, deadData, totalThisMonth, month: m };
+  }
+
+  setupMapControls(mapChart, d, buildFallbackData, false);
+}
+
+/* ===== Chart 1: Stacked Area ===== */
+function renderChart1(d) {
+  const chart = echarts.init(document.getElementById('chart1'));
+  chart.setOption({
+    tooltip: { trigger: 'axis', axisPointer: { type: 'cross' },
+      formatter: params => {
+        let s = `<b>${params[0].axisValue}</b><br/>`;
+        params.forEach(p => { s += `${p.marker} ${p.seriesName}: <b>${fmt(p.value)}</b><br/>`; });
+        return s;
+      }
+    },
+    legend: { top: 10, textStyle: { color: '#94a3b8' } },
+    grid: { left: 80, right: 40, top: 60, bottom: 50 },
+    xAxis: { type: 'category', data: d.months, axisLabel: { color: '#94a3b8', interval: 5 } },
+    yAxis: { type: 'value', name: 'Passengers', nameTextStyle: { color: '#94a3b8' },
+      axisLabel: { color: '#94a3b8', formatter: v => (v/1e6).toFixed(1) + 'M' },
+      splitLine: { lineStyle: { color: '#334155' } }
+    },
+    series: [
+      { name: 'HK Residents', type: 'line', stack: 'total', areaStyle: { opacity: 0.4 }, smooth: true,
+        data: d.hk_residents, itemStyle: { color: COLORS.blue }, lineStyle: { width: 1 } },
+      { name: 'Mainland Visitors', type: 'line', stack: 'total', areaStyle: { opacity: 0.4 }, smooth: true,
+        data: d.mainland, itemStyle: { color: COLORS.pink }, lineStyle: { width: 1 } },
+      { name: 'Other Visitors', type: 'line', stack: 'total', areaStyle: { opacity: 0.4 }, smooth: true,
+        data: d.other, itemStyle: { color: COLORS.purple }, lineStyle: { width: 1 } },
+      { name: 'Total', type: 'line', smooth: true,
+        data: d.total, itemStyle: { color: COLORS.yellow }, lineStyle: { width: 2, type: 'dashed' },
+        symbol: 'none' },
+    ],
+    dataZoom: [{ type: 'inside', start: 0, end: 100 }, { type: 'slider', bottom: 5, height: 20 }],
+  });
+
+  const peakIdx = d.total.indexOf(Math.max(...d.total));
+  const peakMonth = d.months[peakIdx];
+  const peakVal = d.total[peakIdx];
+  const lowIdx = d.total.indexOf(Math.min(...d.total.filter(v => v > 0)));
+  const lowMonth = d.months[d.total.indexOf(Math.min(...d.total.filter(v => v > 0)))];
+  document.getElementById('insight1').innerHTML =
+    `<strong>Key Findings:</strong> Passenger volume gradually recovered from the pandemic low in 2021, peaking in <strong>${peakMonth}</strong> (monthly ${fmt(peakVal)} trips). ` +
+    `After the full border reopening in early 2023, Mainland visitors rebounded rapidly and became the primary growth driver with a significantly expanded share. HK residents' immigration volume remained at a relatively stable baseline.`;
+
+  window.addEventListener('resize', () => chart.resize());
+}
+
+/* ===== Chart 2: Heatmap ===== */
+function renderChart2(d) {
+  const chart = echarts.init(document.getElementById('chart2'));
+  const vals = d.data.map(x => x[2]).filter(v => v > 0);
+  const maxVal = Math.max(...vals);
+
+  chart.setOption({
+    tooltip: {
+      formatter: p => `${d.checkpoints[p.value[1]]}<br/>${d.months[p.value[0]]}<br/>Passengers: <b>${fmt(p.value[2])}</b>`
+    },
+    grid: { left: 140, right: 60, top: 20, bottom: 80 },
+    xAxis: { type: 'category', data: d.months, axisLabel: { color: '#94a3b8', interval: 5, rotate: 45 },
+      splitArea: { show: true, areaStyle: { color: ['rgba(255,255,255,0.02)', 'rgba(0,0,0,0)'] } }
+    },
+    yAxis: { type: 'category', data: d.checkpoints, axisLabel: { color: '#94a3b8', fontSize: 11 } },
+    visualMap: {
+      min: 0, max: maxVal, calculable: true, orient: 'horizontal', left: 'center', bottom: 10,
+      inRange: { color: ['#0f172a', '#1e3a5f', '#1d4ed8', '#38bdf8', '#f472b6', '#fbbf24'] },
+      textStyle: { color: '#94a3b8' },
+      formatter: v => (v / 1e6).toFixed(1) + 'M'
+    },
+    series: [{
+      type: 'heatmap', data: d.data,
+      emphasis: { itemStyle: { borderColor: '#fff', borderWidth: 1 } },
+    }],
+  });
+
+  document.getElementById('insight2').innerHTML =
+    `<strong>Key Findings:</strong> Airport and Lo Wu have long been the busiest ports. After the 2023 reopening, Lok Ma Chau Spur Line and XRL West Kowloon saw a sharp surge in traffic. ` +
+    `HK-Zhuhai-Macao Bridge has shown strong growth momentum since 2023, emerging as a popular new corridor. Some ferry terminals (China Ferry Terminal, Tuen Mun Ferry Terminal) had zero traffic throughout the pandemic.`;
+
+  window.addEventListener('resize', () => chart.resize());
+}
+
+/* ===== Chart 3: Holiday comparison ===== */
+function renderChart3(d) {
+  const chart3a = echarts.init(document.getElementById('chart3a'));
+  const chart3b = echarts.init(document.getElementById('chart3b'));
+
+  const barData = d.holidays.map((h, i) => ({ name: h, value: d.holiday_daily_avg[i] }));
+  barData.push({ name: 'Regular Day', value: d.normal_daily_avg });
+  barData.sort((a, b) => b.value - a.value);
+
+  chart3a.setOption({
+    title: { text: 'Daily Avg. Passengers by Holiday vs Regular Day', left: 'center', top: 5, textStyle: { color: '#e2e8f0', fontSize: 14 } },
+    tooltip: { formatter: p => `${p.name}<br/>Daily Avg: <b>${fmt(p.value)}</b>` },
+    grid: { left: 120, right: 30, top: 40, bottom: 20 },
+    xAxis: { type: 'value', axisLabel: { color: '#94a3b8', formatter: v => (v/1e3).toFixed(0)+'K' },
+      splitLine: { lineStyle: { color: '#334155' } } },
+    yAxis: { type: 'category', data: barData.map(x => x.name), axisLabel: { color: '#94a3b8', fontSize: 11 } },
+    series: [{
+      type: 'bar', data: barData.map(x => ({
+        value: x.value,
+        itemStyle: { color: x.name === 'Regular Day' ? COLORS.orange : COLORS.blue,
+          borderRadius: [0, 4, 4, 0] }
+      })),
+      label: { show: true, position: 'right', color: '#94a3b8', fontSize: 10,
+        formatter: p => fmt(p.value) },
+    }],
+  });
+
+  const top6 = d.holidays.slice(0, 6);
+  const pieData = top6.map((h, i) => ({
+    name: h,
+    hk: d.holiday_hk_pct[i],
+    mainland: d.holiday_mainland_pct[i],
+    other: d.holiday_other_pct[i],
+  }));
+
+  chart3b.setOption({
+    title: { text: 'Visitor Composition by Major Holiday', left: 'center', top: 5, textStyle: { color: '#e2e8f0', fontSize: 14 } },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { top: 30, textStyle: { color: '#94a3b8' } },
+    grid: { left: 80, right: 30, top: 70, bottom: 20 },
+    xAxis: { type: 'category', data: pieData.map(x => x.name), axisLabel: { color: '#94a3b8', fontSize: 11 } },
+    yAxis: { type: 'value', max: 100, name: 'Share %', nameTextStyle: { color: '#94a3b8' },
+      axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#334155' } } },
+    series: [
+      { name: 'HK Residents', type: 'bar', stack: 'pct', data: pieData.map(x => x.hk),
+        itemStyle: { color: COLORS.blue } },
+      { name: 'Mainland Visitors', type: 'bar', stack: 'pct', data: pieData.map(x => x.mainland),
+        itemStyle: { color: COLORS.pink } },
+      { name: 'Other Visitors', type: 'bar', stack: 'pct', data: pieData.map(x => x.other),
+        itemStyle: { color: COLORS.purple } },
+    ],
+  });
+
+  const maxHoliday = barData[0];
+  document.getElementById('insight3').innerHTML =
+    `<strong>Key Findings:</strong> Daily average holiday passenger volume is significantly higher than regular days. <strong>${maxHoliday.name}</strong> has the highest daily average (${fmt(maxHoliday.value)} trips). ` +
+    `Visitor composition also shifts notably during holidays — Mainland visitor share surges during National Day Golden Week and Chinese New Year, while HK residents dominate outbound travel during Summer Holiday.`;
+
+  window.addEventListener('resize', () => { chart3a.resize(); chart3b.resize(); });
+}
+
+/* ===== Chart 4: Economic ripple ===== */
+function renderChart4(d) {
+  const chart = echarts.init(document.getElementById('chart4'));
+
+  const openDate = '2023-02';
+  const markLine = {
+    symbol: 'none',
+    label: { formatter: 'Full Reopening', color: COLORS.red, fontSize: 11 },
+    lineStyle: { color: COLORS.red, type: 'dashed', width: 1 },
+    data: [{ xAxis: openDate }]
+  };
+
+  chart.setOption({
+    tooltip: { trigger: 'axis' },
+    legend: { top: 5, textStyle: { color: '#94a3b8' } },
+    grid: [
+      { left: 80, right: 80, top: 50, height: '20%' },
+      { left: 80, right: 80, top: '35%', height: '20%' },
+      { left: 80, right: 80, top: '62%', height: '20%' },
+    ],
+    xAxis: [
+      { gridIndex: 0, type: 'category', data: d.months, show: false },
+      { gridIndex: 1, type: 'category', data: d.months, show: false },
+      { gridIndex: 2, type: 'category', data: d.months, axisLabel: { color: '#94a3b8', interval: 5 } },
+    ],
+    yAxis: [
+      { gridIndex: 0, name: 'Passengers (M)', nameTextStyle: { color: '#94a3b8' },
+        axisLabel: { color: '#94a3b8', formatter: v => (v/1e6).toFixed(1) },
+        splitLine: { lineStyle: { color: '#334155' } } },
+      { gridIndex: 1, name: 'Hotel Occupancy %', nameTextStyle: { color: '#94a3b8' },
+        axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#334155' } } },
+      { gridIndex: 2, name: 'Restaurant Revenue (HK$ M)', nameTextStyle: { color: '#94a3b8' },
+        axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#334155' } } },
+    ],
+    dataZoom: [{ type: 'inside', xAxisIndex: [0,1,2], start: 0, end: 100 },
+      { type: 'slider', xAxisIndex: [0,1,2], bottom: 5, height: 20 }],
+    series: [
+      { name: 'Total Passengers', type: 'line', xAxisIndex: 0, yAxisIndex: 0, data: d.passengers,
+        smooth: true, itemStyle: { color: COLORS.blue }, areaStyle: { opacity: 0.15 },
+        symbol: 'none', markLine },
+      { name: 'Hotel Occupancy', type: 'line', xAxisIndex: 1, yAxisIndex: 1,
+        data: d.months.map(m => d.hotel_occupancy[d.months.indexOf(m)]),
+        smooth: true, itemStyle: { color: COLORS.green }, symbol: 'none', markLine },
+      { name: 'Restaurant Revenue', type: 'bar', xAxisIndex: 2, yAxisIndex: 2,
+        data: d.months.map(m => d.restaurant_revenue[d.months.indexOf(m)]),
+        itemStyle: { color: COLORS.orange, borderRadius: [2,2,0,0] }, markLine },
+    ],
+  });
+
+  document.getElementById('insight4').innerHTML =
+    `<strong>Key Findings:</strong> Passenger volume and industry indicators are highly synchronized. After the full border reopening in Feb 2023, passenger volume, hotel occupancy, and restaurant revenue all surged. ` +
+    `Hotel occupancy jumped from ~55% to 85%+, and monthly restaurant revenue climbed from ~HK$7,000M to ~HK$9,500M. Recovery in retail and accommodation services was particularly remarkable.`;
+
+  window.addEventListener('resize', () => chart.resize());
+}
+
+/* ===== Chart 5: Exchange rate ===== */
+function renderChart5(d) {
+  const chart5a = echarts.init(document.getElementById('chart5a'));
+  const chart5b = echarts.init(document.getElementById('chart5b'));
+
+  chart5a.setOption({
+    title: { text: 'FX Rate Trend vs Mainland Visitor Volume', left: 'center', top: 5, textStyle: { color: '#e2e8f0', fontSize: 14 } },
+    tooltip: { trigger: 'axis' },
+    legend: { top: 30, textStyle: { color: '#94a3b8' } },
+    grid: { left: 80, right: 80, top: 60, bottom: 50 },
+    xAxis: { type: 'category', data: d.months, axisLabel: { color: '#94a3b8', interval: 5 } },
+    yAxis: [
+      { type: 'value', name: 'Mainland Visitors', nameTextStyle: { color: '#94a3b8' },
+        axisLabel: { color: '#94a3b8', formatter: v => (v/1e6).toFixed(1) + 'M' },
+        splitLine: { lineStyle: { color: '#334155' } } },
+      { type: 'value', name: 'HKD/RMB', nameTextStyle: { color: '#94a3b8' },
+        axisLabel: { color: '#94a3b8' }, splitLine: { show: false } },
+    ],
+    series: [
+      { name: 'Mainland Visitors', type: 'bar', data: d.mainland_visitors,
+        itemStyle: { color: COLORS.pink, borderRadius: [2,2,0,0], opacity: 0.7 } },
+      { name: 'HKD/RMB Rate', type: 'line', yAxisIndex: 1, data: d.fx_rate,
+        smooth: true, itemStyle: { color: COLORS.yellow }, lineStyle: { width: 2 }, symbol: 'none' },
+    ],
+    dataZoom: [{ type: 'inside' }],
+  });
+
+  const scatterData = d.scatter.map(s => [s.fx_change, s.mainland_change, s.month]);
+  chart5b.setOption({
+    title: { text: 'FX Rate Change vs Mainland Visitor YoY Change', left: 'center', top: 5, textStyle: { color: '#e2e8f0', fontSize: 14 } },
+    tooltip: { formatter: p => `${p.value[2]}<br/>FX Change: ${p.value[0]}%<br/>Visitor YoY: ${p.value[1]}%` },
+    grid: { left: 70, right: 30, top: 50, bottom: 50 },
+    xAxis: { name: 'Monthly FX Change %', nameTextStyle: { color: '#94a3b8' },
+      axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#334155' } } },
+    yAxis: { name: 'Mainland Visitor YoY Change %', nameTextStyle: { color: '#94a3b8' },
+      axisLabel: { color: '#94a3b8' }, splitLine: { lineStyle: { color: '#334155' } } },
+    series: [{
+      type: 'scatter', data: scatterData, symbolSize: 10,
+      itemStyle: { color: COLORS.cyan, opacity: 0.7 },
+      emphasis: { itemStyle: { borderColor: '#fff', borderWidth: 2 } },
+    }],
+  });
+
+  document.getElementById('insight5').innerHTML =
+    `<strong>Key Findings:</strong> The HKD/RMB exchange rate showed an overall downward trend during the analysis period (from ~0.93 to ~0.88), implying HKD depreciation which theoretically favors Mainland visitors. ` +
+    `The scatter plot shows weak short-term correlation — the "revenge travel" effect during post-pandemic recovery masked the marginal impact of exchange rates. However, after market normalization (from H2 2024), the relationship between FX changes and visitor changes became more apparent.`;
+
+  window.addEventListener('resize', () => { chart5a.resize(); chart5b.resize(); });
+}
+
+/* ===== Chart 6: Checkpoint profile ===== */
+function renderChart6(d) {
+  const chart6a = echarts.init(document.getElementById('chart6a'));
+  const chart6b = echarts.init(document.getElementById('chart6b'));
+
+  const vehicleCheckpoints = d.checkpoints.filter((c, i) =>
+    d.private_cars[i] > 0 || d.trucks[i] > 0
+  );
+  const vcIdx = vehicleCheckpoints.map(c => d.checkpoints.indexOf(c));
+
+  chart6a.setOption({
+    title: { text: 'Vehicle Traffic Structure by Port (Ports with Vehicle Data)', left: 'center', top: 5, textStyle: { color: '#e2e8f0', fontSize: 14 } },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    legend: { top: 30, textStyle: { color: '#94a3b8' } },
+    grid: { left: 100, right: 30, top: 70, bottom: 20 },
+    xAxis: { type: 'value', axisLabel: { color: '#94a3b8', formatter: v => (v/1e6).toFixed(1) + 'M' },
+      splitLine: { lineStyle: { color: '#334155' } } },
+    yAxis: { type: 'category', data: vehicleCheckpoints, axisLabel: { color: '#94a3b8', fontSize: 11 } },
+    series: [
+      { name: 'Private Cars', type: 'bar', stack: 'v', data: vcIdx.map(i => d.private_cars[i]),
+        itemStyle: { color: COLORS.blue } },
+      { name: 'Tour Coaches', type: 'bar', stack: 'v', data: vcIdx.map(i => d.tour_buses[i]),
+        itemStyle: { color: COLORS.green } },
+      { name: 'Shuttle Buses', type: 'bar', stack: 'v', data: vcIdx.map(i => d.shuttle_buses[i]),
+        itemStyle: { color: COLORS.orange } },
+      { name: 'Freight Vehicles', type: 'bar', stack: 'v', data: vcIdx.map(i => d.trucks[i]),
+        itemStyle: { color: COLORS.purple } },
+    ],
+  });
+
+  // Radar for top checkpoints with vehicle data
+  const radarCPs = vehicleCheckpoints.slice(0, 6);
+  const radarIdx = radarCPs.map(c => d.checkpoints.indexOf(c));
+
+  const maxP = Math.max(...radarIdx.map(i => d.passengers[i]));
+  const maxCar = Math.max(...radarIdx.map(i => d.private_cars[i]));
+  const maxBus = Math.max(...radarIdx.map(i => d.tour_buses[i]));
+  const maxShuttle = Math.max(...radarIdx.map(i => d.shuttle_buses[i]));
+  const maxTruck = Math.max(...radarIdx.map(i => d.trucks[i]));
+  const maxML = Math.max(...radarIdx.map(i => d.mainland[i]));
+
+  chart6b.setOption({
+    title: { text: 'Port Composite Profile (Radar Chart)', left: 'center', top: 5, textStyle: { color: '#e2e8f0', fontSize: 14 } },
+    tooltip: {},
+    legend: { top: 30, textStyle: { color: '#94a3b8', fontSize: 10 } },
+    radar: {
+      center: ['50%', '58%'], radius: '55%',
+      indicator: [
+        { name: 'Total Passengers', max: maxP },
+        { name: 'Mainland Visitors', max: maxML },
+        { name: 'Private Cars', max: maxCar || 1 },
+        { name: 'Tour Coaches', max: maxBus || 1 },
+        { name: 'Shuttle Buses', max: maxShuttle || 1 },
+        { name: 'Freight Vehicles', max: maxTruck || 1 },
+      ],
+      axisName: { color: '#94a3b8', fontSize: 10 },
+      splitArea: { areaStyle: { color: ['rgba(56,189,248,0.02)', 'rgba(56,189,248,0.05)'] } },
+      splitLine: { lineStyle: { color: '#334155' } },
+      axisLine: { lineStyle: { color: '#334155' } },
+    },
+    series: [{
+      type: 'radar',
+      data: radarCPs.map((cp, idx) => {
+        const i = radarIdx[idx];
+        const colors = [COLORS.blue, COLORS.pink, COLORS.green, COLORS.orange, COLORS.purple, COLORS.cyan];
+        return {
+          name: cp,
+          value: [d.passengers[i], d.mainland[i], d.private_cars[i], d.tour_buses[i], d.shuttle_buses[i], d.trucks[i]],
+          lineStyle: { color: colors[idx % colors.length] },
+          itemStyle: { color: colors[idx % colors.length] },
+          areaStyle: { opacity: 0.1, color: colors[idx % colors.length] },
+        };
+      }),
+    }],
+  });
+
+  document.getElementById('insight6').innerHTML =
+    `<strong>Key Findings:</strong> Different ports show clear functional specialization. Lok Ma Chau is primarily a freight corridor dominated by freight vehicles; ` +
+    `HK-Zhuhai-Macao Bridge has seen rapid growth in private car traffic, reflecting Guangdong-HK integration trends. Shenzhen Bay exhibits mixed passenger-freight characteristics. The radar chart clearly illustrates the profile differences across ports.`;
+
+  window.addEventListener('resize', () => { chart6a.resize(); chart6b.resize(); });
+}
+</script>
+
+</body>
+</html>

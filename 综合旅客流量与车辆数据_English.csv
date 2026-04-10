@@ -1,0 +1,1857 @@
+﻿Date,Checkpoint,Direction,HK_Residents,Mainland_Visitors,Other_Visitors,Total_Passengers,Private_Cars,Tour_Buses,Cross_Border_Shuttle_Buses,Trucks_Containers
+2021-01,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-01,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-01,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-01,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-01,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-01,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-01,Man Kam To,Inbound,0,0,0,0,0,0,0,50974
+2021-01,Man Kam To,Outbound,0,0,0,0,0,0,0,40116
+2021-01,Airport,Inbound,16292,114,518,16924,0,0,0,0
+2021-01,Airport,Outbound,27182,484,1214,28880,0,0,0,0
+2021-01,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8866
+2021-01,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,12649
+2021-01,Shenzhen Bay,Inbound,29270,2405,62,31737,158,109,0,82568
+2021-01,Shenzhen Bay,Outbound,43250,3674,82,47006,274,32,0,74296
+2021-01,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-01,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-01,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-01,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-01,Hong Kong-Zhuhai-Macau Bridge,Inbound,3109,103,122,3334,80,0,586,5540
+2021-01,Hong Kong-Zhuhai-Macau Bridge,Outbound,5800,252,56,6108,28,1,577,6163
+2021-01,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-01,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-01,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-01,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-01,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,127206
+2021-01,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,131457
+2021-01,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-01,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-01,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,6086
+2021-01,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,16383
+2021-01,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-01,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-02,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-02,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-02,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-02,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-02,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-02,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-02,Man Kam To,Inbound,0,0,0,0,0,0,0,26616
+2021-02,Man Kam To,Outbound,0,0,0,0,0,0,0,20982
+2021-02,Airport,Inbound,12804,93,423,13320,0,0,0,0
+2021-02,Airport,Outbound,16952,234,975,18161,0,0,0,0
+2021-02,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,4397
+2021-02,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,7205
+2021-02,Shenzhen Bay,Inbound,48855,3343,51,52249,161,116,0,61018
+2021-02,Shenzhen Bay,Outbound,15789,1478,42,17309,231,105,0,62878
+2021-02,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-02,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-02,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-02,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-02,Hong Kong-Zhuhai-Macau Bridge,Inbound,4987,157,196,5340,64,1,566,4015
+2021-02,Hong Kong-Zhuhai-Macau Bridge,Outbound,3215,180,26,3421,11,1,566,4060
+2021-02,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-02,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-02,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-02,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-02,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,62274
+2021-02,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,57985
+2021-02,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-02,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-02,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,7114
+2021-02,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,12327
+2021-02,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-02,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-03,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-03,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-03,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-03,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-03,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-03,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-03,Man Kam To,Inbound,0,0,0,0,0,0,0,27897
+2021-03,Man Kam To,Outbound,0,0,0,0,0,0,0,24994
+2021-03,Airport,Inbound,12938,126,518,13582,0,0,0,0
+2021-03,Airport,Outbound,20619,378,863,21860,0,0,0,0
+2021-03,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8557
+2021-03,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,13637
+2021-03,Shenzhen Bay,Inbound,40374,4155,53,44582,123,61,0,98782
+2021-03,Shenzhen Bay,Outbound,20510,2605,59,23174,300,26,0,112807
+2021-03,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-03,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-03,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-03,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-03,Hong Kong-Zhuhai-Macau Bridge,Inbound,3371,156,95,3622,43,0,616,5551
+2021-03,Hong Kong-Zhuhai-Macau Bridge,Outbound,3641,275,55,3971,5,0,615,6005
+2021-03,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-03,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-03,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-03,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-03,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,92031
+2021-03,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,69748
+2021-03,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-03,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-03,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,21777
+2021-03,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,27741
+2021-03,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-03,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-04,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-04,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-04,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-04,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-04,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-04,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-04,Man Kam To,Inbound,0,0,0,0,0,0,0,29968
+2021-04,Man Kam To,Outbound,0,0,0,0,0,0,0,27868
+2021-04,Airport,Inbound,11761,110,517,12388,0,0,0,0
+2021-04,Airport,Outbound,21413,259,964,22636,0,0,0,0
+2021-04,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8015
+2021-04,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,12969
+2021-04,Shenzhen Bay,Inbound,34236,3459,58,37753,131,76,0,95818
+2021-04,Shenzhen Bay,Outbound,23430,2733,57,26220,277,25,0,112512
+2021-04,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-04,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-04,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-04,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-04,Hong Kong-Zhuhai-Macau Bridge,Inbound,3186,121,173,3480,43,0,434,5306
+2021-04,Hong Kong-Zhuhai-Macau Bridge,Outbound,3611,225,55,3891,9,0,447,5737
+2021-04,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-04,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-04,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-04,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-04,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,87602
+2021-04,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,63413
+2021-04,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-04,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-04,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,20457
+2021-04,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,24510
+2021-04,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-04,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-05,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-05,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-05,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-05,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-05,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-05,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-05,Man Kam To,Inbound,0,0,0,0,0,0,0,33599
+2021-05,Man Kam To,Outbound,0,0,0,0,0,0,0,31245
+2021-05,Airport,Inbound,14930,154,563,15647,0,0,0,0
+2021-05,Airport,Outbound,25239,267,1104,26610,0,0,0,0
+2021-05,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,7401
+2021-05,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,13309
+2021-05,Shenzhen Bay,Inbound,30516,3304,54,33874,135,77,0,101080
+2021-05,Shenzhen Bay,Outbound,25632,3040,64,28736,252,62,0,117890
+2021-05,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-05,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-05,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-05,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-05,Hong Kong-Zhuhai-Macau Bridge,Inbound,3282,132,157,3571,55,4,471,5178
+2021-05,Hong Kong-Zhuhai-Macau Bridge,Outbound,5293,328,75,5696,15,3,462,5431
+2021-05,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-05,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-05,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-05,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-05,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,82351
+2021-05,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,58963
+2021-05,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-05,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-05,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,19387
+2021-05,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,22104
+2021-05,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-05,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-06,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-06,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-06,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-06,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-06,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-06,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-06,Man Kam To,Inbound,0,0,0,0,0,0,0,35992
+2021-06,Man Kam To,Outbound,0,0,0,0,0,0,0,34766
+2021-06,Airport,Inbound,21663,565,390,22618,0,0,0,0
+2021-06,Airport,Outbound,35352,639,837,36828,0,0,0,0
+2021-06,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,7386
+2021-06,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,14990
+2021-06,Shenzhen Bay,Inbound,24698,3453,53,28204,80,106,0,101781
+2021-06,Shenzhen Bay,Outbound,18425,3181,52,21658,133,94,0,126129
+2021-06,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-06,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-06,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-06,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-06,Hong Kong-Zhuhai-Macau Bridge,Inbound,3993,194,139,4326,59,4,474,5828
+2021-06,Hong Kong-Zhuhai-Macau Bridge,Outbound,5716,482,82,6280,17,2,448,6301
+2021-06,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-06,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-06,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-06,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-06,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,95924
+2021-06,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,61153
+2021-06,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-06,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-06,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,20339
+2021-06,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,23293
+2021-06,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-06,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-07,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-07,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-07,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-07,Kai Tak Cruise Terminal,Outbound,1014,0,0,1014,0,0,0,0
+2021-07,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-07,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-07,Man Kam To,Inbound,0,0,0,0,0,0,0,34888
+2021-07,Man Kam To,Outbound,0,0,0,0,0,0,0,33100
+2021-07,Airport,Inbound,20397,525,444,21366,0,0,0,0
+2021-07,Airport,Outbound,49832,753,698,51283,0,0,0,0
+2021-07,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8092
+2021-07,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,14841
+2021-07,Shenzhen Bay,Inbound,35800,4331,105,40236,125,45,0,102222
+2021-07,Shenzhen Bay,Outbound,38373,5491,63,43927,183,91,0,123358
+2021-07,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-07,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-07,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-07,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-07,Hong Kong-Zhuhai-Macau Bridge,Inbound,5088,280,149,5517,74,3,494,6087
+2021-07,Hong Kong-Zhuhai-Macau Bridge,Outbound,8802,578,93,9473,29,3,497,6331
+2021-07,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-07,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-07,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-07,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-07,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,90914
+2021-07,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,61486
+2021-07,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-07,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-07,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,22584
+2021-07,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,25090
+2021-07,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-07,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-08,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-08,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-08,Kai Tak Cruise Terminal,Inbound,17046,0,0,17046,0,0,0,0
+2021-08,Kai Tak Cruise Terminal,Outbound,17034,0,0,17034,0,0,0,0
+2021-08,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-08,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-08,Man Kam To,Inbound,0,0,0,0,0,0,0,34637
+2021-08,Man Kam To,Outbound,0,0,0,0,0,0,0,33413
+2021-08,Airport,Inbound,29916,386,875,31177,0,0,0,0
+2021-08,Airport,Outbound,46973,523,812,48308,0,0,0,0
+2021-08,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8656
+2021-08,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,14928
+2021-08,Shenzhen Bay,Inbound,75072,7150,144,82366,188,59,0,106664
+2021-08,Shenzhen Bay,Outbound,28580,3481,92,32153,182,39,0,125988
+2021-08,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-08,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-08,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-08,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-08,Hong Kong-Zhuhai-Macau Bridge,Inbound,5752,299,182,6233,50,0,428,6182
+2021-08,Hong Kong-Zhuhai-Macau Bridge,Outbound,5465,302,117,5884,14,0,426,6436
+2021-08,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-08,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-08,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-08,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-08,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,87866
+2021-08,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,60487
+2021-08,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-08,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-08,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,23509
+2021-08,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,26339
+2021-08,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-08,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-09,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-09,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-09,Kai Tak Cruise Terminal,Inbound,17369,0,0,17369,0,0,0,0
+2021-09,Kai Tak Cruise Terminal,Outbound,17984,0,0,17984,0,0,0,0
+2021-09,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-09,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-09,Man Kam To,Inbound,0,0,0,0,0,0,0,34290
+2021-09,Man Kam To,Outbound,0,0,0,0,0,0,0,34387
+2021-09,Airport,Inbound,23575,296,964,24835,0,0,0,0
+2021-09,Airport,Outbound,44049,766,1073,45888,0,0,0,0
+2021-09,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8150
+2021-09,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,14209
+2021-09,Shenzhen Bay,Inbound,39387,5649,210,45246,215,78,0,104749
+2021-09,Shenzhen Bay,Outbound,21446,2927,125,24498,261,33,0,120845
+2021-09,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-09,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-09,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-09,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-09,Hong Kong-Zhuhai-Macau Bridge,Inbound,4266,417,265,4948,73,0,498,6084
+2021-09,Hong Kong-Zhuhai-Macau Bridge,Outbound,5868,369,131,6368,26,0,522,6383
+2021-09,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-09,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-09,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-09,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-09,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,86977
+2021-09,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,61668
+2021-09,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-09,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-09,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,23365
+2021-09,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,25923
+2021-09,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-09,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-10,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-10,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-10,Kai Tak Cruise Terminal,Inbound,25404,0,0,25404,0,0,0,0
+2021-10,Kai Tak Cruise Terminal,Outbound,25409,0,0,25409,0,0,0,0
+2021-10,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-10,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-10,Man Kam To,Inbound,0,0,0,0,0,0,0,33589
+2021-10,Man Kam To,Outbound,0,0,0,0,0,0,0,34055
+2021-10,Airport,Inbound,23552,272,1196,25020,0,0,0,0
+2021-10,Airport,Outbound,31462,954,1107,33523,0,0,0,0
+2021-10,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,7229
+2021-10,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,11618
+2021-10,Shenzhen Bay,Inbound,26730,5460,314,32504,176,70,0,101433
+2021-10,Shenzhen Bay,Outbound,21352,3142,95,24589,191,45,0,114710
+2021-10,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-10,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-10,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-10,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-10,Hong Kong-Zhuhai-Macau Bridge,Inbound,2840,363,151,3354,52,6,524,5699
+2021-10,Hong Kong-Zhuhai-Macau Bridge,Outbound,5025,440,145,5610,22,6,515,5859
+2021-10,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-10,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-10,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-10,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-10,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,73628
+2021-10,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,53608
+2021-10,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-10,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-10,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,20496
+2021-10,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,21944
+2021-10,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-10,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-11,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-11,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-11,Kai Tak Cruise Terminal,Inbound,23701,0,0,23701,0,0,0,0
+2021-11,Kai Tak Cruise Terminal,Outbound,24878,0,0,24878,0,0,0,0
+2021-11,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-11,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-11,Man Kam To,Inbound,0,0,0,0,0,0,0,35466
+2021-11,Man Kam To,Outbound,0,0,0,0,0,0,0,35070
+2021-11,Airport,Inbound,23584,596,1290,25470,0,0,0,0
+2021-11,Airport,Outbound,29680,837,1344,31861,0,0,0,0
+2021-11,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8665
+2021-11,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,14109
+2021-11,Shenzhen Bay,Inbound,26141,4778,263,31182,242,133,0,109408
+2021-11,Shenzhen Bay,Outbound,20334,3353,89,23776,275,99,0,125059
+2021-11,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-11,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-11,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-11,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-11,Hong Kong-Zhuhai-Macau Bridge,Inbound,3116,298,362,3776,64,0,557,6467
+2021-11,Hong Kong-Zhuhai-Macau Bridge,Outbound,4619,481,186,5286,24,0,560,6576
+2021-11,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-11,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-11,Luohu,Inbound,0,0,0,0,0,0,0,0
+2021-11,Luohu,Outbound,0,0,0,0,0,0,0,0
+2021-11,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,83688
+2021-11,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,61033
+2021-11,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2021-11,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2021-11,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,23375
+2021-11,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,25322
+2021-11,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-11,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2021-12,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-12,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-12,Kai Tak Cruise Terminal,Inbound,40675,0,0,40675,0,0,0,0
+2021-12,Kai Tak Cruise Terminal,Outbound,42499,0,0,42499,0,0,0,0
+2021-12,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-12,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-12,Man Kam To,Inbound,0,0,0,0,0,0,0,37931
+2021-12,Man Kam To,Outbound,0,0,0,0,0,0,0,39460
+2021-12,Airport,Inbound,25892,401,976,27269,0,0,0,0
+2021-12,Airport,Outbound,41999,703,1623,44325,0,0,0,0
+2021-12,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,8979
+2021-12,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,14089
+2021-12,Shenzhen Bay,Inbound,26402,5170,395,31967,278,89,0,114639
+2021-12,Shenzhen Bay,Outbound,24473,4020,104,28597,305,53,0,129763
+2021-12,Port Control,Inbound,0,0,0,0,0,0,0,0
+2021-12,Port Control,Outbound,0,0,0,0,0,0,0,0
+2021-12,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2021-12,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2021-12,Hong Kong-Zhuhai-Macau Bridge,Inbound,3814,337,519,4670,67,2,577,7035
+2021-12,Hong Kong-Zhuhai-Macau Bridge,Outbound,5207,632,202,6041,19,2,576,7061
+2021-12,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2021-12,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2021-12,Luohu,Inbound,5090,0,0,5090,0,0,0,0
+2021-12,Luohu,Outbound,5089,0,0,5089,0,0,0,0
+2021-12,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,86173
+2021-12,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,63105
+2021-12,Lok Ma Chau Loop,Inbound,6978,0,0,6978,0,0,0,0
+2021-12,Lok Ma Chau Loop,Outbound,6977,0,0,6977,0,0,0,0
+2021-12,Heung Yuen Wai,Inbound,5235,0,0,5235,0,0,0,24077
+2021-12,Heung Yuen Wai,Outbound,5235,0,0,5235,0,0,0,25016
+2021-12,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2021-12,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-01,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-01,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-01,Kai Tak Cruise Terminal,Inbound,8233,0,0,8233,0,0,0,0
+2022-01,Kai Tak Cruise Terminal,Outbound,3610,0,0,3610,0,0,0,0
+2022-01,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-01,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-01,Man Kam To,Inbound,0,0,0,0,0,0,0,38320
+2022-01,Man Kam To,Outbound,0,0,0,0,0,0,0,39649
+2022-01,Airport,Inbound,14982,441,452,15875,0,0,0,0
+2022-01,Airport,Outbound,33826,881,1434,36141,0,0,0,0
+2022-01,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,7819
+2022-01,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,13438
+2022-01,Shenzhen Bay,Inbound,30329,4846,304,35479,168,51,0,110617
+2022-01,Shenzhen Bay,Outbound,29132,4334,112,33578,199,17,0,126212
+2022-01,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-01,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-01,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-01,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-01,Hong Kong-Zhuhai-Macau Bridge,Inbound,3030,218,306,3554,50,0,438,6828
+2022-01,Hong Kong-Zhuhai-Macau Bridge,Outbound,4611,239,214,5064,26,0,429,6943
+2022-01,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-01,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-01,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-01,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-01,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,79132
+2022-01,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,53400
+2022-01,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-01,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-01,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,19731
+2022-01,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,22176
+2022-01,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-01,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-02,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-02,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-02,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-02,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-02,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-02,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-02,Man Kam To,Inbound,0,0,0,0,0,0,0,12319
+2022-02,Man Kam To,Outbound,0,0,0,0,0,0,0,10733
+2022-02,Airport,Inbound,9872,107,340,10319,0,0,0,0
+2022-02,Airport,Outbound,52946,2101,932,55979,0,0,0,0
+2022-02,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,2636
+2022-02,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,4774
+2022-02,Shenzhen Bay,Inbound,9539,1231,70,10840,85,43,0,61655
+2022-02,Shenzhen Bay,Outbound,26525,4332,68,30925,84,34,0,66494
+2022-02,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-02,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-02,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-02,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-02,Hong Kong-Zhuhai-Macau Bridge,Inbound,1238,87,197,1522,26,0,536,4172
+2022-02,Hong Kong-Zhuhai-Macau Bridge,Outbound,6473,569,89,7131,28,0,551,3962
+2022-02,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-02,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-02,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-02,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-02,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,31756
+2022-02,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,26011
+2022-02,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-02,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-02,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,8307
+2022-02,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,9341
+2022-02,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-02,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-03,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-03,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-03,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-03,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-03,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-03,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-03,Man Kam To,Inbound,0,0,0,0,0,0,0,13389
+2022-03,Man Kam To,Outbound,0,0,0,0,0,0,0,12887
+2022-03,Airport,Inbound,8570,81,272,8923,0,0,0,0
+2022-03,Airport,Outbound,64514,1494,1059,67067,0,0,0,0
+2022-03,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,910
+2022-03,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,2083
+2022-03,Shenzhen Bay,Inbound,5444,684,41,6169,45,13,0,27677
+2022-03,Shenzhen Bay,Outbound,11370,1776,20,13166,61,40,0,28473
+2022-03,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-03,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-03,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-03,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-03,Hong Kong-Zhuhai-Macau Bridge,Inbound,1071,112,100,1283,11,0,335,4126
+2022-03,Hong Kong-Zhuhai-Macau Bridge,Outbound,5836,641,53,6530,4,0,336,4334
+2022-03,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-03,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-03,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-03,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-03,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,16654
+2022-03,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,14111
+2022-03,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-03,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-03,Heung Yuen Wai,Inbound,301,0,0,301,0,0,0,5247
+2022-03,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,6010
+2022-03,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-03,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-04,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-04,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-04,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-04,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-04,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-04,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-04,Man Kam To,Inbound,0,0,0,0,0,0,0,20133
+2022-04,Man Kam To,Outbound,0,0,0,0,0,0,0,20147
+2022-04,Airport,Inbound,41891,276,463,42630,0,0,0,0
+2022-04,Airport,Outbound,51847,823,903,53573,0,0,0,0
+2022-04,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,4
+2022-04,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,1
+2022-04,Shenzhen Bay,Inbound,22163,2163,105,24431,81,22,0,27975
+2022-04,Shenzhen Bay,Outbound,9889,1957,33,11879,73,114,0,28083
+2022-04,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-04,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-04,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-04,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-04,Hong Kong-Zhuhai-Macau Bridge,Inbound,2447,199,175,2821,37,0,282,4758
+2022-04,Hong Kong-Zhuhai-Macau Bridge,Outbound,4620,554,37,5211,6,0,282,4759
+2022-04,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-04,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-04,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-04,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-04,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,14376
+2022-04,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,14035
+2022-04,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-04,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-04,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,8
+2022-04,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,13
+2022-04,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-04,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-05,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-05,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-05,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-05,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-05,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-05,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-05,Man Kam To,Inbound,0,0,0,0,0,0,0,25552
+2022-05,Man Kam To,Outbound,0,0,0,0,0,0,0,25436
+2022-05,Airport,Inbound,58263,8831,3257,70351,0,0,0,0
+2022-05,Airport,Outbound,60485,2876,1610,64971,0,0,0,0
+2022-05,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,1
+2022-05,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,1
+2022-05,Shenzhen Bay,Inbound,34756,4783,261,39800,131,34,0,40922
+2022-05,Shenzhen Bay,Outbound,16312,4604,166,21082,126,22,0,41079
+2022-05,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-05,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-05,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-05,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-05,Hong Kong-Zhuhai-Macau Bridge,Inbound,3103,296,375,3774,61,0,306,6069
+2022-05,Hong Kong-Zhuhai-Macau Bridge,Outbound,4031,672,91,4794,7,0,297,6056
+2022-05,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-05,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-05,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-05,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-05,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,14860
+2022-05,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,14748
+2022-05,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-05,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-05,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,4586
+2022-05,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,4606
+2022-05,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-05,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-06,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-06,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-06,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-06,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-06,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-06,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-06,Man Kam To,Inbound,0,0,0,0,0,0,0,27851
+2022-06,Man Kam To,Outbound,0,0,0,0,0,0,0,27732
+2022-06,Airport,Inbound,68023,30222,4435,102680,0,0,0,0
+2022-06,Airport,Outbound,93602,10217,3400,107219,0,0,0,0
+2022-06,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2022-06,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2022-06,Shenzhen Bay,Inbound,25803,4600,257,30660,169,63,0,52935
+2022-06,Shenzhen Bay,Outbound,14108,14280,425,28813,153,44,0,53035
+2022-06,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-06,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-06,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-06,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-06,Hong Kong-Zhuhai-Macau Bridge,Inbound,2724,250,680,3654,80,0,336,5983
+2022-06,Hong Kong-Zhuhai-Macau Bridge,Outbound,4151,3054,220,7425,16,0,339,5986
+2022-06,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-06,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-06,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-06,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-06,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,17310
+2022-06,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,17122
+2022-06,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-06,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-06,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,10572
+2022-06,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,10617
+2022-06,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-06,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-07,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-07,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-07,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-07,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-07,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-07,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-07,Man Kam To,Inbound,0,0,0,0,0,0,0,30326
+2022-07,Man Kam To,Outbound,0,0,0,0,0,0,0,30220
+2022-07,Airport,Inbound,85619,33608,5251,124478,0,0,0,0
+2022-07,Airport,Outbound,102411,20371,5606,128388,0,0,0,0
+2022-07,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2022-07,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2022-07,Shenzhen Bay,Inbound,34874,5864,935,41673,114,75,0,47017
+2022-07,Shenzhen Bay,Outbound,40695,17693,475,58863,186,52,0,46860
+2022-07,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-07,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-07,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-07,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-07,Hong Kong-Zhuhai-Macau Bridge,Inbound,3867,406,1419,5692,83,0,321,7952
+2022-07,Hong Kong-Zhuhai-Macau Bridge,Outbound,4100,2641,248,6989,18,0,317,7949
+2022-07,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-07,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-07,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-07,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-07,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,18696
+2022-07,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,18204
+2022-07,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-07,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-07,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,14238
+2022-07,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,14199
+2022-07,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-07,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-08,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-08,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-08,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-08,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-08,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-08,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-08,Man Kam To,Inbound,0,0,0,0,0,0,0,22382
+2022-08,Man Kam To,Outbound,0,0,0,0,0,0,0,22325
+2022-08,Airport,Inbound,125943,38217,9011,173171,0,0,0,0
+2022-08,Airport,Outbound,107377,27306,7800,142483,0,0,0,0
+2022-08,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2022-08,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2022-08,Shenzhen Bay,Inbound,73929,8968,776,83673,119,67,0,32114
+2022-08,Shenzhen Bay,Outbound,50581,15818,909,67308,148,83,0,32649
+2022-08,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-08,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-08,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-08,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-08,Hong Kong-Zhuhai-Macau Bridge,Inbound,8003,774,1134,9911,118,0,465,12050
+2022-08,Hong Kong-Zhuhai-Macau Bridge,Outbound,7751,4370,515,12636,43,0,462,12059
+2022-08,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-08,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-08,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-08,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-08,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,18460
+2022-08,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,18693
+2022-08,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-08,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-08,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,18319
+2022-08,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,18390
+2022-08,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-08,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-09,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-09,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-09,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-09,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-09,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-09,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-09,Man Kam To,Inbound,0,0,0,0,0,0,0,23139
+2022-09,Man Kam To,Outbound,0,0,0,0,0,0,0,23098
+2022-09,Airport,Inbound,102753,41005,12446,156204,0,0,0,0
+2022-09,Airport,Outbound,123701,36342,11106,171149,0,0,0,0
+2022-09,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2022-09,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2022-09,Shenzhen Bay,Inbound,49616,8466,752,58834,107,41,0,37434
+2022-09,Shenzhen Bay,Outbound,33315,12031,981,46327,145,25,0,37523
+2022-09,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-09,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-09,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-09,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-09,Hong Kong-Zhuhai-Macau Bridge,Inbound,6713,1520,1210,9443,76,0,444,12985
+2022-09,Hong Kong-Zhuhai-Macau Bridge,Outbound,5829,5324,637,11790,25,0,442,13098
+2022-09,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-09,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-09,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-09,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-09,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,16521
+2022-09,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,16263
+2022-09,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-09,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-09,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,17479
+2022-09,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,17620
+2022-09,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-09,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-10,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-10,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-10,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-10,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-10,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-10,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-10,Man Kam To,Inbound,0,0,0,0,0,0,0,23994
+2022-10,Man Kam To,Outbound,0,0,0,0,0,0,0,23872
+2022-10,Airport,Inbound,192293,38339,29994,260626,0,0,0,0
+2022-10,Airport,Outbound,212652,32565,25221,270438,0,0,0,0
+2022-10,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2022-10,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2022-10,Shenzhen Bay,Inbound,41948,8019,765,50732,102,36,0,39957
+2022-10,Shenzhen Bay,Outbound,27899,8420,845,37164,130,26,0,40159
+2022-10,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-10,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-10,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-10,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-10,Hong Kong-Zhuhai-Macau Bridge,Inbound,5407,869,1301,7577,119,0,443,12418
+2022-10,Hong Kong-Zhuhai-Macau Bridge,Outbound,6448,4704,760,11912,38,0,457,12313
+2022-10,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-10,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-10,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-10,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-10,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,15612
+2022-10,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,15335
+2022-10,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-10,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-10,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,16615
+2022-10,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,16526
+2022-10,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-10,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-11,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-11,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-11,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-11,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-11,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-11,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-11,Man Kam To,Inbound,0,0,0,0,0,0,0,25019
+2022-11,Man Kam To,Outbound,0,0,0,0,0,0,0,24976
+2022-11,Airport,Inbound,305157,48415,51545,405117,0,0,0,0
+2022-11,Airport,Outbound,308506,42562,47375,398443,0,0,0,0
+2022-11,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2022-11,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2022-11,Shenzhen Bay,Inbound,38797,8057,1220,48074,92,35,0,38903
+2022-11,Shenzhen Bay,Outbound,26476,7370,785,34631,125,17,0,39036
+2022-11,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-11,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-11,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-11,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-11,Hong Kong-Zhuhai-Macau Bridge,Inbound,5092,1177,1460,7729,128,0,413,15161
+2022-11,Hong Kong-Zhuhai-Macau Bridge,Outbound,5896,3659,954,10509,30,0,395,15159
+2022-11,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-11,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-11,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-11,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-11,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,17185
+2022-11,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,17087
+2022-11,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-11,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-11,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,19925
+2022-11,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,19979
+2022-11,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-11,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2022-12,China Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-12,China Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-12,Kai Tak Cruise Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-12,Kai Tak Cruise Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-12,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-12,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-12,Man Kam To,Inbound,0,0,0,0,0,0,0,26109
+2022-12,Man Kam To,Outbound,0,0,0,0,0,0,0,26312
+2022-12,Airport,Inbound,447483,55497,84537,587517,0,0,0,0
+2022-12,Airport,Outbound,554400,52268,73107,679775,0,0,0,0
+2022-12,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2022-12,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2022-12,Shenzhen Bay,Inbound,43182,9062,2639,54883,133,33,0,48834
+2022-12,Shenzhen Bay,Outbound,43386,11632,915,55933,183,21,0,47717
+2022-12,Port Control,Inbound,0,0,0,0,0,0,0,0
+2022-12,Port Control,Outbound,0,0,0,0,0,0,0,0
+2022-12,Hong Kong-Macau Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2022-12,Hong Kong-Macau Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2022-12,Hong Kong-Zhuhai-Macau Bridge,Inbound,13214,1747,5154,20115,739,38,671,12747
+2022-12,Hong Kong-Zhuhai-Macau Bridge,Outbound,17911,3874,2728,24513,543,42,671,12651
+2022-12,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2022-12,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2022-12,Luohu,Inbound,0,0,0,0,0,0,0,0
+2022-12,Luohu,Outbound,0,0,0,0,0,0,0,0
+2022-12,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,23856
+2022-12,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,22575
+2022-12,Lok Ma Chau Loop,Inbound,0,0,0,0,0,0,0,0
+2022-12,Lok Ma Chau Loop,Outbound,0,0,0,0,0,0,0,0
+2022-12,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,18110
+2022-12,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,19532
+2022-12,West Kowloon (High-speed Rail),Inbound,0,0,0,0,0,0,0,0
+2022-12,West Kowloon (High-speed Rail),Outbound,0,0,0,0,0,0,0,0
+2023-01,China Ferry Terminal,Inbound,9757,3989,422,14168,0,0,0,0
+2023-01,China Ferry Terminal,Outbound,10943,3666,391,15000,0,0,0,0
+2023-01,Kai Tak Cruise Terminal,Inbound,11,0,314,325,0,0,0,0
+2023-01,Kai Tak Cruise Terminal,Outbound,32,0,254,286,0,0,0,0
+2023-01,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-01,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-01,Man Kam To,Inbound,32145,7062,239,39446,306,2860,0,22663
+2023-01,Man Kam To,Outbound,29339,5090,179,34608,322,2751,0,23062
+2023-01,Airport,Inbound,622988,94966,114905,832859,0,0,0,0
+2023-01,Airport,Outbound,565140,78327,130017,773484,0,0,0,0
+2023-01,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-01,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-01,Shenzhen Bay,Inbound,169336,47777,9279,226392,7312,775,0,37040
+2023-01,Shenzhen Bay,Outbound,149441,50784,7123,207348,7603,908,0,37444
+2023-01,Port Control,Inbound,0,0,0,0,0,0,0,0
+2023-01,Port Control,Outbound,0,0,0,0,0,0,0,0
+2023-01,Hong Kong-Macau Ferry Terminal,Inbound,84458,4306,17544,106308,0,0,0,0
+2023-01,Hong Kong-Macau Ferry Terminal,Outbound,98365,5729,15226,119320,0,0,0,0
+2023-01,Hong Kong-Zhuhai-Macau Bridge,Inbound,315630,16665,66445,398740,13123,1013,7359,9542
+2023-01,Hong Kong-Zhuhai-Macau Bridge,Outbound,316256,17937,68785,402978,13483,1019,7345,8883
+2023-01,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-01,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-01,Luohu,Inbound,0,0,0,0,0,0,0,0
+2023-01,Luohu,Outbound,0,0,0,0,0,0,0,0
+2023-01,Lok Ma Chau,Inbound,0,0,0,0,0,0,0,24280
+2023-01,Lok Ma Chau,Outbound,0,0,0,0,0,0,0,23675
+2023-01,Lok Ma Chau Loop,Inbound,341902,65123,4585,411610,0,0,0,0
+2023-01,Lok Ma Chau Loop,Outbound,395361,70244,4263,469868,0,0,0,0
+2023-01,Heung Yuen Wai,Inbound,0,0,0,0,0,0,0,12111
+2023-01,Heung Yuen Wai,Outbound,0,0,0,0,0,0,0,14362
+2023-01,West Kowloon (High-speed Rail),Inbound,80659,39954,4330,124943,0,0,0,0
+2023-01,West Kowloon (High-speed Rail),Outbound,92738,36077,4029,132844,0,0,0,0
+2023-02,China Ferry Terminal,Inbound,16018,11176,748,27942,0,0,0,0
+2023-02,China Ferry Terminal,Outbound,16793,9201,732,26726,0,0,0,0
+2023-02,Kai Tak Cruise Terminal,Inbound,100,0,882,982,0,0,0,0
+2023-02,Kai Tak Cruise Terminal,Outbound,126,0,852,978,0,0,0,0
+2023-02,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-02,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-02,Man Kam To,Inbound,33918,13859,201,47978,1561,3564,0,20310
+2023-02,Man Kam To,Outbound,28550,9617,185,38352,1568,3437,0,22366
+2023-02,Airport,Inbound,459105,138918,203153,801176,0,0,0,0
+2023-02,Airport,Outbound,438646,122383,171973,733002,0,0,0,0
+2023-02,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-02,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-02,Shenzhen Bay,Inbound,359951,164769,7943,532663,38533,1968,0,45520
+2023-02,Shenzhen Bay,Outbound,352038,162726,13939,528703,39042,1917,0,44609
+2023-02,Port Control,Inbound,0,0,0,0,0,0,0,0
+2023-02,Port Control,Outbound,0,0,0,0,0,0,0,0
+2023-02,Hong Kong-Macau Ferry Terminal,Inbound,141603,12982,28902,183487,0,0,0,0
+2023-02,Hong Kong-Macau Ferry Terminal,Outbound,150211,16873,28589,195673,0,0,0,0
+2023-02,Hong Kong-Zhuhai-Macau Bridge,Inbound,482056,48522,90343,620921,23652,1185,10621,8840
+2023-02,Hong Kong-Zhuhai-Macau Bridge,Outbound,476684,55411,92501,624596,23477,1185,10611,7386
+2023-02,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-02,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-02,Luohu,Inbound,937593,214779,5008,1157380,0,0,0,0
+2023-02,Luohu,Outbound,937794,256609,6635,1201038,0,0,0,0
+2023-02,Lok Ma Chau,Inbound,143331,31551,1732,176614,24392,4969,617,34950
+2023-02,Lok Ma Chau,Outbound,109540,34942,2693,147175,23702,5099,611,34549
+2023-02,Lok Ma Chau Loop,Inbound,737219,220542,4418,962179,0,0,0,0
+2023-02,Lok Ma Chau Loop,Outbound,740728,216253,5580,962561,0,0,0,0
+2023-02,Heung Yuen Wai,Inbound,136376,47413,391,184180,12,1148,0,16839
+2023-02,Heung Yuen Wai,Outbound,147375,28564,292,176231,17,1133,0,17745
+2023-02,West Kowloon (High-speed Rail),Inbound,193118,203522,9340,405980,0,0,0,0
+2023-02,West Kowloon (High-speed Rail),Outbound,209387,161293,10651,381331,0,0,0,0
+2023-03,China Ferry Terminal,Inbound,20154,16684,1374,38212,0,0,0,0
+2023-03,China Ferry Terminal,Outbound,20718,13513,1107,35338,0,0,0,0
+2023-03,Kai Tak Cruise Terminal,Inbound,8372,490,10477,19339,0,0,0,0
+2023-03,Kai Tak Cruise Terminal,Outbound,10004,509,9599,20112,0,0,0,0
+2023-03,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-03,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-03,Man Kam To,Inbound,47735,18016,253,66004,2795,4390,0,26367
+2023-03,Man Kam To,Outbound,44813,12995,236,58044,2801,4418,0,28688
+2023-03,Airport,Inbound,571233,210043,282699,1063975,0,0,0,0
+2023-03,Airport,Outbound,634954,178360,275035,1088349,0,0,0,0
+2023-03,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-03,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-03,Shenzhen Bay,Inbound,524487,256860,16921,798268,63571,3480,0,61158
+2023-03,Shenzhen Bay,Outbound,530483,260728,20497,811708,65328,3543,0,59828
+2023-03,Port Control,Inbound,0,0,0,0,0,0,0,0
+2023-03,Port Control,Outbound,0,0,0,0,0,0,0,0
+2023-03,Hong Kong-Macau Ferry Terminal,Inbound,176722,23483,36093,236298,0,0,0,0
+2023-03,Hong Kong-Macau Ferry Terminal,Outbound,181827,32690,36106,250623,0,0,0,0
+2023-03,Hong Kong-Zhuhai-Macau Bridge,Inbound,571654,121494,98506,791654,35121,2123,14474,12693
+2023-03,Hong Kong-Zhuhai-Macau Bridge,Outbound,576968,185015,99762,861745,35430,2132,14480,9150
+2023-03,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-03,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-03,Luohu,Inbound,1448656,393921,10306,1852883,0,0,0,0
+2023-03,Luohu,Outbound,1473326,500960,12555,1986841,0,0,0,0
+2023-03,Lok Ma Chau,Inbound,239389,59847,5593,304829,52555,7865,583,46285
+2023-03,Lok Ma Chau,Outbound,188863,84128,6681,279672,51842,8041,573,48511
+2023-03,Lok Ma Chau Loop,Inbound,1055679,361434,7156,1424269,0,0,0,0
+2023-03,Lok Ma Chau Loop,Outbound,1097108,347985,7150,1452243,0,0,0,0
+2023-03,Heung Yuen Wai,Inbound,255339,167097,767,423203,150,2535,0,23020
+2023-03,Heung Yuen Wai,Outbound,277652,78967,668,357287,188,2483,0,23329
+2023-03,West Kowloon (High-speed Rail),Inbound,233872,336527,16880,587279,0,0,0,0
+2023-03,West Kowloon (High-speed Rail),Outbound,289720,262968,14885,567573,0,0,0,0
+2023-04,China Ferry Terminal,Inbound,33306,23987,2275,59568,0,0,0,0
+2023-04,China Ferry Terminal,Outbound,37730,17281,1809,56820,0,0,0,0
+2023-04,Kai Tak Cruise Terminal,Inbound,12494,622,8409,21525,0,0,0,0
+2023-04,Kai Tak Cruise Terminal,Outbound,11944,591,9482,22017,0,0,0,0
+2023-04,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-04,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-04,Man Kam To,Inbound,43837,20408,422,64667,3225,3746,0,24819
+2023-04,Man Kam To,Outbound,43157,14313,356,57826,3197,3740,0,27118
+2023-04,Airport,Inbound,784614,204703,331594,1320911,0,0,0,0
+2023-04,Airport,Outbound,764559,188141,310749,1263449,0,0,0,0
+2023-04,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-04,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-04,Shenzhen Bay,Inbound,669620,306132,24031,999783,74114,3202,0,57714
+2023-04,Shenzhen Bay,Outbound,675435,270858,26261,972554,75595,3323,0,55462
+2023-04,Port Control,Inbound,171,7,1090,1268,0,0,0,0
+2023-04,Port Control,Outbound,150,29,1091,1270,0,0,0,0
+2023-04,Hong Kong-Macau Ferry Terminal,Inbound,219987,30068,48527,298582,0,0,0,0
+2023-04,Hong Kong-Macau Ferry Terminal,Outbound,230043,40946,48134,319123,0,0,0,0
+2023-04,Hong Kong-Zhuhai-Macau Bridge,Inbound,714327,142674,111043,968044,46000,3668,17750,12074
+2023-04,Hong Kong-Zhuhai-Macau Bridge,Outbound,720299,225566,112174,1058039,46991,3661,17739,8972
+2023-04,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-04,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-04,Luohu,Inbound,1574574,401544,13982,1990100,0,0,0,0
+2023-04,Luohu,Outbound,1578995,481121,15440,2075556,0,0,0,0
+2023-04,Lok Ma Chau,Inbound,288516,75125,8800,372441,62635,8739,2029,40439
+2023-04,Lok Ma Chau,Outbound,218841,96726,9729,325296,61496,8823,2026,44187
+2023-04,Lok Ma Chau Loop,Inbound,1196681,394902,8905,1600488,0,0,0,0
+2023-04,Lok Ma Chau Loop,Outbound,1251759,361599,8409,1621767,0,0,0,0
+2023-04,Heung Yuen Wai,Inbound,301119,194151,1081,496351,742,2380,0,20562
+2023-04,Heung Yuen Wai,Outbound,325497,81593,691,407781,782,2334,0,19913
+2023-04,West Kowloon (High-speed Rail),Inbound,456271,508336,29618,994225,0,0,0,0
+2023-04,West Kowloon (High-speed Rail),Outbound,499314,406056,30437,935807,0,0,0,0
+2023-05,China Ferry Terminal,Inbound,24601,23165,1929,49695,0,0,0,0
+2023-05,China Ferry Terminal,Outbound,22805,21696,1605,46106,0,0,0,0
+2023-05,Kai Tak Cruise Terminal,Inbound,12261,662,5938,18861,0,0,0,0
+2023-05,Kai Tak Cruise Terminal,Outbound,11737,665,6027,18429,0,0,0,0
+2023-05,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-05,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-05,Man Kam To,Inbound,50005,19078,316,69399,3264,3671,0,27850
+2023-05,Man Kam To,Outbound,46374,14695,254,61323,3190,3708,0,29975
+2023-05,Airport,Inbound,695395,248522,314302,1258219,0,0,0,0
+2023-05,Airport,Outbound,710142,205913,319772,1235827,0,0,0,0
+2023-05,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-05,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-05,Shenzhen Bay,Inbound,612056,284210,19519,915785,83271,3081,0,61311
+2023-05,Shenzhen Bay,Outbound,578165,301462,22327,901954,85097,3138,0,57946
+2023-05,Port Control,Inbound,195,2,1415,1612,0,0,0,0
+2023-05,Port Control,Outbound,294,11,1240,1545,0,0,0,0
+2023-05,Hong Kong-Macau Ferry Terminal,Inbound,195854,34912,49411,280177,0,0,0,0
+2023-05,Hong Kong-Macau Ferry Terminal,Outbound,193846,47028,49241,290115,0,0,0,0
+2023-05,Hong Kong-Zhuhai-Macau Bridge,Inbound,571268,148541,97761,817570,50401,3441,15151,13813
+2023-05,Hong Kong-Zhuhai-Macau Bridge,Outbound,549094,227768,101062,877924,50156,3445,15170,10130
+2023-05,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-05,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-05,Luohu,Inbound,1531362,371557,11941,1914860,0,0,0,0
+2023-05,Luohu,Outbound,1454544,455131,13161,1922836,0,0,0,0
+2023-05,Lok Ma Chau,Inbound,298414,69250,6741,374405,69980,9719,3884,43076
+2023-05,Lok Ma Chau,Outbound,222875,127104,9891,359870,69255,9630,3883,48600
+2023-05,Lok Ma Chau Loop,Inbound,1220220,430506,7951,1658677,0,0,0,0
+2023-05,Lok Ma Chau Loop,Outbound,1255459,452297,8364,1716120,0,0,0,0
+2023-05,Heung Yuen Wai,Inbound,330589,169620,1382,501591,1837,2386,0,21840
+2023-05,Heung Yuen Wai,Outbound,338931,80532,1432,420895,1939,2274,0,21121
+2023-05,West Kowloon (High-speed Rail),Inbound,350796,486439,23503,860738,0,0,0,0
+2023-05,West Kowloon (High-speed Rail),Outbound,359076,467226,23529,849831,0,0,0,0
+2023-06,China Ferry Terminal,Inbound,20608,18970,1720,41298,0,0,0,0
+2023-06,China Ferry Terminal,Outbound,21377,16002,1515,38894,0,0,0,0
+2023-06,Kai Tak Cruise Terminal,Inbound,12804,1848,5842,20494,0,0,0,0
+2023-06,Kai Tak Cruise Terminal,Outbound,13675,2100,5554,21329,0,0,0,0
+2023-06,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-06,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-06,Man Kam To,Inbound,46459,16464,340,63263,3336,3606,0,27642
+2023-06,Man Kam To,Outbound,45695,12297,253,58245,3313,3604,0,29763
+2023-06,Airport,Inbound,759782,243381,361941,1365104,0,0,0,0
+2023-06,Airport,Outbound,804649,190689,338728,1334066,0,0,0,0
+2023-06,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-06,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-06,Shenzhen Bay,Inbound,604981,269273,20829,895083,88209,3146,0,63111
+2023-06,Shenzhen Bay,Outbound,613996,260965,22364,897325,89916,3137,0,59481
+2023-06,Port Control,Inbound,388,6,1217,1611,0,0,0,0
+2023-06,Port Control,Outbound,356,17,1286,1659,0,0,0,0
+2023-06,Hong Kong-Macau Ferry Terminal,Inbound,195562,33076,53346,281984,0,0,0,0
+2023-06,Hong Kong-Macau Ferry Terminal,Outbound,201568,47267,52853,301688,0,0,0,0
+2023-06,Hong Kong-Zhuhai-Macau Bridge,Inbound,517488,133487,94534,745509,52409,2716,14473,15209
+2023-06,Hong Kong-Zhuhai-Macau Bridge,Outbound,539905,202780,98277,840962,53745,2718,14451,10917
+2023-06,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-06,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-06,Luohu,Inbound,1485058,337586,11802,1834446,0,0,0,0
+2023-06,Luohu,Outbound,1491607,368906,12884,1873397,0,0,0,0
+2023-06,Lok Ma Chau,Inbound,299700,66201,7701,373602,74634,9914,4319,44107
+2023-06,Lok Ma Chau,Outbound,234646,99003,10022,343671,73336,9993,4341,50535
+2023-06,Lok Ma Chau Loop,Inbound,1217306,442676,8658,1668640,0,0,0,0
+2023-06,Lok Ma Chau Loop,Outbound,1324718,474126,8750,1807594,0,0,0,0
+2023-06,Heung Yuen Wai,Inbound,347212,140874,1513,489599,2508,2273,0,22069
+2023-06,Heung Yuen Wai,Outbound,376196,61661,1465,439322,2515,2177,0,21412
+2023-06,West Kowloon (High-speed Rail),Inbound,328002,451389,24023,803414,0,0,0,0
+2023-06,West Kowloon (High-speed Rail),Outbound,363780,397110,25122,786012,0,0,0,0
+2023-07,China Ferry Terminal,Inbound,22832,26436,1814,51082,0,0,0,0
+2023-07,China Ferry Terminal,Outbound,23669,22402,1563,47634,0,0,0,0
+2023-07,Kai Tak Cruise Terminal,Inbound,14484,1361,4244,20089,0,0,0,0
+2023-07,Kai Tak Cruise Terminal,Outbound,14330,1086,4674,20090,0,0,0,0
+2023-07,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-07,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-07,Man Kam To,Inbound,31236,16318,309,47863,3327,2721,0,27433
+2023-07,Man Kam To,Outbound,26469,9218,192,35879,2512,2294,0,11590
+2023-07,Airport,Inbound,902681,281614,345442,1529737,0,0,0,0
+2023-07,Airport,Outbound,966464,260964,350666,1578094,0,0,0,0
+2023-07,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-07,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-07,Shenzhen Bay,Inbound,691753,363509,24459,1079721,96081,3261,0,64850
+2023-07,Shenzhen Bay,Outbound,682481,340726,24948,1048155,97974,3204,0,61471
+2023-07,Port Control,Inbound,164,15,1231,1410,0,0,0,0
+2023-07,Port Control,Outbound,158,19,1203,1380,0,0,0,0
+2023-07,Hong Kong-Macau Ferry Terminal,Inbound,196547,49514,54357,300418,0,0,0,0
+2023-07,Hong Kong-Macau Ferry Terminal,Outbound,198302,75454,54767,328523,0,0,0,0
+2023-07,Hong Kong-Zhuhai-Macau Bridge,Inbound,637333,210576,120831,968740,64583,3474,17835,14723
+2023-07,Hong Kong-Zhuhai-Macau Bridge,Outbound,630204,312563,118635,1061402,64844,3492,17839,10815
+2023-07,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-07,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-07,Luohu,Inbound,1699848,453946,13710,2167504,0,0,0,0
+2023-07,Luohu,Outbound,1642779,504090,14711,2161580,0,0,0,0
+2023-07,Lok Ma Chau,Inbound,354915,86779,8910,450604,81663,10485,4620,45274
+2023-07,Lok Ma Chau,Outbound,261254,110941,11205,383400,80451,10720,4625,55786
+2023-07,Lok Ma Chau Loop,Inbound,1363518,607323,9562,1980403,0,0,0,0
+2023-07,Lok Ma Chau Loop,Outbound,1471934,651025,9700,2132659,0,0,0,0
+2023-07,Heung Yuen Wai,Inbound,415776,211811,1883,629470,4913,2328,0,22695
+2023-07,Heung Yuen Wai,Outbound,439064,91068,1700,531832,5391,2684,0,35174
+2023-07,West Kowloon (High-speed Rail),Inbound,405624,665322,27633,1098579,0,0,0,0
+2023-07,West Kowloon (High-speed Rail),Outbound,453685,552508,26113,1032306,0,0,0,0
+2023-08,China Ferry Terminal,Inbound,26904,36575,2063,65542,0,0,0,0
+2023-08,China Ferry Terminal,Outbound,26576,33092,1831,61499,0,0,0,0
+2023-08,Kai Tak Cruise Terminal,Inbound,17423,1163,15321,33907,0,0,0,0
+2023-08,Kai Tak Cruise Terminal,Outbound,16258,1132,15332,32722,0,0,0,0
+2023-08,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-08,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-08,Man Kam To,Inbound,35150,19344,354,54848,3764,3288,0,28490
+2023-08,Man Kam To,Outbound,35090,14252,279,49621,3673,3236,0,29670
+2023-08,Airport,Inbound,1050955,307229,343772,1701956,0,0,0,0
+2023-08,Airport,Outbound,919672,295172,344870,1559714,0,0,0,0
+2023-08,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-08,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-08,Shenzhen Bay,Inbound,779704,426435,25170,1231309,103583,3443,0,66686
+2023-08,Shenzhen Bay,Outbound,736929,418374,24715,1180018,104841,3534,0,62593
+2023-08,Port Control,Inbound,115,7,1386,1508,0,0,0,0
+2023-08,Port Control,Outbound,165,19,1362,1546,0,0,0,0
+2023-08,Hong Kong-Macau Ferry Terminal,Inbound,216376,59245,61576,337197,0,0,0,0
+2023-08,Hong Kong-Macau Ferry Terminal,Outbound,213355,92158,61246,366759,0,0,0,0
+2023-08,Hong Kong-Zhuhai-Macau Bridge,Inbound,699853,262045,130840,1092738,76625,3885,19780,16461
+2023-08,Hong Kong-Zhuhai-Macau Bridge,Outbound,690335,389566,137465,1217366,77348,3903,19776,12145
+2023-08,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-08,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-08,Luohu,Inbound,1827576,532632,14695,2374903,0,0,0,0
+2023-08,Luohu,Outbound,1748492,622964,15859,2387315,0,0,0,0
+2023-08,Lok Ma Chau,Inbound,378248,101299,9377,488924,90536,10951,4183,48499
+2023-08,Lok Ma Chau,Outbound,283604,136529,10782,430915,89058,11139,4148,56262
+2023-08,Lok Ma Chau Loop,Inbound,1464844,668301,10151,2143296,0,0,0,0
+2023-08,Lok Ma Chau Loop,Outbound,1549237,719103,10183,2278523,0,0,0,0
+2023-08,Heung Yuen Wai,Inbound,466907,239884,2261,709052,11869,2254,0,24365
+2023-08,Heung Yuen Wai,Outbound,485668,107507,1844,595019,12132,2264,0,23965
+2023-08,West Kowloon (High-speed Rail),Inbound,489513,778478,28381,1296372,0,0,0,0
+2023-08,West Kowloon (High-speed Rail),Outbound,455805,669903,24768,1150476,0,0,0,0
+2023-09,China Ferry Terminal,Inbound,18782,17614,1718,38114,0,0,0,0
+2023-09,China Ferry Terminal,Outbound,26540,13488,1584,41612,0,0,0,0
+2023-09,Kai Tak Cruise Terminal,Inbound,12083,2145,7564,21792,0,0,0,0
+2023-09,Kai Tak Cruise Terminal,Outbound,13940,2352,7801,24093,0,0,0,0
+2023-09,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-09,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-09,Man Kam To,Inbound,8431,2484,78,10993,722,574,0,5776
+2023-09,Man Kam To,Outbound,7713,1851,44,9608,716,559,0,5949
+2023-09,Airport,Inbound,698140,217070,364820,1280030,0,0,0,0
+2023-09,Airport,Outbound,733124,243531,352970,1329625,0,0,0,0
+2023-09,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-09,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-09,Shenzhen Bay,Inbound,651540,302697,26156,980393,96340,2934,0,67738
+2023-09,Shenzhen Bay,Outbound,693387,256218,23616,973221,97002,3146,0,64437
+2023-09,Port Control,Inbound,265,24,1254,1543,0,0,0,0
+2023-09,Port Control,Outbound,441,33,1137,1611,0,0,0,0
+2023-09,Hong Kong-Macau Ferry Terminal,Inbound,156669,24986,51467,233122,0,0,0,0
+2023-09,Hong Kong-Macau Ferry Terminal,Outbound,166639,34114,49849,250602,0,0,0,0
+2023-09,Hong Kong-Zhuhai-Macau Bridge,Inbound,488225,127817,93629,709671,70487,3193,15108,15238
+2023-09,Hong Kong-Zhuhai-Macau Bridge,Outbound,562253,233152,95765,891170,76803,3237,15124,12216
+2023-09,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-09,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-09,Luohu,Inbound,1513420,332741,14134,1860295,0,0,0,0
+2023-09,Luohu,Outbound,1607864,364320,14644,1986828,0,0,0,0
+2023-09,Lok Ma Chau,Inbound,314120,90961,11098,416179,86056,10333,3825,57668
+2023-09,Lok Ma Chau,Outbound,263347,84314,10481,358142,84260,10277,3841,61525
+2023-09,Lok Ma Chau Loop,Inbound,1283133,437759,9350,1730242,0,0,0,0
+2023-09,Lok Ma Chau Loop,Outbound,1397627,424172,8211,1830010,0,0,0,0
+2023-09,Heung Yuen Wai,Inbound,402106,181116,2060,585282,12011,2177,0,30313
+2023-09,Heung Yuen Wai,Outbound,443921,68556,1745,514222,12292,2104,0,32500
+2023-09,West Kowloon (High-speed Rail),Inbound,327659,424415,26825,778899,0,0,0,0
+2023-09,West Kowloon (High-speed Rail),Outbound,393390,326221,23102,742713,0,0,0,0
+2023-10,China Ferry Terminal,Inbound,28669,26119,2928,57716,0,0,0,0
+2023-10,China Ferry Terminal,Outbound,23260,24868,2960,51088,0,0,0,0
+2023-10,Kai Tak Cruise Terminal,Inbound,13067,5796,6009,24872,0,0,0,0
+2023-10,Kai Tak Cruise Terminal,Outbound,12531,5729,4459,22719,0,0,0,0
+2023-10,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-10,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-10,Man Kam To,Inbound,0,0,0,0,0,0,0,8032
+2023-10,Man Kam To,Outbound,0,0,0,0,0,0,0,9995
+2023-10,Airport,Inbound,857608,281914,457299,1596821,0,0,0,0
+2023-10,Airport,Outbound,800899,212134,418109,1431142,0,0,0,0
+2023-10,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-10,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-10,Shenzhen Bay,Inbound,839858,349358,30953,1220169,106811,3389,0,66726
+2023-10,Shenzhen Bay,Outbound,773877,367969,39484,1181330,108536,3431,0,62144
+2023-10,Port Control,Inbound,329,15,1356,1700,0,0,0,0
+2023-10,Port Control,Outbound,410,40,1181,1631,0,0,0,0
+2023-10,Hong Kong-Macau Ferry Terminal,Inbound,181221,37717,61477,280415,0,0,0,0
+2023-10,Hong Kong-Macau Ferry Terminal,Outbound,172887,55880,62473,291240,0,0,0,0
+2023-10,Hong Kong-Zhuhai-Macau Bridge,Inbound,686970,183312,118791,989073,101299,4555,18390,14848
+2023-10,Hong Kong-Zhuhai-Macau Bridge,Outbound,619603,333705,127273,1080581,97256,4521,18377,12156
+2023-10,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-10,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-10,Luohu,Inbound,1906694,418529,17927,2343150,0,0,0,0
+2023-10,Luohu,Outbound,1755573,513878,20743,2290194,0,0,0,0
+2023-10,Lok Ma Chau,Inbound,391573,90936,11136,493645,93652,11986,4185,50279
+2023-10,Lok Ma Chau,Outbound,292260,142562,17079,451901,92108,11886,4203,56136
+2023-10,Lok Ma Chau Loop,Inbound,1512624,520096,10488,2043208,0,0,0,0
+2023-10,Lok Ma Chau Loop,Outbound,1505047,522501,11038,2038586,0,0,0,0
+2023-10,Heung Yuen Wai,Inbound,562338,265875,3221,831434,15075,2678,0,33529
+2023-10,Heung Yuen Wai,Outbound,567615,105644,3054,676313,15270,2643,0,32551
+2023-10,West Kowloon (High-speed Rail),Inbound,457227,518926,38918,1015071,0,0,0,0
+2023-10,West Kowloon (High-speed Rail),Outbound,434985,505278,45230,985493,0,0,0,0
+2023-11,China Ferry Terminal,Inbound,23477,19309,2586,45372,0,0,0,0
+2023-11,China Ferry Terminal,Outbound,24397,17458,2017,43872,0,0,0,0
+2023-11,Kai Tak Cruise Terminal,Inbound,10259,6078,9507,25844,0,0,0,0
+2023-11,Kai Tak Cruise Terminal,Outbound,10206,5922,7966,24094,0,0,0,0
+2023-11,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-11,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-11,Man Kam To,Inbound,22429,7303,203,29935,2018,2085,0,25186
+2023-11,Man Kam To,Outbound,22783,5808,210,28801,2000,2095,0,27487
+2023-11,Airport,Inbound,816750,212840,519947,1549537,0,0,0,0
+2023-11,Airport,Outbound,808293,184050,515944,1508287,0,0,0,0
+2023-11,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-11,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-11,Shenzhen Bay,Inbound,847803,309747,32086,1189636,106919,3417,0,78147
+2023-11,Shenzhen Bay,Outbound,837458,300868,29573,1167899,108099,3519,0,71713
+2023-11,Port Control,Inbound,468,19,1458,1945,0,0,0,0
+2023-11,Port Control,Outbound,475,71,1240,1786,0,0,0,0
+2023-11,Hong Kong-Macau Ferry Terminal,Inbound,166645,29863,78364,274872,0,0,0,0
+2023-11,Hong Kong-Macau Ferry Terminal,Outbound,165100,41489,79044,285633,0,0,0,0
+2023-11,Hong Kong-Zhuhai-Macau Bridge,Inbound,597231,179339,136104,912674,99616,3844,17827,15675
+2023-11,Hong Kong-Zhuhai-Macau Bridge,Outbound,603238,341869,139152,1084259,100692,3842,17831,13332
+2023-11,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-11,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-11,Luohu,Inbound,1935589,375634,19776,2330999,0,0,0,0
+2023-11,Luohu,Outbound,1905854,432286,20415,2358555,0,0,0,0
+2023-11,Lok Ma Chau,Inbound,370771,75503,10827,457101,92505,11410,4065,48594
+2023-11,Lok Ma Chau,Outbound,288982,102311,11891,403184,91073,11457,4157,57884
+2023-11,Lok Ma Chau Loop,Inbound,1578923,482369,10752,2072044,0,0,0,0
+2023-11,Lok Ma Chau Loop,Outbound,1662092,476786,10423,2149301,0,0,0,0
+2023-11,Heung Yuen Wai,Inbound,648363,276709,3229,928301,15544,2784,0,28304
+2023-11,Heung Yuen Wai,Outbound,677174,107742,3162,788078,15626,2717,0,25191
+2023-11,West Kowloon (High-speed Rail),Inbound,421179,453290,36343,910812,0,0,0,0
+2023-11,West Kowloon (High-speed Rail),Outbound,441339,404673,32095,878107,0,0,0,0
+2023-12,China Ferry Terminal,Inbound,34446,27975,5982,68403,0,0,0,0
+2023-12,China Ferry Terminal,Outbound,37455,24737,5458,67650,0,0,0,0
+2023-12,Kai Tak Cruise Terminal,Inbound,14760,8635,7572,30967,0,0,0,0
+2023-12,Kai Tak Cruise Terminal,Outbound,14743,9542,7450,31735,0,0,0,0
+2023-12,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2023-12,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2023-12,Man Kam To,Inbound,36197,16399,461,53057,3698,3145,0,27449
+2023-12,Man Kam To,Outbound,38392,11339,254,49985,3645,3171,0,28687
+2023-12,Airport,Inbound,954445,250977,586924,1792346,0,0,0,0
+2023-12,Airport,Outbound,1053573,204887,535656,1794116,0,0,0,0
+2023-12,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2023-12,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2023-12,Shenzhen Bay,Inbound,965081,378870,30207,1374158,115495,10442,0,75661
+2023-12,Shenzhen Bay,Outbound,983807,361558,28372,1373737,116085,10607,0,69635
+2023-12,Port Control,Inbound,76,6,1498,1580,0,0,0,0
+2023-12,Port Control,Outbound,200,12,1157,1369,0,0,0,0
+2023-12,Hong Kong-Macau Ferry Terminal,Inbound,192962,33942,88885,315789,0,0,0,0
+2023-12,Hong Kong-Macau Ferry Terminal,Outbound,200666,47188,90285,338139,0,0,0,0
+2023-12,Hong Kong-Zhuhai-Macau Bridge,Inbound,810288,207592,178008,1195888,125815,5775,21551,14036
+2023-12,Hong Kong-Zhuhai-Macau Bridge,Outbound,851278,328311,181424,1361013,129873,5775,21560,12180
+2023-12,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2023-12,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2023-12,Luohu,Inbound,2084668,460602,21221,2566491,0,0,0,0
+2023-12,Luohu,Outbound,2127242,549289,22278,2698809,0,0,0,0
+2023-12,Lok Ma Chau,Inbound,414507,96355,10297,521159,98008,12293,4311,46750
+2023-12,Lok Ma Chau,Outbound,328502,145335,11929,485766,96314,12283,4457,55622
+2023-12,Lok Ma Chau Loop,Inbound,1688574,586539,12561,2287674,0,0,0,0
+2023-12,Lok Ma Chau Loop,Outbound,1844292,547606,12040,2403938,0,0,0,0
+2023-12,Heung Yuen Wai,Inbound,688569,240582,3347,932498,16061,2688,0,25329
+2023-12,Heung Yuen Wai,Outbound,720667,108733,3329,832729,15993,2628,0,23212
+2023-12,West Kowloon (High-speed Rail),Inbound,519718,638116,36731,1194565,0,0,0,0
+2023-12,West Kowloon (High-speed Rail),Outbound,592277,514697,33921,1140895,0,0,0,0
+2024-01,China Ferry Terminal,Inbound,26434,30647,6795,63876,0,0,0,0
+2024-01,China Ferry Terminal,Outbound,24062,31476,7677,63215,0,0,0,0
+2024-01,Kai Tak Cruise Terminal,Inbound,12796,6896,9262,28954,0,0,0,0
+2024-01,Kai Tak Cruise Terminal,Outbound,13618,6126,11010,30754,0,0,0,0
+2024-01,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-01,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-01,Man Kam To,Inbound,42069,15919,411,58399,3962,2970,0,30159
+2024-01,Man Kam To,Outbound,41828,12784,314,54926,3904,2939,0,31778
+2024-01,Airport,Inbound,865349,296567,500486,1662402,0,0,0,0
+2024-01,Airport,Outbound,722218,289184,564706,1576108,0,0,0,0
+2024-01,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-01,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-01,Shenzhen Bay,Inbound,913629,410167,30983,1354779,122110,12267,0,82011
+2024-01,Shenzhen Bay,Outbound,849101,385136,28631,1262868,122927,12267,0,75487
+2024-01,Port Control,Inbound,181,13,1518,1712,0,0,0,0
+2024-01,Port Control,Outbound,220,19,1179,1418,0,0,0,0
+2024-01,Hong Kong-Macau Ferry Terminal,Inbound,155310,39205,77235,271750,0,0,0,0
+2024-01,Hong Kong-Macau Ferry Terminal,Outbound,153440,60462,78371,292273,0,0,0,0
+2024-01,Hong Kong-Zhuhai-Macau Bridge,Inbound,661770,223807,136223,1021800,117129,4722,18992,13816
+2024-01,Hong Kong-Zhuhai-Macau Bridge,Outbound,621301,316248,137415,1074964,114409,4718,18980,12585
+2024-01,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-01,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-01,Luohu,Inbound,2040096,473018,19593,2532707,0,0,0,0
+2024-01,Luohu,Outbound,1963107,555757,20554,2539418,0,0,0,0
+2024-01,Lok Ma Chau,Inbound,392959,93001,10866,496826,101272,12134,4213,50932
+2024-01,Lok Ma Chau,Outbound,292858,160196,12153,465207,101437,12180,4245,59091
+2024-01,Lok Ma Chau Loop,Inbound,1625925,557056,11506,2194487,0,0,0,0
+2024-01,Lok Ma Chau Loop,Outbound,1652107,544733,11124,2207964,0,0,0,0
+2024-01,Heung Yuen Wai,Inbound,726424,219864,3313,949601,17402,2750,0,28809
+2024-01,Heung Yuen Wai,Outbound,726236,114172,3205,843613,17627,2721,0,25982
+2024-01,West Kowloon (High-speed Rail),Inbound,455969,617382,34163,1107514,0,0,0,0
+2024-01,West Kowloon (High-speed Rail),Outbound,408075,547183,31999,987257,0,0,0,0
+2024-02,China Ferry Terminal,Inbound,33689,46347,6117,86153,0,0,0,0
+2024-02,China Ferry Terminal,Outbound,36109,48462,6956,91527,0,0,0,0
+2024-02,Kai Tak Cruise Terminal,Inbound,15308,5890,7615,28813,0,0,0,0
+2024-02,Kai Tak Cruise Terminal,Outbound,15288,6476,7733,29497,0,0,0,0
+2024-02,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-02,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-02,Man Kam To,Inbound,33411,15050,308,48769,3398,2587,0,19446
+2024-02,Man Kam To,Outbound,34366,11250,268,45884,3371,2588,0,19371
+2024-02,Airport,Inbound,834095,392220,454820,1681135,0,0,0,0
+2024-02,Airport,Outbound,851008,332826,409207,1593041,0,0,0,0
+2024-02,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-02,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-02,Shenzhen Bay,Inbound,904039,419693,26260,1349992,107456,3918,0,51980
+2024-02,Shenzhen Bay,Outbound,882268,421992,30010,1334270,108430,3978,0,47865
+2024-02,Port Control,Inbound,160,43,1357,1560,0,0,0,0
+2024-02,Port Control,Outbound,177,78,1004,1259,0,0,0,0
+2024-02,Hong Kong-Macau Ferry Terminal,Inbound,161651,60623,63220,285494,0,0,0,0
+2024-02,Hong Kong-Macau Ferry Terminal,Outbound,160256,102438,66540,329234,0,0,0,0
+2024-02,Hong Kong-Zhuhai-Macau Bridge,Inbound,770694,318351,135018,1224063,135398,5800,21284,9966
+2024-02,Hong Kong-Zhuhai-Macau Bridge,Outbound,772874,437981,135065,1345920,135999,5816,21281,8897
+2024-02,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-02,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-02,Luohu,Inbound,1813275,510437,15889,2339601,0,0,0,0
+2024-02,Luohu,Outbound,1789132,608658,17862,2415652,0,0,0,0
+2024-02,Lok Ma Chau,Inbound,356170,92670,8276,457116,84499,11389,4409,29383
+2024-02,Lok Ma Chau,Outbound,273735,139231,11078,424044,83476,11373,4452,35546
+2024-02,Lok Ma Chau Loop,Inbound,1446390,499543,9789,1955722,0,0,0,0
+2024-02,Lok Ma Chau Loop,Outbound,1526273,476737,10035,2013045,0,0,0,0
+2024-02,Heung Yuen Wai,Inbound,648229,215257,3295,866781,15135,2465,0,14265
+2024-02,Heung Yuen Wai,Outbound,663128,107142,3522,773792,15254,2478,0,13021
+2024-02,West Kowloon (High-speed Rail),Inbound,474119,668731,24674,1167524,0,0,0,0
+2024-02,West Kowloon (High-speed Rail),Outbound,527229,608009,25698,1160936,0,0,0,0
+2024-03,China Ferry Terminal,Inbound,27103,20307,7818,55228,0,0,0,0
+2024-03,China Ferry Terminal,Outbound,36727,20735,8791,66253,0,0,0,0
+2024-03,Kai Tak Cruise Terminal,Inbound,14230,8065,29033,51328,0,0,0,0
+2024-03,Kai Tak Cruise Terminal,Outbound,15104,7279,30813,53196,0,0,0,0
+2024-03,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-03,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-03,Man Kam To,Inbound,40303,12215,410,52928,3955,2807,0,25894
+2024-03,Man Kam To,Outbound,46357,10275,339,56971,3945,2857,0,27650
+2024-03,Airport,Inbound,834223,253958,562322,1650503,0,0,0,0
+2024-03,Airport,Outbound,1016529,207589,559611,1783729,0,0,0,0
+2024-03,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-03,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-03,Shenzhen Bay,Inbound,972942,313731,32119,1318792,120451,4051,0,74950
+2024-03,Shenzhen Bay,Outbound,1061479,309739,33869,1405087,122352,4098,0,69319
+2024-03,Port Control,Inbound,195,23,1759,1977,0,0,0,0
+2024-03,Port Control,Outbound,363,54,1168,1585,0,0,0,0
+2024-03,Hong Kong-Macau Ferry Terminal,Inbound,175084,26947,73716,275747,0,0,0,0
+2024-03,Hong Kong-Macau Ferry Terminal,Outbound,185034,38771,79276,303081,0,0,0,0
+2024-03,Hong Kong-Zhuhai-Macau Bridge,Inbound,762804,212404,142690,1117898,134181,6185,22395,14243
+2024-03,Hong Kong-Zhuhai-Macau Bridge,Outbound,877309,367511,140114,1384934,145329,6192,22394,12267
+2024-03,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-03,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-03,Luohu,Inbound,2103083,374779,21867,2499729,0,0,0,0
+2024-03,Luohu,Outbound,2230120,439736,24370,2694226,0,0,0,0
+2024-03,Lok Ma Chau,Inbound,420914,70053,10940,501907,99917,12729,4304,49893
+2024-03,Lok Ma Chau,Outbound,350884,112763,12837,476484,98629,12608,4409,58451
+2024-03,Lok Ma Chau Loop,Inbound,1738017,435478,11783,2185278,0,0,0,0
+2024-03,Lok Ma Chau Loop,Outbound,1967009,427710,12109,2406828,0,0,0,0
+2024-03,Heung Yuen Wai,Inbound,818165,263015,3828,1085008,18525,2841,0,25396
+2024-03,Heung Yuen Wai,Outbound,884567,114271,4234,1003072,18814,2809,0,22776
+2024-03,West Kowloon (High-speed Rail),Inbound,466984,475067,37904,979955,0,0,0,0
+2024-03,West Kowloon (High-speed Rail),Outbound,619880,432718,39415,1092013,0,0,0,0
+2024-04,China Ferry Terminal,Inbound,38769,22372,8787,69928,0,0,0,0
+2024-04,China Ferry Terminal,Outbound,34003,21922,9253,65178,0,0,0,0
+2024-04,Kai Tak Cruise Terminal,Inbound,11391,5242,18891,35524,0,0,0,0
+2024-04,Kai Tak Cruise Terminal,Outbound,10488,5825,19377,35690,0,0,0,0
+2024-04,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-04,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-04,Man Kam To,Inbound,40964,11559,416,52939,3929,2727,0,26315
+2024-04,Man Kam To,Outbound,41944,9207,312,51463,3939,2729,0,27767
+2024-04,Airport,Inbound,979948,250908,524082,1754938,0,0,0,0
+2024-04,Airport,Outbound,796476,269613,540110,1606199,0,0,0,0
+2024-04,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-04,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-04,Shenzhen Bay,Inbound,1042780,338898,42227,1423905,123671,4177,0,70682
+2024-04,Shenzhen Bay,Outbound,920592,292433,39893,1252918,124028,4133,0,65344
+2024-04,Port Control,Inbound,262,50,1461,1773,0,0,0,0
+2024-04,Port Control,Outbound,199,54,1107,1360,0,0,0,0
+2024-04,Hong Kong-Macau Ferry Terminal,Inbound,176201,27319,69265,272785,0,0,0,0
+2024-04,Hong Kong-Macau Ferry Terminal,Outbound,159916,37923,76595,274434,0,0,0,0
+2024-04,Hong Kong-Zhuhai-Macau Bridge,Inbound,823096,203235,130481,1156812,143171,6014,20861,13786
+2024-04,Hong Kong-Zhuhai-Macau Bridge,Outbound,728618,337369,120447,1186434,134572,6044,20958,12497
+2024-04,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-04,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-04,Luohu,Inbound,2114561,374716,25042,2514319,0,0,0,0
+2024-04,Luohu,Outbound,1965668,419242,25564,2410474,0,0,0,0
+2024-04,Lok Ma Chau,Inbound,430423,87782,14410,532615,100270,12539,4180,50995
+2024-04,Lok Ma Chau,Outbound,308479,100563,15411,424453,98577,12469,4202,58750
+2024-04,Lok Ma Chau Loop,Inbound,1718695,421840,13417,2153952,0,0,0,0
+2024-04,Lok Ma Chau Loop,Outbound,1679952,393516,12665,2086133,0,0,0,0
+2024-04,Heung Yuen Wai,Inbound,796308,244743,5335,1046386,19042,2728,0,26436
+2024-04,Heung Yuen Wai,Outbound,789063,105233,5551,899847,19059,2695,0,23425
+2024-04,West Kowloon (High-speed Rail),Inbound,590869,493119,56080,1140068,0,0,0,0
+2024-04,West Kowloon (High-speed Rail),Outbound,484088,424386,55850,964324,0,0,0,0
+2024-05,China Ferry Terminal,Inbound,24506,22071,7173,53750,0,0,0,0
+2024-05,China Ferry Terminal,Outbound,25608,22372,7555,55535,0,0,0,0
+2024-05,Kai Tak Cruise Terminal,Inbound,8748,1451,995,11194,0,0,0,0
+2024-05,Kai Tak Cruise Terminal,Outbound,7733,1231,684,9648,0,0,0,0
+2024-05,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-05,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-05,Man Kam To,Inbound,43781,13114,395,57290,4090,2942,0,28193
+2024-05,Man Kam To,Outbound,46419,10433,296,57148,4091,2969,0,29446
+2024-05,Airport,Inbound,844669,328162,459232,1632063,0,0,0,0
+2024-05,Airport,Outbound,892198,252677,452117,1596992,0,0,0,0
+2024-05,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-05,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-05,Shenzhen Bay,Inbound,944101,338362,29861,1312324,121656,7196,0,72122
+2024-05,Shenzhen Bay,Outbound,937888,355422,31432,1324742,123007,6973,0,66467
+2024-05,Port Control,Inbound,275,50,1328,1653,0,0,0,0
+2024-05,Port Control,Outbound,346,58,1292,1696,0,0,0,0
+2024-05,Hong Kong-Macau Ferry Terminal,Inbound,172443,30517,66711,269671,0,0,0,0
+2024-05,Hong Kong-Macau Ferry Terminal,Outbound,170035,41704,74583,286322,0,0,0,0
+2024-05,Hong Kong-Zhuhai-Macau Bridge,Inbound,715045,182898,120014,1017957,139102,5930,19436,14728
+2024-05,Hong Kong-Zhuhai-Macau Bridge,Outbound,716977,289704,111764,1118445,139576,5907,19432,12958
+2024-05,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-05,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-05,Luohu,Inbound,2070105,423216,20938,2514259,0,0,0,0
+2024-05,Luohu,Outbound,2048349,511733,22385,2582467,0,0,0,0
+2024-05,Lok Ma Chau,Inbound,408797,80986,11116,500899,102004,12935,4044,49760
+2024-05,Lok Ma Chau,Outbound,321878,145635,13091,480604,100670,13129,4204,59216
+2024-05,Lok Ma Chau Loop,Inbound,1699963,470749,11429,2182141,0,0,0,0
+2024-05,Lok Ma Chau Loop,Outbound,1787910,452276,11648,2251834,0,0,0,0
+2024-05,Heung Yuen Wai,Inbound,841928,211101,4035,1057064,19872,2856,0,26671
+2024-05,Heung Yuen Wai,Outbound,868328,112056,4745,985129,20046,2802,0,22860
+2024-05,West Kowloon (High-speed Rail),Inbound,437006,523215,39683,999904,0,0,0,0
+2024-05,West Kowloon (High-speed Rail),Outbound,453302,466395,37506,957203,0,0,0,0
+2024-06,China Ferry Terminal,Inbound,22566,15962,3593,42121,0,0,0,0
+2024-06,China Ferry Terminal,Outbound,27649,15219,4176,47044,0,0,0,0
+2024-06,Kai Tak Cruise Terminal,Inbound,287,3214,285,3786,0,0,0,0
+2024-06,Kai Tak Cruise Terminal,Outbound,287,3195,340,3822,0,0,0,0
+2024-06,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-06,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-06,Man Kam To,Inbound,43052,10693,367,54112,4052,2795,0,28106
+2024-06,Man Kam To,Outbound,47521,9397,317,57235,4067,2807,0,29530
+2024-06,Airport,Inbound,949234,281023,481044,1711301,0,0,0,0
+2024-06,Airport,Outbound,1017831,229254,464728,1711813,0,0,0,0
+2024-06,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-06,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-06,Shenzhen Bay,Inbound,985669,304074,29887,1319630,120006,9502,0,68338
+2024-06,Shenzhen Bay,Outbound,1029726,306393,32736,1368855,121691,9533,0,63220
+2024-06,Port Control,Inbound,236,15,1143,1394,0,0,0,0
+2024-06,Port Control,Outbound,462,12,976,1450,0,0,0,0
+2024-06,Hong Kong-Macau Ferry Terminal,Inbound,179134,27804,63864,270802,0,0,0,0
+2024-06,Hong Kong-Macau Ferry Terminal,Outbound,186938,38710,70784,296432,0,0,0,0
+2024-06,Hong Kong-Zhuhai-Macau Bridge,Inbound,749934,165122,129278,1044334,133532,6276,19147,13998
+2024-06,Hong Kong-Zhuhai-Macau Bridge,Outbound,831426,249209,127096,1207731,142539,6272,19161,12169
+2024-06,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-06,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-06,Luohu,Inbound,2130588,370066,20059,2520713,0,0,0,0
+2024-06,Luohu,Outbound,2192762,433278,21484,2647524,0,0,0,0
+2024-06,Lok Ma Chau,Inbound,434947,69251,11090,515288,101400,12815,4196,48900
+2024-06,Lok Ma Chau,Outbound,344470,103025,13499,460994,99826,12885,4164,58011
+2024-06,Lok Ma Chau Loop,Inbound,1724052,416448,11510,2152010,0,0,0,0
+2024-06,Lok Ma Chau Loop,Outbound,1903269,399525,11682,2314476,0,0,0,0
+2024-06,Heung Yuen Wai,Inbound,863318,183575,4363,1051256,19651,2720,0,26122
+2024-06,Heung Yuen Wai,Outbound,914303,103312,5533,1023148,19933,2707,0,22547
+2024-06,West Kowloon (High-speed Rail),Inbound,455269,492917,35965,984151,0,0,0,0
+2024-06,West Kowloon (High-speed Rail),Outbound,530173,442236,37801,1010210,0,0,0,0
+2024-07,China Ferry Terminal,Inbound,21901,20871,3064,45836,0,0,0,0
+2024-07,China Ferry Terminal,Outbound,19459,20031,3732,43222,0,0,0,0
+2024-07,Kai Tak Cruise Terminal,Inbound,98,3267,835,4200,0,0,0,0
+2024-07,Kai Tak Cruise Terminal,Outbound,95,3252,874,4221,0,0,0,0
+2024-07,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-07,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-07,Man Kam To,Inbound,44280,13217,361,57858,4454,2905,0,30168
+2024-07,Man Kam To,Outbound,45714,10495,318,56527,4498,2897,0,31279
+2024-07,Airport,Inbound,1095042,349218,441375,1885635,0,0,0,0
+2024-07,Airport,Outbound,1108567,332523,456362,1897452,0,0,0,0
+2024-07,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-07,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-07,Shenzhen Bay,Inbound,1065025,413297,35072,1513394,130041,12020,0,70878
+2024-07,Shenzhen Bay,Outbound,999775,379674,32504,1411953,130028,11814,0,65674
+2024-07,Port Control,Inbound,291,15,1202,1508,0,0,0,0
+2024-07,Port Control,Outbound,245,19,1128,1392,0,0,0,0
+2024-07,Hong Kong-Macau Ferry Terminal,Inbound,184182,45067,61989,291238,0,0,0,0
+2024-07,Hong Kong-Macau Ferry Terminal,Outbound,168562,67106,68597,304265,0,0,0,0
+2024-07,Hong Kong-Zhuhai-Macau Bridge,Inbound,804833,246566,146662,1198061,146036,6201,20558,16096
+2024-07,Hong Kong-Zhuhai-Macau Bridge,Outbound,747423,385257,135210,1267890,138165,6209,20560,12987
+2024-07,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-07,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-07,Luohu,Inbound,2216920,488630,21928,2727478,0,0,0,0
+2024-07,Luohu,Outbound,2127009,559974,22288,2709271,0,0,0,0
+2024-07,Lok Ma Chau,Inbound,454779,90113,12065,556957,108212,13027,4189,53069
+2024-07,Lok Ma Chau,Outbound,334636,124172,13107,471915,107493,13165,4176,62657
+2024-07,Lok Ma Chau Loop,Inbound,1767533,508445,12910,2288888,0,0,0,0
+2024-07,Lok Ma Chau Loop,Outbound,1814423,472391,12749,2299563,0,0,0,0
+2024-07,Heung Yuen Wai,Inbound,878355,279360,5634,1163349,20687,2957,0,27233
+2024-07,Heung Yuen Wai,Outbound,871276,153383,6572,1031231,20933,2873,0,24143
+2024-07,West Kowloon (High-speed Rail),Inbound,507400,681040,39739,1228179,0,0,0,0
+2024-07,West Kowloon (High-speed Rail),Outbound,515148,584051,36564,1135763,0,0,0,0
+2024-08,China Ferry Terminal,Inbound,20338,25232,3613,49183,0,0,0,0
+2024-08,China Ferry Terminal,Outbound,20928,23569,3875,48372,0,0,0,0
+2024-08,Kai Tak Cruise Terminal,Inbound,11,17,3477,3505,0,0,0,0
+2024-08,Kai Tak Cruise Terminal,Outbound,90,61,3527,3678,0,0,0,0
+2024-08,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-08,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-08,Man Kam To,Inbound,42337,15635,401,58373,4578,2850,0,30072
+2024-08,Man Kam To,Outbound,45216,12488,283,57987,4569,2834,0,31581
+2024-08,Airport,Inbound,1196223,402664,449772,2048659,0,0,0,0
+2024-08,Airport,Outbound,1056238,364193,451136,1871567,0,0,0,0
+2024-08,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-08,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-08,Shenzhen Bay,Inbound,1115650,478093,34060,1627803,137302,12434,0,70035
+2024-08,Shenzhen Bay,Outbound,1087086,465880,31398,1584364,137822,12425,0,65445
+2024-08,Port Control,Inbound,311,15,1278,1604,0,0,0,0
+2024-08,Port Control,Outbound,213,17,1191,1421,0,0,0,0
+2024-08,Hong Kong-Macau Ferry Terminal,Inbound,186029,56596,66497,309122,0,0,0,0
+2024-08,Hong Kong-Macau Ferry Terminal,Outbound,187627,80914,74336,342877,0,0,0,0
+2024-08,Hong Kong-Zhuhai-Macau Bridge,Inbound,848874,286407,143668,1278949,152536,6329,21371,18060
+2024-08,Hong Kong-Zhuhai-Macau Bridge,Outbound,874308,436601,136410,1447319,157140,6324,21365,13762
+2024-08,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-08,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-08,Luohu,Inbound,2317845,569161,21498,2908504,0,0,0,0
+2024-08,Luohu,Outbound,2300974,693306,22645,3016925,0,0,0,0
+2024-08,Lok Ma Chau,Inbound,468111,101046,12624,581781,112415,13036,4034,53492
+2024-08,Lok Ma Chau,Outbound,362257,145795,12937,520989,110705,13343,4121,63272
+2024-08,Lok Ma Chau Loop,Inbound,1839527,598811,13354,2451692,0,0,0,0
+2024-08,Lok Ma Chau Loop,Outbound,1969233,563484,13280,2545997,0,0,0,0
+2024-08,Heung Yuen Wai,Inbound,912212,294479,5216,1211907,21721,3105,0,26028
+2024-08,Heung Yuen Wai,Outbound,931336,173947,6668,1111951,21901,2999,0,23697
+2024-08,West Kowloon (High-speed Rail),Inbound,568839,829847,40708,1439394,0,0,0,0
+2024-08,West Kowloon (High-speed Rail),Outbound,542031,734754,36150,1312935,0,0,0,0
+2024-09,China Ferry Terminal,Inbound,15386,11329,1445,28160,0,0,0,0
+2024-09,China Ferry Terminal,Outbound,15497,9650,1179,26326,0,0,0,0
+2024-09,Kai Tak Cruise Terminal,Inbound,644,2100,4123,6867,0,0,0,0
+2024-09,Kai Tak Cruise Terminal,Outbound,915,5227,3381,9523,0,0,0,0
+2024-09,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-09,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-09,Man Kam To,Inbound,54990,13427,410,68827,4501,2960,0,29297
+2024-09,Man Kam To,Outbound,56149,10907,332,67388,4565,2939,0,30559
+2024-09,Airport,Inbound,818570,245197,455252,1519019,0,0,0,0
+2024-09,Airport,Outbound,825095,280427,469465,1574987,0,0,0,0
+2024-09,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-09,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-09,Shenzhen Bay,Inbound,1035661,338020,33660,1407341,130433,9892,0,67437
+2024-09,Shenzhen Bay,Outbound,996889,298895,29389,1325173,130630,9753,0,64245
+2024-09,Port Control,Inbound,235,42,1191,1468,0,0,0,0
+2024-09,Port Control,Outbound,248,35,1130,1413,0,0,0,0
+2024-09,Hong Kong-Macau Ferry Terminal,Inbound,169673,25308,63010,257991,0,0,0,0
+2024-09,Hong Kong-Macau Ferry Terminal,Outbound,160061,31323,74819,266203,0,0,0,0
+2024-09,Hong Kong-Zhuhai-Macau Bridge,Inbound,704247,126906,117302,948455,129426,5730,17211,17321
+2024-09,Hong Kong-Zhuhai-Macau Bridge,Outbound,694357,212131,104072,1010560,127362,5724,17222,12783
+2024-09,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-09,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-09,Luohu,Inbound,2202872,366462,20688,2590022,0,0,0,0
+2024-09,Luohu,Outbound,2184611,417883,21199,2623693,0,0,0,0
+2024-09,Lok Ma Chau,Inbound,413655,87877,13595,515127,107967,12536,3968,52772
+2024-09,Lok Ma Chau,Outbound,326573,93312,12345,432230,106616,12528,3885,62102
+2024-09,Lok Ma Chau Loop,Inbound,1736357,428722,12162,2177241,0,0,0,0
+2024-09,Lok Ma Chau Loop,Outbound,1800801,405197,11458,2217456,0,0,0,0
+2024-09,Heung Yuen Wai,Inbound,888816,200968,5189,1094973,21897,3135,0,25264
+2024-09,Heung Yuen Wai,Outbound,889711,109091,6547,1005349,22060,3054,0,22256
+2024-09,West Kowloon (High-speed Rail),Inbound,479325,447543,40260,967128,0,0,0,0
+2024-09,West Kowloon (High-speed Rail),Outbound,475521,387989,35968,899478,0,0,0,0
+2024-10,China Ferry Terminal,Inbound,19149,22662,2937,44748,0,0,0,0
+2024-10,China Ferry Terminal,Outbound,18605,19264,2300,40169,0,0,0,0
+2024-10,Kai Tak Cruise Terminal,Inbound,1770,19735,9090,30595,0,0,0,0
+2024-10,Kai Tak Cruise Terminal,Outbound,1726,18621,9261,29608,0,0,0,0
+2024-10,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-10,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-10,Man Kam To,Inbound,62151,18073,424,80648,4535,3268,0,29999
+2024-10,Man Kam To,Outbound,64104,14257,428,78789,4511,3231,0,31017
+2024-10,Airport,Inbound,948916,357635,574003,1880554,0,0,0,0
+2024-10,Airport,Outbound,903458,263412,511472,1678342,0,0,0,0
+2024-10,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-10,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-10,Shenzhen Bay,Inbound,1099765,421280,38635,1559680,140245,10220,0,68577
+2024-10,Shenzhen Bay,Outbound,1072302,440958,48726,1561986,141787,9756,0,66205
+2024-10,Port Control,Inbound,179,13,1461,1653,0,0,0,0
+2024-10,Port Control,Outbound,518,85,1216,1819,0,0,0,0
+2024-10,Hong Kong-Macau Ferry Terminal,Inbound,174718,36803,74683,286204,0,0,0,0
+2024-10,Hong Kong-Macau Ferry Terminal,Outbound,170439,48585,91397,310421,0,0,0,0
+2024-10,Hong Kong-Zhuhai-Macau Bridge,Inbound,818424,185850,134662,1138936,159906,7315,20657,18937
+2024-10,Hong Kong-Zhuhai-Macau Bridge,Outbound,814308,351726,122767,1288801,158684,7324,20667,13764
+2024-10,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-10,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-10,Luohu,Inbound,2336420,485627,27115,2849162,0,0,0,0
+2024-10,Luohu,Outbound,2295721,602737,29313,2927771,0,0,0,0
+2024-10,Lok Ma Chau,Inbound,441396,106474,13947,561817,114804,13439,3969,49362
+2024-10,Lok Ma Chau,Outbound,350392,156543,18363,525298,113472,13888,3970,59215
+2024-10,Lok Ma Chau Loop,Inbound,1852517,592527,14601,2459645,0,0,0,0
+2024-10,Lok Ma Chau Loop,Outbound,1936535,560557,15585,2512677,0,0,0,0
+2024-10,Heung Yuen Wai,Inbound,954567,310701,6040,1271308,22556,3318,0,25091
+2024-10,Heung Yuen Wai,Outbound,968882,154822,7375,1131079,22757,3263,0,21507
+2024-10,West Kowloon (High-speed Rail),Inbound,514542,579428,55979,1149949,0,0,0,0
+2024-10,West Kowloon (High-speed Rail),Outbound,518289,529084,62940,1110313,0,0,0,0
+2024-11,China Ferry Terminal,Inbound,15284,14004,1968,31256,0,0,0,0
+2024-11,China Ferry Terminal,Outbound,17338,11825,1539,30702,0,0,0,0
+2024-11,Kai Tak Cruise Terminal,Inbound,875,11350,6342,18567,0,0,0,0
+2024-11,Kai Tak Cruise Terminal,Outbound,936,8642,6098,15676,0,0,0,0
+2024-11,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-11,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-11,Man Kam To,Inbound,58816,15075,513,74404,4298,3175,0,30511
+2024-11,Man Kam To,Outbound,62500,12500,376,75376,4359,3109,0,32360
+2024-11,Airport,Inbound,912441,229770,608714,1750925,0,0,0,0
+2024-11,Airport,Outbound,919168,201409,608868,1729445,0,0,0,0
+2024-11,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-11,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-11,Shenzhen Bay,Inbound,1102545,352915,41047,1496507,135064,12559,0,74768
+2024-11,Shenzhen Bay,Outbound,1113463,340286,38616,1492365,135697,12322,0,72884
+2024-11,Port Control,Inbound,366,41,1430,1837,0,0,0,0
+2024-11,Port Control,Outbound,188,32,1408,1628,0,0,0,0
+2024-11,Hong Kong-Macau Ferry Terminal,Inbound,156256,27554,84720,268530,0,0,0,0
+2024-11,Hong Kong-Macau Ferry Terminal,Outbound,161921,34424,102698,299043,0,0,0,0
+2024-11,Hong Kong-Zhuhai-Macau Bridge,Inbound,725814,157693,148188,1031695,137319,6001,19714,20786
+2024-11,Hong Kong-Zhuhai-Macau Bridge,Outbound,758401,326123,127303,1211827,143133,5992,19697,14364
+2024-11,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-11,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-11,Luohu,Inbound,2310037,391590,29202,2730829,0,0,0,0
+2024-11,Luohu,Outbound,2336089,461753,29714,2827556,0,0,0,0
+2024-11,Lok Ma Chau,Inbound,427259,77455,13910,518624,111828,12106,4348,53215
+2024-11,Lok Ma Chau,Outbound,349467,107410,14183,471060,110738,12433,4241,63639
+2024-11,Lok Ma Chau Loop,Inbound,1819247,484021,14600,2317868,0,0,0,0
+2024-11,Lok Ma Chau Loop,Outbound,1955705,453483,14271,2423459,0,0,0,0
+2024-11,Heung Yuen Wai,Inbound,961916,303114,6759,1271789,23196,3131,0,27126
+2024-11,Heung Yuen Wai,Outbound,991473,143220,7924,1142617,23232,3058,0,23196
+2024-11,West Kowloon (High-speed Rail),Inbound,517285,491486,55296,1064067,0,0,0,0
+2024-11,West Kowloon (High-speed Rail),Outbound,543603,436875,49519,1029997,0,0,0,0
+2024-12,China Ferry Terminal,Inbound,27094,24443,2252,53789,0,0,0,0
+2024-12,China Ferry Terminal,Outbound,29116,21464,1875,52455,0,0,0,0
+2024-12,Kai Tak Cruise Terminal,Inbound,12853,7965,16150,36968,0,0,0,0
+2024-12,Kai Tak Cruise Terminal,Outbound,16186,3559,16512,36257,0,0,0,0
+2024-12,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2024-12,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2024-12,Man Kam To,Inbound,58588,19212,579,78379,4640,3441,0,32146
+2024-12,Man Kam To,Outbound,62456,15707,416,78579,4681,3407,0,34181
+2024-12,Airport,Inbound,1087688,275718,682210,2045616,0,0,0,0
+2024-12,Airport,Outbound,1171251,227440,640050,2038741,0,0,0,0
+2024-12,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2024-12,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2024-12,Shenzhen Bay,Inbound,1282881,428331,38715,1749927,145440,10939,0,74865
+2024-12,Shenzhen Bay,Outbound,1261717,421468,38633,1721818,145125,10769,0,74179
+2024-12,Port Control,Inbound,116,25,1239,1380,0,0,0,0
+2024-12,Port Control,Outbound,164,22,1039,1225,0,0,0,0
+2024-12,Hong Kong-Macau Ferry Terminal,Inbound,185429,32232,105273,322934,0,0,0,0
+2024-12,Hong Kong-Macau Ferry Terminal,Outbound,185210,39857,120485,345552,0,0,0,0
+2024-12,Hong Kong-Zhuhai-Macau Bridge,Inbound,950193,175992,185147,1311332,156532,8008,21299,21333
+2024-12,Hong Kong-Zhuhai-Macau Bridge,Outbound,944409,319830,170505,1434744,154497,8000,21303,14171
+2024-12,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2024-12,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2024-12,Luohu,Inbound,2491860,484069,31818,3007747,0,0,0,0
+2024-12,Luohu,Outbound,2474070,580888,32815,3087773,0,0,0,0
+2024-12,Lok Ma Chau,Inbound,492240,97127,13840,603207,119432,13779,4057,53241
+2024-12,Lok Ma Chau,Outbound,390499,157135,15536,563170,118595,14210,4045,63300
+2024-12,Lok Ma Chau Loop,Inbound,1970244,595393,16730,2582367,0,0,0,0
+2024-12,Lok Ma Chau Loop,Outbound,2100628,555854,16615,2673097,0,0,0,0
+2024-12,Heung Yuen Wai,Inbound,1015188,285557,6567,1307312,24379,3126,0,27067
+2024-12,Heung Yuen Wai,Outbound,1021535,144404,7712,1173651,24401,3073,0,22642
+2024-12,West Kowloon (High-speed Rail),Inbound,619533,673133,56093,1348759,0,0,0,0
+2024-12,West Kowloon (High-speed Rail),Outbound,654662,578499,54179,1287340,0,0,0,0
+2025-01,China Ferry Terminal,Inbound,16917,24691,1779,43387,0,0,0,0
+2025-01,China Ferry Terminal,Outbound,25178,22173,1683,49034,0,0,0,0
+2025-01,Kai Tak Cruise Terminal,Inbound,9401,5954,20558,35913,0,0,0,0
+2025-01,Kai Tak Cruise Terminal,Outbound,7398,9671,19317,36386,0,0,0,0
+2025-01,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-01,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-01,Man Kam To,Inbound,56483,22535,596,79614,4650,3305,0,31376
+2025-01,Man Kam To,Outbound,62097,18248,402,80747,4691,3245,0,32608
+2025-01,Airport,Inbound,928604,420634,594074,1943312,0,0,0,0
+2025-01,Airport,Outbound,987364,385943,651785,2025092,0,0,0,0
+2025-01,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-01,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-01,Shenzhen Bay,Inbound,1207640,540077,40906,1788623,149506,10902,0,67581
+2025-01,Shenzhen Bay,Outbound,1331202,503798,34747,1869747,150503,10762,0,68179
+2025-01,Port Control,Inbound,179,18,1554,1751,0,0,0,0
+2025-01,Port Control,Outbound,223,37,986,1246,0,0,0,0
+2025-01,Hong Kong-Macau Ferry Terminal,Inbound,152029,52710,93507,298246,0,0,0,0
+2025-01,Hong Kong-Macau Ferry Terminal,Outbound,157512,72579,98786,328877,0,0,0,0
+2025-01,Hong Kong-Zhuhai-Macau Bridge,Inbound,793803,252387,156334,1202524,150508,7785,20890,20120
+2025-01,Hong Kong-Zhuhai-Macau Bridge,Outbound,887561,408004,153094,1448659,167073,7747,20878,13322
+2025-01,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-01,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-01,Luohu,Inbound,2211585,546692,25985,2784262,0,0,0,0
+2025-01,Luohu,Outbound,2349554,660819,27093,3037466,0,0,0,0
+2025-01,Lok Ma Chau,Inbound,440053,125309,14943,580305,118578,13635,4389,48348
+2025-01,Lok Ma Chau,Outbound,370749,172911,13803,557463,118601,13816,4500,57119
+2025-01,Lok Ma Chau Loop,Inbound,1694464,644950,14699,2354113,0,0,0,0
+2025-01,Lok Ma Chau Loop,Outbound,1863228,601103,14180,2478511,0,0,0,0
+2025-01,Heung Yuen Wai,Inbound,934987,291488,6924,1233399,25194,3215,0,23782
+2025-01,Heung Yuen Wai,Outbound,975786,154955,6608,1137349,25489,3126,0,20047
+2025-01,West Kowloon (High-speed Rail),Inbound,479713,797747,45262,1322722,0,0,0,0
+2025-01,West Kowloon (High-speed Rail),Outbound,648500,665963,43018,1357481,0,0,0,0
+2025-02,China Ferry Terminal,Inbound,20624,20136,1283,42043,0,0,0,0
+2025-02,China Ferry Terminal,Outbound,15093,16888,1158,33139,0,0,0,0
+2025-02,Kai Tak Cruise Terminal,Inbound,194,54,13734,13982,0,0,0,0
+2025-02,Kai Tak Cruise Terminal,Outbound,194,35,13569,13798,0,0,0,0
+2025-02,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-02,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-02,Man Kam To,Inbound,57273,16199,455,73927,3957,3105,0,23068
+2025-02,Man Kam To,Outbound,57558,13440,350,71348,3903,3057,0,24209
+2025-02,Airport,Inbound,921648,325914,556532,1804094,0,0,0,0
+2025-02,Airport,Outbound,730526,288039,523142,1541707,0,0,0,0
+2025-02,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-02,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-02,Shenzhen Bay,Inbound,1210132,380195,27447,1617774,127946,10328,0,55233
+2025-02,Shenzhen Bay,Outbound,1026655,394812,34859,1456326,128047,10080,0,54533
+2025-02,Port Control,Inbound,158,4,1068,1230,0,0,0,0
+2025-02,Port Control,Outbound,242,10,855,1107,0,0,0,0
+2025-02,Hong Kong-Macau Ferry Terminal,Inbound,155130,43885,80315,279330,0,0,0,0
+2025-02,Hong Kong-Macau Ferry Terminal,Outbound,149031,61048,84460,294539,0,0,0,0
+2025-02,Hong Kong-Zhuhai-Macau Bridge,Inbound,845802,221797,135495,1203094,156083,6853,19410,16151
+2025-02,Hong Kong-Zhuhai-Macau Bridge,Outbound,741148,346453,138230,1225831,141072,6871,19423,10978
+2025-02,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-02,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-02,Luohu,Inbound,2135067,416684,21623,2573374,0,0,0,0
+2025-02,Luohu,Outbound,1920177,482293,22937,2425407,0,0,0,0
+2025-02,Lok Ma Chau,Inbound,422401,85941,9561,517903,102785,12194,3970,39644
+2025-02,Lok Ma Chau,Outbound,313841,131678,13775,459294,101657,12621,3909,46818
+2025-02,Lok Ma Chau Loop,Inbound,1645018,488051,12150,2145219,0,0,0,0
+2025-02,Lok Ma Chau Loop,Outbound,1618513,453911,12519,2084943,0,0,0,0
+2025-02,Heung Yuen Wai,Inbound,867304,217966,5437,1090707,22857,2870,0,17941
+2025-02,Heung Yuen Wai,Outbound,843303,122091,6838,972232,22897,2788,0,14972
+2025-02,West Kowloon (High-speed Rail),Inbound,587706,551746,34291,1173743,0,0,0,0
+2025-02,West Kowloon (High-speed Rail),Outbound,429418,545097,36079,1010594,0,0,0,0
+2025-03,China Ferry Terminal,Inbound,16256,13812,1683,31751,0,0,0,0
+2025-03,China Ferry Terminal,Outbound,16918,12326,1584,30828,0,0,0,0
+2025-03,Kai Tak Cruise Terminal,Inbound,212,43,26114,26369,0,0,0,0
+2025-03,Kai Tak Cruise Terminal,Outbound,329,28,26244,26601,0,0,0,0
+2025-03,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-03,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-03,Man Kam To,Inbound,68860,18792,534,88186,4840,3577,0,31368
+2025-03,Man Kam To,Outbound,71577,15954,399,87930,4781,3505,0,34542
+2025-03,Airport,Inbound,864989,258230,657386,1780605,0,0,0,0
+2025-03,Airport,Outbound,871831,229289,653524,1754644,0,0,0,0
+2025-03,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-03,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-03,Shenzhen Bay,Inbound,1352152,385897,39355,1777404,151879,12879,0,75180
+2025-03,Shenzhen Bay,Outbound,1327738,374223,40368,1742329,152231,12574,0,75160
+2025-03,Port Control,Inbound,181,23,1491,1695,0,0,0,0
+2025-03,Port Control,Outbound,116,20,990,1126,0,0,0,0
+2025-03,Hong Kong-Macau Ferry Terminal,Inbound,162769,27874,83734,274377,0,0,0,0
+2025-03,Hong Kong-Macau Ferry Terminal,Outbound,159162,37420,87371,283953,0,0,0,0
+2025-03,Hong Kong-Zhuhai-Macau Bridge,Inbound,832908,163531,142972,1139411,156943,6569,21323,21714
+2025-03,Hong Kong-Zhuhai-Macau Bridge,Outbound,833848,369560,145830,1349238,155502,6564,21330,14020
+2025-03,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-03,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-03,Luohu,Inbound,2435236,413531,28583,2877350,0,0,0,0
+2025-03,Luohu,Outbound,2402186,481042,29669,2912897,0,0,0,0
+2025-03,Lok Ma Chau,Inbound,475048,88780,14388,578216,121526,13850,4244,53484
+2025-03,Lok Ma Chau,Outbound,378642,119141,15615,513398,120513,14374,4319,62618
+2025-03,Lok Ma Chau Loop,Inbound,1909569,507197,15017,2431783,0,0,0,0
+2025-03,Lok Ma Chau Loop,Outbound,2003809,479883,14611,2498303,0,0,0,0
+2025-03,Heung Yuen Wai,Inbound,1026979,334759,7129,1368867,27472,3397,0,27081
+2025-03,Heung Yuen Wai,Outbound,1046252,141277,8720,1196249,27589,3253,0,22137
+2025-03,West Kowloon (High-speed Rail),Inbound,564498,536146,51805,1152449,0,0,0,0
+2025-03,West Kowloon (High-speed Rail),Outbound,579675,487173,53332,1120180,0,0,0,0
+2025-04,China Ferry Terminal,Inbound,27163,15245,2319,44727,0,0,0,0
+2025-04,China Ferry Terminal,Outbound,29983,13477,2147,45607,0,0,0,0
+2025-04,Kai Tak Cruise Terminal,Inbound,3611,4325,20287,28223,0,0,0,0
+2025-04,Kai Tak Cruise Terminal,Outbound,4423,5914,18232,28569,0,0,0,0
+2025-04,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-04,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-04,Man Kam To,Inbound,63259,18496,803,82558,4616,3481,0,30524
+2025-04,Man Kam To,Outbound,66637,14761,454,81852,4594,3415,0,34282
+2025-04,Airport,Inbound,1146520,266118,596228,2008866,0,0,0,0
+2025-04,Airport,Outbound,1176813,257969,604328,2039110,0,0,0,0
+2025-04,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-04,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-04,Shenzhen Bay,Inbound,1445785,424208,49366,1919359,155149,7711,0,68195
+2025-04,Shenzhen Bay,Outbound,1421863,385403,49881,1857147,155107,7416,0,69660
+2025-04,Port Control,Inbound,208,18,1242,1468,0,0,0,0
+2025-04,Port Control,Outbound,207,25,943,1175,0,0,0,0
+2025-04,Hong Kong-Macau Ferry Terminal,Inbound,183575,30145,76057,289777,0,0,0,0
+2025-04,Hong Kong-Macau Ferry Terminal,Outbound,182519,38936,78998,300453,0,0,0,0
+2025-04,Hong Kong-Zhuhai-Macau Bridge,Inbound,1007293,166268,148053,1321614,173346,9639,20984,21202
+2025-04,Hong Kong-Zhuhai-Macau Bridge,Outbound,1028004,316175,143890,1488069,175433,9634,20999,13659
+2025-04,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-04,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-04,Luohu,Inbound,2421915,414986,30785,2867686,0,0,0,0
+2025-04,Luohu,Outbound,2426294,484302,32045,2942641,0,0,0,0
+2025-04,Lok Ma Chau,Inbound,504584,105407,17153,627144,123165,15389,3973,53659
+2025-04,Lok Ma Chau,Outbound,400147,146790,17753,564690,122982,15014,4017,61446
+2025-04,Lok Ma Chau Loop,Inbound,1904136,481202,15823,2401161,0,0,0,0
+2025-04,Lok Ma Chau Loop,Outbound,2017024,450359,15298,2482681,0,0,0,0
+2025-04,Heung Yuen Wai,Inbound,976506,277073,7495,1261074,27084,3140,0,26480
+2025-04,Heung Yuen Wai,Outbound,989340,136109,9456,1134905,27236,2968,0,20739
+2025-04,West Kowloon (High-speed Rail),Inbound,732392,608800,70291,1411483,0,0,0,0
+2025-04,West Kowloon (High-speed Rail),Outbound,758175,518966,68368,1345509,0,0,0,0
+2025-05,China Ferry Terminal,Inbound,18121,17571,1648,37340,0,0,0,0
+2025-05,China Ferry Terminal,Outbound,19362,14391,1499,35252,0,0,0,0
+2025-05,Kai Tak Cruise Terminal,Inbound,1210,6295,1780,9285,0,0,0,0
+2025-05,Kai Tak Cruise Terminal,Outbound,1196,6303,2030,9529,0,0,0,0
+2025-05,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-05,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-05,Man Kam To,Inbound,68990,22778,688,92456,5096,3706,0,31530
+2025-05,Man Kam To,Outbound,71885,17635,404,89924,4965,3654,0,35515
+2025-05,Airport,Inbound,927455,337641,566192,1831288,0,0,0,0
+2025-05,Airport,Outbound,936367,290654,552377,1779398,0,0,0,0
+2025-05,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-05,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-05,Shenzhen Bay,Inbound,1306315,456661,37489,1800465,156549,9138,0,66455
+2025-05,Shenzhen Bay,Outbound,1333296,453353,38414,1825063,156968,8776,0,68926
+2025-05,Port Control,Inbound,346,8,1076,1430,0,0,0,0
+2025-05,Port Control,Outbound,342,20,1007,1369,0,0,0,0
+2025-05,Hong Kong-Macau Ferry Terminal,Inbound,168952,34547,81311,284810,0,0,0,0
+2025-05,Hong Kong-Macau Ferry Terminal,Outbound,170244,46389,95987,312620,0,0,0,0
+2025-05,Hong Kong-Zhuhai-Macau Bridge,Inbound,856474,178987,152018,1187479,174408,7544,20556,23391
+2025-05,Hong Kong-Zhuhai-Macau Bridge,Outbound,904769,295824,136508,1337101,181552,7550,20530,14629
+2025-05,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-05,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-05,Luohu,Inbound,2329202,471860,25591,2826653,0,0,0,0
+2025-05,Luohu,Outbound,2376047,577676,27307,2981030,0,0,0,0
+2025-05,Lok Ma Chau,Inbound,480755,120223,13551,614529,125372,15035,3813,49718
+2025-05,Lok Ma Chau,Outbound,398016,197614,15270,610900,124692,15208,3832,57956
+2025-05,Lok Ma Chau Loop,Inbound,1798216,567826,13791,2379833,0,0,0,0
+2025-05,Lok Ma Chau Loop,Outbound,1943810,524687,13583,2482080,0,0,0,0
+2025-05,Heung Yuen Wai,Inbound,985365,242252,8637,1236254,29093,3297,0,26440
+2025-05,Heung Yuen Wai,Outbound,1016446,146932,11002,1174380,29204,3111,0,20073
+2025-05,West Kowloon (High-speed Rail),Inbound,541399,665538,53306,1260243,0,0,0,0
+2025-05,West Kowloon (High-speed Rail),Outbound,568622,555927,49306,1173855,0,0,0,0
+2025-06,China Ferry Terminal,Inbound,14330,11088,1479,26897,0,0,0,0
+2025-06,China Ferry Terminal,Outbound,14765,10388,1342,26495,0,0,0,0
+2025-06,Kai Tak Cruise Terminal,Inbound,2687,4932,1582,9201,0,0,0,0
+2025-06,Kai Tak Cruise Terminal,Outbound,4319,5117,1125,10561,0,0,0,0
+2025-06,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-06,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-06,Man Kam To,Inbound,64998,17926,543,83467,4829,3319,0,31532
+2025-06,Man Kam To,Outbound,68413,15436,347,84196,4800,3257,0,35179
+2025-06,Airport,Inbound,891534,321761,525140,1738435,0,0,0,0
+2025-06,Airport,Outbound,950842,251520,525581,1727943,0,0,0,0
+2025-06,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-06,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-06,Shenzhen Bay,Inbound,1323370,385048,35962,1744380,159217,9776,0,67117
+2025-06,Shenzhen Bay,Outbound,1287347,390247,40269,1717863,160191,9685,0,70596
+2025-06,Port Control,Inbound,166,2,1040,1208,0,0,0,0
+2025-06,Port Control,Outbound,196,19,989,1204,0,0,0,0
+2025-06,Hong Kong-Macau Ferry Terminal,Inbound,165439,27440,66631,259510,0,0,0,0
+2025-06,Hong Kong-Macau Ferry Terminal,Outbound,163643,37639,80353,281635,0,0,0,0
+2025-06,Hong Kong-Zhuhai-Macau Bridge,Inbound,845179,150006,136339,1131524,162956,6170,19900,24398
+2025-06,Hong Kong-Zhuhai-Macau Bridge,Outbound,837176,235410,127261,1199847,161117,6164,19915,14462
+2025-06,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-06,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-06,Luohu,Inbound,2341158,381162,23094,2745414,0,0,0,0
+2025-06,Luohu,Outbound,2311765,451370,24717,2787852,0,0,0,0
+2025-06,Lok Ma Chau,Inbound,474739,91191,12913,578843,124244,13881,3752,50430
+2025-06,Lok Ma Chau,Outbound,379880,133748,16053,529681,123656,13883,3809,58858
+2025-06,Lok Ma Chau Loop,Inbound,1819808,453392,13083,2286283,0,0,0,0
+2025-06,Lok Ma Chau Loop,Outbound,1912757,432186,13450,2358393,0,0,0,0
+2025-06,Heung Yuen Wai,Inbound,974469,194856,6395,1175720,30295,3277,0,27278
+2025-06,Heung Yuen Wai,Outbound,971912,124878,8054,1104844,30650,3153,0,21229
+2025-06,West Kowloon (High-speed Rail),Inbound,549837,571047,47198,1168082,0,0,0,0
+2025-06,West Kowloon (High-speed Rail),Outbound,547805,522243,49775,1119823,0,0,0,0
+2025-07,China Ferry Terminal,Inbound,14372,16586,1302,32260,0,0,0,0
+2025-07,China Ferry Terminal,Outbound,15763,14183,1263,31209,0,0,0,0
+2025-07,Kai Tak Cruise Terminal,Inbound,12387,6264,1031,19682,0,0,0,0
+2025-07,Kai Tak Cruise Terminal,Outbound,11929,6422,1232,19583,0,0,0,0
+2025-07,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-07,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-07,Man Kam To,Inbound,55322,19365,545,75232,4857,2967,0,32157
+2025-07,Man Kam To,Outbound,60992,16260,404,77656,4786,2999,0,33325
+2025-07,Airport,Inbound,1022264,383804,510637,1916705,0,0,0,0
+2025-07,Airport,Outbound,1054512,374270,520426,1949208,0,0,0,0
+2025-07,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-07,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-07,Shenzhen Bay,Inbound,1300533,511981,43513,1856027,166150,11530,0,68054
+2025-07,Shenzhen Bay,Outbound,1285040,471276,40621,1796937,166344,11479,0,73541
+2025-07,Port Control,Inbound,388,56,1259,1703,0,0,0,0
+2025-07,Port Control,Outbound,310,83,1110,1503,0,0,0,0
+2025-07,Hong Kong-Macau Ferry Terminal,Inbound,171321,42429,59446,273196,0,0,0,0
+2025-07,Hong Kong-Macau Ferry Terminal,Outbound,165000,62534,71122,298656,0,0,0,0
+2025-07,Hong Kong-Zhuhai-Macau Bridge,Inbound,875656,242855,148877,1267388,164298,6247,21966,25502
+2025-07,Hong Kong-Zhuhai-Macau Bridge,Outbound,863803,393501,130601,1387905,167064,6280,21970,14980
+2025-07,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-07,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-07,Luohu,Inbound,2378958,502735,24925,2906618,0,0,0,0
+2025-07,Luohu,Outbound,2359867,593400,25911,2979178,0,0,0,0
+2025-07,Lok Ma Chau,Inbound,477994,123946,15713,617653,125619,14161,3875,54289
+2025-07,Lok Ma Chau,Outbound,381734,156730,16148,554612,124639,14237,3898,62360
+2025-07,Lok Ma Chau Loop,Inbound,1798074,576859,14914,2389847,0,0,0,0
+2025-07,Lok Ma Chau Loop,Outbound,1899208,530166,14561,2443935,0,0,0,0
+2025-07,Heung Yuen Wai,Inbound,955001,299001,7458,1261460,31947,3117,0,29385
+2025-07,Heung Yuen Wai,Outbound,951938,177037,9152,1138127,32126,3033,0,24992
+2025-07,West Kowloon (High-speed Rail),Inbound,593487,783124,52205,1428816,0,0,0,0
+2025-07,West Kowloon (High-speed Rail),Outbound,598541,674984,47728,1321253,0,0,0,0
+2025-08,China Ferry Terminal,Inbound,15900,20905,1524,38329,0,0,0,0
+2025-08,China Ferry Terminal,Outbound,15810,18192,1298,35300,0,0,0,0
+2025-08,Kai Tak Cruise Terminal,Inbound,20288,9446,1696,31430,0,0,0,0
+2025-08,Kai Tak Cruise Terminal,Outbound,20102,9828,1892,31822,0,0,0,0
+2025-08,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-08,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-08,Man Kam To,Inbound,57098,21606,466,79170,5163,3113,0,31951
+2025-08,Man Kam To,Outbound,62320,17745,341,80406,5048,3126,0,31888
+2025-08,Airport,Inbound,1239238,444675,538409,2222322,0,0,0,0
+2025-08,Airport,Outbound,1081190,405544,544416,2031150,0,0,0,0
+2025-08,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-08,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-08,Shenzhen Bay,Inbound,1454768,609622,41953,2106343,178037,11277,0,69116
+2025-08,Shenzhen Bay,Outbound,1393068,591646,39598,2024312,177330,11102,0,74821
+2025-08,Port Control,Inbound,709,15,1246,1970,0,0,0,0
+2025-08,Port Control,Outbound,344,26,949,1319,0,0,0,0
+2025-08,Hong Kong-Macau Ferry Terminal,Inbound,172474,49418,68786,290678,0,0,0,0
+2025-08,Hong Kong-Macau Ferry Terminal,Outbound,171890,71532,80835,324257,0,0,0,0
+2025-08,Hong Kong-Zhuhai-Macau Bridge,Inbound,983846,288020,160113,1431979,187090,7089,23722,26458
+2025-08,Hong Kong-Zhuhai-Macau Bridge,Outbound,978083,449693,153904,1581680,187035,7067,23712,15732
+2025-08,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-08,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-08,Luohu,Inbound,2561859,617557,25379,3204795,0,0,0,0
+2025-08,Luohu,Outbound,2520670,772873,26734,3320277,0,0,0,0
+2025-08,Lok Ma Chau,Inbound,526221,133481,15253,674955,132010,14809,3680,49624
+2025-08,Lok Ma Chau,Outbound,411299,206508,15802,633609,130697,14803,3744,57597
+2025-08,Lok Ma Chau Loop,Inbound,1941643,723042,15596,2680281,0,0,0,0
+2025-08,Lok Ma Chau Loop,Outbound,2048982,651289,15136,2715407,0,0,0,0
+2025-08,Heung Yuen Wai,Inbound,1003919,330559,7460,1341938,33327,3785,0,29359
+2025-08,Heung Yuen Wai,Outbound,993457,212785,10119,1216361,33178,3674,0,26226
+2025-08,West Kowloon (High-speed Rail),Inbound,681772,973497,53520,1708789,0,0,0,0
+2025-08,West Kowloon (High-speed Rail),Outbound,611417,855580,47948,1514945,0,0,0,0
+2025-09,China Ferry Terminal,Inbound,9925,8232,1106,19263,0,0,0,0
+2025-09,China Ferry Terminal,Outbound,10903,7003,872,18778,0,0,0,0
+2025-09,Kai Tak Cruise Terminal,Inbound,11071,9938,2924,23933,0,0,0,0
+2025-09,Kai Tak Cruise Terminal,Outbound,11338,9686,3127,24151,0,0,0,0
+2025-09,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-09,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-09,Man Kam To,Inbound,72323,18018,517,90858,5076,3323,0,31343
+2025-09,Man Kam To,Outbound,72953,15488,325,88766,4990,3320,0,30973
+2025-09,Airport,Inbound,762256,268467,507856,1538579,0,0,0,0
+2025-09,Airport,Outbound,790390,310506,516805,1617701,0,0,0,0
+2025-09,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-09,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-09,Shenzhen Bay,Inbound,1217180,393217,40015,1650412,166818,10341,0,71346
+2025-09,Shenzhen Bay,Outbound,1199667,351274,35937,1586878,167640,10352,0,77525
+2025-09,Port Control,Inbound,198,51,1038,1287,0,0,0,0
+2025-09,Port Control,Outbound,173,45,893,1111,0,0,0,0
+2025-09,Hong Kong-Macau Ferry Terminal,Inbound,134687,20538,57103,212328,0,0,0,0
+2025-09,Hong Kong-Macau Ferry Terminal,Outbound,134150,26481,69952,230583,0,0,0,0
+2025-09,Hong Kong-Zhuhai-Macau Bridge,Inbound,706163,121348,114182,941693,145739,5509,17746,27802
+2025-09,Hong Kong-Zhuhai-Macau Bridge,Outbound,719215,191547,98904,1009666,147736,5522,17753,17404
+2025-09,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-09,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-09,Luohu,Inbound,2259360,360806,23171,2643337,0,0,0,0
+2025-09,Luohu,Outbound,2284571,421843,23703,2730117,0,0,0,0
+2025-09,Lok Ma Chau,Inbound,416128,104228,15678,536034,124080,13473,2978,48865
+2025-09,Lok Ma Chau,Outbound,349604,122798,14712,487114,123360,13337,3066,55467
+2025-09,Lok Ma Chau Loop,Inbound,1738844,453827,12890,2205561,0,0,0,0
+2025-09,Lok Ma Chau Loop,Outbound,1827103,418442,12111,2257656,0,0,0,0
+2025-09,Heung Yuen Wai,Inbound,923237,188797,6363,1118397,33793,3795,0,28086
+2025-09,Heung Yuen Wai,Outbound,927713,119939,7616,1055268,34335,3693,0,25651
+2025-09,West Kowloon (High-speed Rail),Inbound,528555,509403,52885,1090843,0,0,0,0
+2025-09,West Kowloon (High-speed Rail),Outbound,513934,429911,46766,990611,0,0,0,0
+2025-10,China Ferry Terminal,Inbound,16831,19561,2337,38729,0,0,0,0
+2025-10,China Ferry Terminal,Outbound,18115,17568,2440,38123,0,0,0,0
+2025-10,Kai Tak Cruise Terminal,Inbound,14487,10395,13399,38281,0,0,0,0
+2025-10,Kai Tak Cruise Terminal,Outbound,14956,9181,13506,37643,0,0,0,0
+2025-10,Tuen Mun Ferry Terminal,Inbound,0,0,0,0,0,0,0,0
+2025-10,Tuen Mun Ferry Terminal,Outbound,0,0,0,0,0,0,0,0
+2025-10,Man Kam To,Inbound,84040,23057,598,107695,5360,3823,0,31496
+2025-10,Man Kam To,Outbound,84357,18829,431,103617,5333,3802,0,30599
+2025-10,Airport,Inbound,949021,416298,687303,2052622,0,0,0,0
+2025-10,Airport,Outbound,960121,307756,617230,1885107,0,0,0,0
+2025-10,Sha Tau Kok,Inbound,0,0,0,0,0,0,0,0
+2025-10,Sha Tau Kok,Outbound,0,0,0,0,0,0,0,0
+2025-10,Shenzhen Bay,Inbound,1430203,507855,48606,1986664,182951,8828,0,69096
+2025-10,Shenzhen Bay,Outbound,1430426,528203,60459,2019088,184075,8940,0,75555
+2025-10,Port Control,Inbound,381,27,1155,1563,0,0,0,0
+2025-10,Port Control,Outbound,401,84,993,1478,0,0,0,0
+2025-10,Hong Kong-Macau Ferry Terminal,Inbound,154387,33377,80597,268361,0,0,0,0
+2025-10,Hong Kong-Macau Ferry Terminal,Outbound,155509,46627,101869,304005,0,0,0,0
+2025-10,Hong Kong-Zhuhai-Macau Bridge,Inbound,859386,189820,150811,1200017,195178,6962,20049,28446
+2025-10,Hong Kong-Zhuhai-Macau Bridge,Outbound,870555,321760,133982,1326297,196820,6963,20063,18501
+2025-10,Hung Hom,Inbound,0,0,0,0,0,0,0,0
+2025-10,Hung Hom,Outbound,0,0,0,0,0,0,0,0
+2025-10,Luohu,Inbound,2519582,486128,30685,3036395,0,0,0,0
+2025-10,Luohu,Outbound,2524992,607308,33913,3166213,0,0,0,0
+2025-10,Lok Ma Chau,Inbound,473048,131614,17417,622079,134836,15310,3219,41920
+2025-10,Lok Ma Chau,Outbound,398662,193842,22901,615405,133499,15770,3237,48670
+2025-10,Lok Ma Chau Loop,Inbound,1911853,647948,16859,2576660,0,0,0,0
+2025-10,Lok Ma Chau Loop,Outbound,2021240,617119,17123,2655482,0,0,0,0
+2025-10,Heung Yuen Wai,Inbound,1044846,282525,9702,1337073,36873,4706,0,26676
+2025-10,Heung Yuen Wai,Outbound,1056563,166413,12043,1235019,37297,4578,0,23751
+2025-10,West Kowloon (High-speed Rail),Inbound,622469,702237,78745,1403451,0,0,0,0
+2025-10,West Kowloon (High-speed Rail),Outbound,625973,621962,86184,1334119,0,0,0,0
