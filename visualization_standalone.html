@@ -146,6 +146,28 @@
     z-index: 10;
     pointer-events: auto;
   }
+  #news-ticker {
+    position: absolute; left: 20px; top: 54px;
+    max-width: 700px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  #news-ticker .news-tag {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 4px;
+    margin-right: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    white-space: nowrap; line-height: 1;
+  }
+  #news-ticker .news-line {
+    display: flex; align-items: center;
+    font-size: 15px; color: #c8b496; line-height: 1.5;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  #news-ticker .news-line + .news-line { margin-top: 3px; }
   #butterfly-container {
     position: absolute; left: 16px; bottom: 466px;
     width: 320px; height: 130px;
@@ -344,6 +366,9 @@
     .hero h1 { font-size: 1.6rem; }
     #map-container { height: 450px; }
     #sunburst-container { width: 160px; height: 160px; }
+    #news-ticker { max-width: 300px; }
+    #news-ticker .news-line { font-size: 12px; }
+    #news-ticker .news-tag { font-size: 9px; }
     #butterfly-container { width: 220px; height: 90px; bottom: 340px; }
     #fx-chart-container { width: 220px; height: 130px; }
     .map-month-label { font-size: 1.2rem; min-width: 80px; }
@@ -376,13 +401,14 @@
       <span><i class="dot" style="background:#7ecba1"></i> XRL West Kowloon</span>
       <span><i class="dot" style="background:#d97a7a"></i> Land Ports</span>
       <span><i class="dot" style="background:#a896d3"></i> Sea Ports</span>
-      <span style="margin-left:8px; color:#706b63;">● Ripple size = Total Passengers</span>
+      <span style="margin-left:8px; color:#706b63;">● Bubble size = Total Passengers</span>
     </div>
     <div class="map-main">
       <div id="map-container"></div>
       <div id="sunburst-container"></div>
       <div id="butterfly-container"></div>
       <div id="fx-chart-container"></div>
+      <div id="news-ticker"></div>
     </div>
     <div class="map-popup-overlay" id="popup-overlay"></div>
     <div class="map-popup" id="map-popup">
@@ -44302,6 +44328,242 @@ const D = {
         "outbound": 2798137,
         "total": 4557698
       }
+    },
+    "events": {
+      "2019-12": [
+        {
+          "type": "Key Event",
+          "text": "COVID-19 begins to affect cross-boundary travel; Christmas"
+        }
+      ],
+      "2020-01": [
+        {
+          "type": "Port Closure",
+          "text": "From Jan 30: CFT, XRL WK, HHS, MFT, STK, TMFT, MKT suspend passenger services; New Year"
+        }
+      ],
+      "2020-02": [
+        {
+          "type": "Port Closure",
+          "text": "From Feb 4: LMC, LMCSL, LW, MFT suspend; Feb 5: Kai Tak Cruise Terminal suspends; CNY"
+        }
+      ],
+      "2020-04": [
+        {
+          "type": "Remain Closed",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2020-05": [
+        {
+          "type": "Remain Closed",
+          "text": "Labour Day"
+        }
+      ],
+      "2020-06": [
+        {
+          "type": "Special Adjustment",
+          "text": "LMCSL briefly resumes for cross-boundary students; Dragon Boat Festival"
+        }
+      ],
+      "2020-08": [
+        {
+          "type": "Port Opened",
+          "text": "HYW Heung Yuen Wai opens (freight only)"
+        }
+      ],
+      "2020-10": [
+        {
+          "type": "Remain Closed",
+          "text": "National Day"
+        }
+      ],
+      "2021-02": [
+        {
+          "type": "Remain Closed",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2021-04": [
+        {
+          "type": "Remain Closed",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2021-05": [
+        {
+          "type": "Remain Closed",
+          "text": "Labour Day"
+        }
+      ],
+      "2021-06": [
+        {
+          "type": "Port Suspended",
+          "text": "TMFT Tuen Mun Ferry Terminal permanently ceases cross-boundary passenger service; Dragon Boat Festival"
+        }
+      ],
+      "2021-07": [
+        {
+          "type": "Special Adjustment",
+          "text": "Kai Tak Cruise Terminal briefly resumes cruise-to-nowhere service"
+        }
+      ],
+      "2021-10": [
+        {
+          "type": "Remain Closed",
+          "text": "National Day"
+        }
+      ],
+      "2021-12": [
+        {
+          "type": "Special Clearance",
+          "text": "HYW & LMCSL set up special clearance for LegCo election voting; Christmas"
+        }
+      ],
+      "2022-01": [
+        {
+          "type": "Special Adjustment",
+          "text": "Kai Tak Cruise Terminal cruise-to-nowhere service halted"
+        }
+      ],
+      "2022-02": [
+        {
+          "type": "Remain Closed",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2022-03": [
+        {
+          "type": "Special Clearance",
+          "text": "Mainland medical team arrives via HYW Heung Yuen Wai (special clearance)"
+        }
+      ],
+      "2022-04": [
+        {
+          "type": "Remain Closed",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2022-05": [
+        {
+          "type": "Remain Closed",
+          "text": "Labour Day"
+        }
+      ],
+      "2022-06": [
+        {
+          "type": "Remain Closed",
+          "text": "Dragon Boat Festival"
+        }
+      ],
+      "2022-10": [
+        {
+          "type": "Remain Closed",
+          "text": "National Day"
+        }
+      ],
+      "2023-01": [
+        {
+          "type": "Port Reopened",
+          "text": "New Year; From Jan 7: CFT, LMCSL, MFT, MKT resume; Jan 14: XRL WK resumes; Jan 17: Kai Tak resumes"
+        }
+      ],
+      "2023-02": [
+        {
+          "type": "Full Reopening",
+          "text": "CNY; Feb 6: Full Shenzhen-HK reopening; LW, LMC, HYW fully resume; quota removed"
+        }
+      ],
+      "2023-04": [
+        {
+          "type": "Normal Operation",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2023-05": [
+        {
+          "type": "Normal Operation",
+          "text": "Labour Day"
+        }
+      ],
+      "2023-06": [
+        {
+          "type": "Normal Operation",
+          "text": "Dragon Boat Festival"
+        }
+      ],
+      "2023-09": [
+        {
+          "type": "Port Adjustment",
+          "text": "MKT Man Kam To suspends passenger & cargo clearance; Mid-Autumn Festival"
+        }
+      ],
+      "2023-10": [
+        {
+          "type": "Port Adjustment",
+          "text": "MKT Man Kam To gradually resumes cargo service; National Day"
+        }
+      ],
+      "2023-11": [
+        {
+          "type": "Port Reopened",
+          "text": "MKT Man Kam To fully resumes passenger & cargo clearance"
+        }
+      ],
+      "2023-12": [
+        {
+          "type": "Key Event",
+          "text": "All COVID restrictions lifted; cross-boundary travel fully normalised; Christmas"
+        }
+      ],
+      "2024-02": [
+        {
+          "type": "Normal Operation",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2024-04": [
+        {
+          "type": "Normal Operation",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2024-05": [
+        {
+          "type": "Normal Operation",
+          "text": "Labour Day"
+        }
+      ],
+      "2024-06": [
+        {
+          "type": "Normal Operation",
+          "text": "Dragon Boat Festival"
+        }
+      ],
+      "2024-07": [
+        {
+          "type": "Port Suspended",
+          "text": "HHS Hung Hom checkpoint permanently closed"
+        }
+      ],
+      "2024-10": [
+        {
+          "type": "Normal Operation",
+          "text": "National Day"
+        }
+      ],
+      "2025-02": [
+        {
+          "type": "Normal Operation",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2025-11": [
+        {
+          "type": "Normal Operation",
+          "text": "GBA National Games marathon event"
+        }
+      ]
     }
   }
 };
@@ -44735,6 +44997,26 @@ function updateButterflyChart(bc, mapMonth) {
   });
 }
 
+const EVENT_TAG_COLORS = {
+  'Port Closure': '#e05555', 'Remain Closed': '#c74a4a', 'Port Suspended': '#b04040',
+  'Port Reopened': '#50b880', 'Full Reopening': '#3aad6e', 'Port Opened': '#45c478',
+  'Port Adjustment': '#d4a84b', 'Special Adjustment': '#c4983b', 'Special Clearance': '#6ab0d8',
+  'Key Event': '#c084fc', 'Normal Operation': '#7a8a96',
+};
+
+function updateNewsTicker(eventsData, month) {
+  const el = document.getElementById('news-ticker');
+  if (!el || !eventsData) return;
+  const items = eventsData[month];
+  if (!items || items.length === 0) return;
+
+  el.innerHTML = items.map(ev => {
+    const bg = EVENT_TAG_COLORS[ev.type] || '#7a8a96';
+    return `<div class="news-line"><span class="news-tag" style="background:${bg};color:#fff;">${month} | ${ev.type}</span>${ev.text}</div>`;
+  }).join('');
+  el.style.opacity = '1';
+}
+
 function buildSunburstData(d, monthIdx) {
   const m = d.months[monthIdx];
   const entries = d.data[m] || [];
@@ -44876,14 +45158,29 @@ function setupMapControls(mapChart, d, buildFn, useGeo, sunChart, buildSunFn, fx
     }
     updateFxChart(fxChart, months[idx]);
     updateButterflyChart(butterflyChart, months[idx]);
+    updateNewsTicker(d.events, months[idx]);
+  }
+  function hasNews(idx) {
+    return d.events && d.events[months[idx]] && d.events[months[idx]].length > 0;
+  }
+  function playStep() {
+    currentIdx = (currentIdx + 1) % months.length;
+    if (currentIdx === 0) {
+      const el = document.getElementById('news-ticker');
+      if (el) { el.style.opacity = '0'; el.innerHTML = ''; }
+    }
+    update(currentIdx);
+    const delay = hasNews(currentIdx) ? 1200 : 600;
+    timer = setTimeout(playStep, delay);
   }
   function play() {
     if (timer) return;
     btnPlay.classList.add('active'); btnPause.classList.remove('active');
-    timer = setInterval(() => { currentIdx = (currentIdx + 1) % months.length; update(currentIdx); }, 600);
+    const delay = hasNews(currentIdx) ? 1200 : 600;
+    timer = setTimeout(playStep, delay);
   }
   function pause() {
-    clearInterval(timer); timer = null;
+    clearTimeout(timer); timer = null;
     btnPause.classList.add('active'); btnPlay.classList.remove('active');
   }
   slider.addEventListener('input', () => { pause(); update(parseInt(slider.value)); });

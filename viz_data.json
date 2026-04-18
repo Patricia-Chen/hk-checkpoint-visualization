@@ -43764,6 +43764,242 @@
         "outbound": 2798137,
         "total": 4557698
       }
+    },
+    "events": {
+      "2019-12": [
+        {
+          "type": "Key Event",
+          "text": "COVID-19 begins to affect cross-boundary travel; Christmas"
+        }
+      ],
+      "2020-01": [
+        {
+          "type": "Port Closure",
+          "text": "From Jan 30: CFT, XRL WK, HHS, MFT, STK, TMFT, MKT suspend passenger services; New Year"
+        }
+      ],
+      "2020-02": [
+        {
+          "type": "Port Closure",
+          "text": "From Feb 4: LMC, LMCSL, LW, MFT suspend; Feb 5: Kai Tak Cruise Terminal suspends; CNY"
+        }
+      ],
+      "2020-04": [
+        {
+          "type": "Remain Closed",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2020-05": [
+        {
+          "type": "Remain Closed",
+          "text": "Labour Day"
+        }
+      ],
+      "2020-06": [
+        {
+          "type": "Special Adjustment",
+          "text": "LMCSL briefly resumes for cross-boundary students; Dragon Boat Festival"
+        }
+      ],
+      "2020-08": [
+        {
+          "type": "Port Opened",
+          "text": "HYW Heung Yuen Wai opens (freight only)"
+        }
+      ],
+      "2020-10": [
+        {
+          "type": "Remain Closed",
+          "text": "National Day"
+        }
+      ],
+      "2021-02": [
+        {
+          "type": "Remain Closed",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2021-04": [
+        {
+          "type": "Remain Closed",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2021-05": [
+        {
+          "type": "Remain Closed",
+          "text": "Labour Day"
+        }
+      ],
+      "2021-06": [
+        {
+          "type": "Port Suspended",
+          "text": "TMFT Tuen Mun Ferry Terminal permanently ceases cross-boundary passenger service; Dragon Boat Festival"
+        }
+      ],
+      "2021-07": [
+        {
+          "type": "Special Adjustment",
+          "text": "Kai Tak Cruise Terminal briefly resumes cruise-to-nowhere service"
+        }
+      ],
+      "2021-10": [
+        {
+          "type": "Remain Closed",
+          "text": "National Day"
+        }
+      ],
+      "2021-12": [
+        {
+          "type": "Special Clearance",
+          "text": "HYW & LMCSL set up special clearance for LegCo election voting; Christmas"
+        }
+      ],
+      "2022-01": [
+        {
+          "type": "Special Adjustment",
+          "text": "Kai Tak Cruise Terminal cruise-to-nowhere service halted"
+        }
+      ],
+      "2022-02": [
+        {
+          "type": "Remain Closed",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2022-03": [
+        {
+          "type": "Special Clearance",
+          "text": "Mainland medical team arrives via HYW Heung Yuen Wai (special clearance)"
+        }
+      ],
+      "2022-04": [
+        {
+          "type": "Remain Closed",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2022-05": [
+        {
+          "type": "Remain Closed",
+          "text": "Labour Day"
+        }
+      ],
+      "2022-06": [
+        {
+          "type": "Remain Closed",
+          "text": "Dragon Boat Festival"
+        }
+      ],
+      "2022-10": [
+        {
+          "type": "Remain Closed",
+          "text": "National Day"
+        }
+      ],
+      "2023-01": [
+        {
+          "type": "Port Reopened",
+          "text": "New Year; From Jan 7: CFT, LMCSL, MFT, MKT resume; Jan 14: XRL WK resumes; Jan 17: Kai Tak resumes"
+        }
+      ],
+      "2023-02": [
+        {
+          "type": "Full Reopening",
+          "text": "CNY; Feb 6: Full Shenzhen-HK reopening; LW, LMC, HYW fully resume; quota removed"
+        }
+      ],
+      "2023-04": [
+        {
+          "type": "Normal Operation",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2023-05": [
+        {
+          "type": "Normal Operation",
+          "text": "Labour Day"
+        }
+      ],
+      "2023-06": [
+        {
+          "type": "Normal Operation",
+          "text": "Dragon Boat Festival"
+        }
+      ],
+      "2023-09": [
+        {
+          "type": "Port Adjustment",
+          "text": "MKT Man Kam To suspends passenger & cargo clearance; Mid-Autumn Festival"
+        }
+      ],
+      "2023-10": [
+        {
+          "type": "Port Adjustment",
+          "text": "MKT Man Kam To gradually resumes cargo service; National Day"
+        }
+      ],
+      "2023-11": [
+        {
+          "type": "Port Reopened",
+          "text": "MKT Man Kam To fully resumes passenger & cargo clearance"
+        }
+      ],
+      "2023-12": [
+        {
+          "type": "Key Event",
+          "text": "All COVID restrictions lifted; cross-boundary travel fully normalised; Christmas"
+        }
+      ],
+      "2024-02": [
+        {
+          "type": "Normal Operation",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2024-04": [
+        {
+          "type": "Normal Operation",
+          "text": "Ching Ming Festival; Easter"
+        }
+      ],
+      "2024-05": [
+        {
+          "type": "Normal Operation",
+          "text": "Labour Day"
+        }
+      ],
+      "2024-06": [
+        {
+          "type": "Normal Operation",
+          "text": "Dragon Boat Festival"
+        }
+      ],
+      "2024-07": [
+        {
+          "type": "Port Suspended",
+          "text": "HHS Hung Hom checkpoint permanently closed"
+        }
+      ],
+      "2024-10": [
+        {
+          "type": "Normal Operation",
+          "text": "National Day"
+        }
+      ],
+      "2025-02": [
+        {
+          "type": "Normal Operation",
+          "text": "Chinese New Year"
+        }
+      ],
+      "2025-11": [
+        {
+          "type": "Normal Operation",
+          "text": "GBA National Games marathon event"
+        }
+      ]
     }
   }
 }

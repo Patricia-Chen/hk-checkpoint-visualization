@@ -551,6 +551,80 @@ for m in map_months:
     outb = int(dir_agg.get('出境', 0))
     flow_data[m] = {'inbound': inb, 'outbound': outb, 'total': inb + outb}
 
+EVENT_TYPE_EN = {
+    '关键事件': 'Key Event',
+    '口岸关闭': 'Port Closure',
+    '口岸恢复': 'Port Reopened',
+    '口岸开通': 'Port Opened',
+    '口岸调整': 'Port Adjustment',
+    '口岸停运': 'Port Suspended',
+    '维持关闭': 'Remain Closed',
+    '全面通关': 'Full Reopening',
+    '特殊调整': 'Special Adjustment',
+    '特殊通关': 'Special Clearance',
+    '正常运行': 'Normal Operation',
+}
+
+EVENT_TEXT_EN = {
+    '新冠疫情开始影响跨境出行筹备，圣诞节':
+        'COVID-19 begins to affect cross-boundary travel; Christmas',
+    '1.30起CFT、ERLWK、HHS、MFT、STK、TMFT、MKT暂停客运，元旦':
+        'From Jan 30: CFT, XRL WK, HHS, MFT, STK, TMFT, MKT suspend passenger services; New Year',
+    '2.4起LMC、LMCSL、LWT、MFT暂停客运；2.5启德邮轮码头暂停客运，春节':
+        'From Feb 4: LMC, LMCSL, LW, MFT suspend; Feb 5: Kai Tak Cruise Terminal suspends; CNY',
+    '清明、复活节':
+        'Ching Ming Festival; Easter',
+    '五一劳动节':
+        'Labour Day',
+    'LMCSL短暂恢复跨境学生通关，端午节':
+        'LMCSL briefly resumes for cross-boundary students; Dragon Boat Festival',
+    'HYW香园围启用（仅货运）':
+        'HYW Heung Yuen Wai opens (freight only)',
+    '国庆':
+        'National Day',
+    '春节':
+        'Chinese New Year',
+    'TMFT屯门客运码头跨境客运正式停运，端午节':
+        'TMFT Tuen Mun Ferry Terminal permanently ceases cross-boundary passenger service; Dragon Boat Festival',
+    '启德邮轮码头短暂恢复公海游服务':
+        'Kai Tak Cruise Terminal briefly resumes cruise-to-nowhere service',
+    'HYW、LMCSL设立立法会选举投票专用通关，圣诞节':
+        'HYW & LMCSL set up special clearance for LegCo election voting; Christmas',
+    '启德邮轮码头公海游停止':
+        'Kai Tak Cruise Terminal cruise-to-nowhere service halted',
+    '内地援港医疗队经HYW香园围抵港（专项通关）':
+        'Mainland medical team arrives via HYW Heung Yuen Wai (special clearance)',
+    '端午节':
+        'Dragon Boat Festival',
+    '元旦；1.7起CFT、LMCSL、MFT、MKT恢复；1.14 ERLWK恢复；1.17启德恢复':
+        'New Year; From Jan 7: CFT, LMCSL, MFT, MKT resume; Jan 14: XRL WK resumes; Jan 17: Kai Tak resumes',
+    '春节；2.6深港全面通关；LWT、LMC、HYW全面恢复；取消预约限额':
+        'CNY; Feb 6: Full Shenzhen-HK reopening; LW, LMC, HYW fully resume; quota removed',
+    'MKT文锦渡暂停客货通关，中秋节':
+        'MKT Man Kam To suspends passenger & cargo clearance; Mid-Autumn Festival',
+    'MKT文锦渡逐步恢复货运服务，国庆':
+        'MKT Man Kam To gradually resumes cargo service; National Day',
+    'MKT文锦渡全面恢复客货通关':
+        'MKT Man Kam To fully resumes passenger & cargo clearance',
+    '疫情防控全面放开，跨境通关恢复常态，圣诞节':
+        'All COVID restrictions lifted; cross-boundary travel fully normalised; Christmas',
+    'HHS红磡管制站正式永久停运':
+        'HHS Hung Hom checkpoint permanently closed',
+    '大湾区全运会马拉松比赛':
+        'GBA National Games marathon event',
+}
+
+df_events = pd.read_csv('月历事件_v2.csv')
+events_data = {}
+for _, row in df_events.iterrows():
+    ym = f"{int(row['年份'])}-{int(row['月份']):02d}"
+    cn_type = str(row['事件类型'])
+    cn_text = str(row['具体事件'])
+    events_data.setdefault(ym, []).append({
+        'type': EVENT_TYPE_EN.get(cn_type, cn_type),
+        'text': EVENT_TEXT_EN.get(cn_text, cn_text),
+    })
+
 output['chart_map'] = {
     'months': map_months,
     'coords': coords_en,
@@ -558,6 +632,7 @@ output['chart_map'] = {
     'detail': map_detail,
     'fx': { 'months': fx_months, 'rates': fx_rates },
     'flow': flow_data,
+    'events': events_data,
 }
 
 # Write JSON
