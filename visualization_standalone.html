@@ -45008,7 +45008,10 @@ function updateNewsTicker(eventsData, month) {
   const el = document.getElementById('news-ticker');
   if (!el || !eventsData) return;
   const items = eventsData[month];
-  if (!items || items.length === 0) return;
+  if (!items || items.length === 0) {
+    el.style.opacity = '0';
+    return;
+  }
 
   el.innerHTML = items.map(ev => {
     const bg = EVENT_TAG_COLORS[ev.type] || '#7a8a96';
