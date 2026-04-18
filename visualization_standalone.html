@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Pulse of Hong Kong Tourism: From Passenger Flow to Economic Impact</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts-liquidfill@3.1.0/dist/echarts-liquidfill.min.js"></script>
 <style>
   :root {
     --bg: #141416;
@@ -464,12 +465,36 @@
     <div class="chart-card">
       <div id="t2-synced-chart" style="width:100%; height:600px;"></div>
     </div>
-    <div class="insight-box" id="t2-synced-insight"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div><h2>Attraction &amp; Museum Attendance</h2>
+      <span class="subtitle">Annual visitor numbers for theme parks and museums across Hong Kong</span></div>
+    </div>
+    <div style="display:flex; justify-content:center; gap:40px; padding:16px 0 8px;">
+      <div style="text-align:center;">
+        <div id="liquid-disney" style="width:140px; height:140px; margin:0 auto;"></div>
+        <div style="color:#e8a87c; font-size:0.85rem; font-weight:600; margin-top:6px;">Disneyland</div>
+      </div>
+      <div style="text-align:center;">
+        <div id="liquid-ocean" style="width:140px; height:140px; margin:0 auto;"></div>
+        <div style="color:#38bdf8; font-size:0.85rem; font-weight:600; margin-top:6px;">Ocean Park</div>
+      </div>
+      <div style="text-align:center;">
+        <div id="liquid-museums" style="width:140px; height:140px; margin:0 auto;"></div>
+        <div style="color:#a896d3; font-size:0.85rem; font-weight:600; margin-top:6px;">Museums</div>
+      </div>
+    </div>
+    <div style="text-align:center; color:#a09a90; font-size:0.75rem; padding-bottom:12px;">Post-COVID Recovery Rate (peak vs. 2019 baseline)</div>
+    <div class="chart-card">
+      <div id="t2-stream-chart" style="width:100%; height:520px;"></div>
+    </div>
   </div>
 </div>
 
 <div class="footer">
-  Data Source: Census and Statistics Department, HKSAR Government | Visual Analytics © 2026
+  <div>Data12 &nbsp;|&nbsp; HUANG Chudan, XIONG Yifan, LIANG Genming, TONG Shuwei, CHEN Hongyu</div>
 </div>
 
 <script>
@@ -44858,6 +44883,56 @@ const D = {
       8625,
       8959
     ]
+  },
+  "t2_stream": {
+    "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "venues": [
+      "Disneyland",
+      "Ocean Park",
+      "Museums"
+    ],
+    "data": [
+      [
+        6700000,
+        6500000,
+        1700000,
+        2800000,
+        3400000,
+        6400000,
+        7700000
+      ],
+      [
+        5700000,
+        2200000,
+        1400000,
+        1400000,
+        2400000,
+        3140000,
+        3460000
+      ],
+      [
+        5735263,
+        3666042,
+        849004,
+        3274454,
+        4370428,
+        7000367,
+        6638000
+      ]
+    ],
+    "recovery": [
+      114.9,
+      60.7,
+      122.1
+    ]
   }
 };
 const _geoHK = {
@@ -44906,6 +44981,7 @@ echarts.registerMap('HK', _geoHK);
 requestAnimationFrame(function() {
   renderMap(D.chart_map);
   if (D.t2_synced) renderT2Synced(D.t2_synced);
+  if (D.t2_stream) { renderLiquidBalls(D.t2_stream.recovery, D.t2_stream.venues); renderT2Stream(D.t2_stream); }
 });
 
 function fmt(n) {
@@ -45830,8 +45906,6 @@ function renderT2Synced(d) {
   }
 
   chart.setOption(buildOption(0));
-  document.getElementById('t2-synced-insight').innerHTML =
-    `<strong>Key Insight:</strong> ${indicators[0].insight}`;
 
   const btns = document.querySelectorAll('#t2-indicator-btns button');
   btns.forEach(btn => {
@@ -45840,9 +45914,108 @@ function renderT2Synced(d) {
       this.classList.add('active');
       const idx = parseInt(this.dataset.idx);
       chart.setOption(buildOption(idx), true);
-      document.getElementById('t2-synced-insight').innerHTML =
-        `<strong>Key Insight:</strong> ${indicators[idx].insight}`;
     });
+  });
+
+  window.addEventListener('resize', () => chart.resize());
+}
+
+/* ================================================================
+   Task 2: Streamgraph – Attractions & Museums Attendance
+   ================================================================ */
+
+function renderLiquidBalls(recovery, venues) {
+  const ids = ['liquid-disney', 'liquid-ocean', 'liquid-museums'];
+  const colors = ['#e8a87c', '#38bdf8', '#a896d3'];
+
+  recovery.forEach((pct, i) => {
+    const el = document.getElementById(ids[i]);
+    if (!el) return;
+    const chart = echarts.init(el);
+    const val = pct / 100;
+    const capped = Math.min(val, 1);
+
+    chart.setOption({
+      series: [{
+        type: 'liquidFill',
+        data: [capped, capped - 0.05, capped - 0.1],
+        radius: '85%',
+        color: [colors[i]],
+        backgroundStyle: { color: 'rgba(255,255,255,0.05)', borderColor: colors[i], borderWidth: 1 },
+        outline: { borderDistance: 3, itemStyle: { borderColor: colors[i], borderWidth: 2 } },
+        label: {
+          formatter: pct.toFixed(0) + '%',
+          fontSize: 22, fontWeight: 700, color: '#e8e4df',
+        },
+        shape: 'circle',
+      }],
+    });
+    window.addEventListener('resize', () => chart.resize());
+  });
+}
+
+function renderT2Stream(d) {
+  const el = document.getElementById('t2-stream-chart');
+  if (!el) return;
+  const chart = echarts.init(el);
+
+  const venueColorMap = {
+    'Disneyland': '#e8a87c',
+    'Ocean Park': '#38bdf8',
+    'Museums':    '#a896d3',
+  };
+  const venueColors = d.venues.map(v => venueColorMap[v] || '#7ecba1');
+
+  // Build themeRiver data: [[year, value, venueName], ...]
+  const riverData = [];
+  d.venues.forEach((venue, vi) => {
+    d.years.forEach((year, yi) => {
+      riverData.push([year, d.data[vi][yi], venue]);
+    });
+  });
+
+  chart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#4a4a52',
+      textStyle: { color: '#e8e4df', fontSize: 12 },
+      formatter: params => {
+        if (!params || !params.length) return '';
+        let s = `<b style="font-size:14px">${params[0].axisValue}</b>`;
+        const sorted = [...params].sort((a, b) => (b.value[1] || 0) - (a.value[1] || 0));
+        sorted.forEach(p => {
+          const val = p.value[1];
+          if (val > 0) {
+            const display = val >= 1e6 ? (val / 1e6).toFixed(1) + 'M' : val >= 1e3 ? (val / 1e3).toFixed(0) + 'K' : val;
+            s += `<br/><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color};margin-right:6px;vertical-align:middle;"></span>${p.value[2]}: <b>${display}</b>`;
+          }
+        });
+        return s;
+      },
+    },
+    singleAxis: {
+      type: 'value',
+      min: d.years[0] - 0.5,
+      max: d.years[d.years.length - 1] + 0.5,
+      bottom: 40, top: 30,
+      axisLabel: { color: '#a09a90', fontSize: 12, fontWeight: 600, interval: 0, formatter: v => Number.isInteger(v) ? String(v) : '' },
+      axisLine: { lineStyle: { color: '#2d2d35' } },
+      axisTick: { show: false },
+      splitLine: { show: false },
+    },
+    color: venueColors,
+    series: [{
+      type: 'themeRiver',
+      data: riverData,
+      label: {
+        show: true, fontSize: 11, color: '#e8e4df', fontWeight: 500,
+      },
+      emphasis: {
+        itemStyle: { shadowBlur: 12, shadowColor: 'rgba(0,0,0,0.4)' },
+      },
+      itemStyle: { borderWidth: 0.5, borderColor: 'rgba(255,255,255,0.1)' },
+    }],
   });
 
   window.addEventListener('resize', () => chart.resize());

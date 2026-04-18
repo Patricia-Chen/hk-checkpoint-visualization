@@ -698,6 +698,113 @@ output['t2_synced'] = {
 
 print(f"Task 2 synced panel: {len(t2_months)} months")
 
+# ============================================================
+# Task 2: Streamgraph – Attractions & Museums Attendance
+# ============================================================
+
+import re as _re
+
+# Disneyland (calendar year, value in millions)
+df_disney = pd.read_csv('迪士尼入场人次.CSV')
+df_disney.columns = [c.strip() for c in df_disney.columns]
+disney_dict = {}
+for _, row in df_disney.iterrows():
+    y = int(row.iloc[0])
+    v = float(row.iloc[1]) * 1_000_000
+    disney_dict[y] = int(v)
+
+# Ocean Park (fiscal year start year, "X.XX million" text)
+df_ocean = pd.read_csv('hkOceanPark.csv')
+df_ocean.columns = [c.strip() for c in df_ocean.columns]
+ocean_dict = {}
+for _, row in df_ocean.iterrows():
+    y = int(row.iloc[0])
+    att_str = str(row['Total Attendance']).strip()
+    m = _re.search(r'([\d.]+)\s*million', att_str, _re.IGNORECASE)
+    if m:
+        ocean_dict[y] = int(float(m.group(1)) * 1_000_000)
+
+# Museums (fiscal year "2019-20" → start year 2019)
+df_mus = pd.read_csv('香港博物馆入场人次统计.CSV')
+df_mus.columns = [c.strip().strip('"') for c in df_mus.columns]
+mus_year_cols = [c for c in df_mus.columns if c != '场地' and c != df_mus.columns[0]]
+if df_mus.columns[0] != '场地':
+    mus_year_cols = list(df_mus.columns[1:])
+
+museum_name_map = {
+    '香港艺术馆': 'HK Museum of Art',
+    '香港历史博物馆': 'HK Museum of History',
+    '香港科学馆': 'HK Science Museum',
+    '香港太空馆': 'HK Space Museum',
+    '香港文化博物馆': 'HK Heritage Museum',
+    '香港海防博物馆': 'HK Museum of Coastal Defence',
+    '三栋屋博物馆': 'Sam Tung Uk Museum',
+    '香港铁路博物馆': 'HK Railway Museum',
+    '茶具文物馆': 'Flagstaff House Museum of Tea Ware',
+    '上窰民俗文物馆': 'Sheung Yiu Folk Museum',
+    '罗屋民俗馆': 'Law Uk Folk Museum',
+    '李郑屋汉墓博物馆': 'Lei Cheng Uk Han Tomb Museum',
+    '香港电影资料馆': 'HK Film Archive',
+    '孙中山纪念馆': 'Dr Sun Yat-sen Museum',
+    '葛量洪号灭火轮展览馆': 'Fireboat Alexander Grantham Exhibition Gallery',
+    '香港视觉艺术中心': 'HK Visual Arts Centre',
+    '油街实现': 'Oi! Art Centre',
+}
+
+mus_data = {}
+for _, row in df_mus.iterrows():
+    cn_name = str(row.iloc[0]).strip().strip('"')
+    en_name = museum_name_map.get(cn_name, cn_name)
+    mus_data[en_name] = {}
+    for col in mus_year_cols:
+        fy = str(col).strip().strip('"')
+        start_year = int(fy.split('-')[0])
+        val_str = str(row[col]).strip().strip('"').replace(',', '')
+        try:
+            mus_data[en_name][start_year] = int(val_str)
+        except (ValueError, TypeError):
+            mus_data[en_name][start_year] = 0
+
+# Merge all museums into one "Museums" total
+mus_merged = {}
+for venue_data in mus_data.values():
+    for y, v in venue_data.items():
+        mus_merged[y] = mus_merged.get(y, 0) + v
+
+# Align to common years
+all_years_set = set(disney_dict.keys()) | set(ocean_dict.keys()) | set(mus_merged.keys())
+stream_years = sorted(y for y in all_years_set if y >= 2018)
+
+venues = ['Disneyland', 'Ocean Park', 'Museums']
+stream_data = [
+    [disney_dict.get(y, 0) for y in stream_years],
+    [ocean_dict.get(y, 0) for y in stream_years],
+    [mus_merged.get(y, 0) for y in stream_years],
+]
+
+# Recovery rate: post-COVID peak (2022-2024) / pre-COVID baseline (2018)
+disney_base = disney_dict.get(2018, disney_dict.get(2019, 1))
+disney_peak = max(disney_dict.get(y, 0) for y in range(2022, 2025))
+ocean_base = ocean_dict.get(2018, ocean_dict.get(2019, 1))
+ocean_peak = max(ocean_dict.get(y, 0) for y in range(2022, 2025))
+mus_base = mus_merged.get(2018, mus_merged.get(2019, 1))
+mus_peak = max(mus_merged.get(y, 0) for y in range(2022, 2025))
+
+recovery = [
+    round(disney_peak / disney_base * 100, 1),
+    round(ocean_peak / ocean_base * 100, 1),
+    round(mus_peak / mus_base * 100, 1),
+]
+
+output['t2_stream'] = {
+    'years': stream_years,
+    'venues': venues,
+    'data': stream_data,
+    'recovery': recovery,
+}
+
+print(f"Streamgraph: {len(venues)} venues, {len(stream_years)} years")
+
 # Write JSON
 with open('viz_data.json', 'w', encoding='utf-8') as f:
     json.dump(output, f, ensure_ascii=False, indent=2)

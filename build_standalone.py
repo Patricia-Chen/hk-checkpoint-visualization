@@ -23,10 +23,12 @@ old_block = """Promise.all([
   echarts.registerMap('HK', geoData);
   renderMap(D.chart_map);
   if (D.t2_synced) renderT2Synced(D.t2_synced);
+  if (D.t2_stream) { renderLiquidBalls(D.t2_stream.recovery, D.t2_stream.venues); renderT2Stream(D.t2_stream); }
 }).catch(() => {
   fetch('viz_data.json').then(r => r.json()).then(D => {
     renderMapFallback(D.chart_map);
     if (D.t2_synced) renderT2Synced(D.t2_synced);
+    if (D.t2_stream) { renderLiquidBalls(D.t2_stream.recovery, D.t2_stream.venues); renderT2Stream(D.t2_stream); }
   });
 });"""
 
@@ -36,6 +38,7 @@ echarts.registerMap('HK', _geoHK);
 requestAnimationFrame(function() {{
   renderMap(D.chart_map);
   if (D.t2_synced) renderT2Synced(D.t2_synced);
+  if (D.t2_stream) {{ renderLiquidBalls(D.t2_stream.recovery, D.t2_stream.venues); renderT2Stream(D.t2_stream); }}
 }});"""
 
 if old_block not in html:
