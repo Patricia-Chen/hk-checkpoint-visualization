@@ -635,6 +635,69 @@ output['chart_map'] = {
     'events': events_data,
 }
 
+# ============================================================
+# Task 2: Synced 5-panel socio-economic chart
+# ============================================================
+
+# Passenger flow (monthly total)
+df_map_monthly = df_map.groupby('年月')['总计'].sum().reset_index()
+df_map_monthly.columns = ['年月', 'total_pax']
+df_map_monthly = df_map_monthly.sort_values('年月')
+pax_dict_t2 = dict(zip(df_map_monthly['年月'], df_map_monthly['total_pax']))
+
+# Hotel occupancy
+df_hotel2 = pd.read_csv('酒店房间月度入住率.csv')
+df_hotel2.columns = [c.strip().strip('"') for c in df_hotel2.columns]
+df_hotel2['年月'] = df_hotel2['年月'].astype(str).str.strip('"')
+df_hotel2['年月_fmt'] = df_hotel2['年月'].str[:4] + '-' + df_hotel2['年月'].str[4:6]
+df_hotel2['occ'] = pd.to_numeric(df_hotel2['酒店房间入住率(%)'].astype(str).str.strip('"'), errors='coerce')
+hotel_occ_dict = dict(zip(df_hotel2['年月_fmt'], df_hotel2['occ']))
+
+# Hotel average room rate (overall, not by category)
+df_avg_rate = pd.read_csv('average_achieved_hotel_room_rate_sc.csv')
+df_avg_rate.columns = [c.strip().strip('"') for c in df_avg_rate.columns]
+df_avg_rate['年月'] = df_avg_rate['年月'].astype(str).str.strip('"')
+df_avg_rate['年月_fmt'] = df_avg_rate['年月'].str[:4] + '-' + df_avg_rate['年月'].str[4:6]
+df_avg_rate['rate'] = pd.to_numeric(df_avg_rate['酒店实际平均房租（港元）'].astype(str).str.strip('"'), errors='coerce')
+hotel_rate_dict = dict(zip(df_avg_rate['年月_fmt'], df_avg_rate['rate']))
+
+# Restaurant revenue (monthly)
+df_rest2 = pd.read_csv('食肆收益购货统计按月.csv', header=None, skiprows=5)
+df_rest2 = df_rest2.iloc[:, :3]
+df_rest2.columns = ['年', '月', '收益']
+df_rest2 = df_rest2[df_rest2['月'].notna() & (df_rest2['月'].astype(str).str.strip() != '')]
+df_rest2['年'] = pd.to_numeric(df_rest2['年'], errors='coerce')
+df_rest2['月'] = pd.to_numeric(df_rest2['月'], errors='coerce')
+df_rest2 = df_rest2.dropna(subset=['年', '月'])
+df_rest2['年月_fmt'] = df_rest2['年'].astype(int).astype(str) + '-' + df_rest2['月'].astype(int).astype(str).str.zfill(2)
+df_rest2['收益'] = pd.to_numeric(df_rest2['收益'], errors='coerce')
+rest_dict2 = dict(zip(df_rest2['年月_fmt'], df_rest2['收益']))
+
+# Retail proxy (clothing + jewelry index, already computed above as total_retail_monthly / retail_months)
+retail_dict2 = dict(zip(retail_months[:len(total_retail_monthly)], total_retail_monthly))
+
+# Align all to common months (intersection of all 5 sources, >= 2021-02)
+all_month_sets = [
+    set(df_map_monthly['年月']),
+    set(df_hotel2['年月_fmt']),
+    set(df_avg_rate['年月_fmt']),
+    set(df_rest2['年月_fmt']),
+    set(m for m, v in retail_dict2.items() if not pd.isna(v) and v > 0),
+]
+common = set.intersection(*all_month_sets)
+t2_months = sorted(m for m in common if m >= '2021-02')
+
+output['t2_synced'] = {
+    'months': t2_months,
+    'passengers':  [int(pax_dict_t2.get(m, 0)) for m in t2_months],
+    'hotel_occ':   [float(hotel_occ_dict[m]) if m in hotel_occ_dict and pd.notna(hotel_occ_dict[m]) else None for m in t2_months],
+    'hotel_rate':  [float(hotel_rate_dict[m]) if m in hotel_rate_dict and pd.notna(hotel_rate_dict[m]) else None for m in t2_months],
+    'restaurant':  [int(rest_dict2[m]) if m in rest_dict2 and pd.notna(rest_dict2[m]) else None for m in t2_months],
+    'retail':      [int(retail_dict2[m]) if m in retail_dict2 and not pd.isna(retail_dict2[m]) else None for m in t2_months],
+}
+
+print(f"Task 2 synced panel: {len(t2_months)} months")
+
 # Write JSON
 with open('viz_data.json', 'w', encoding='utf-8') as f:
     json.dump(output, f, ensure_ascii=False, indent=2)
@@ -647,3 +710,4 @@ print(f"Chart4 months: {len(output['chart4']['months'])}")
 print(f"Chart5 months: {len(output['chart5']['months'])}")
 print(f"Chart6 checkpoints: {output['chart6']['checkpoints']}")
 print(f"Map months: {len(output['chart_map']['months'])}, checkpoints: {len(checkpoint_coords)}")
+print(f"T2 synced: {len(output['t2_synced']['months'])} months")

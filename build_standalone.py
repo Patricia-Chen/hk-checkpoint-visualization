@@ -22,9 +22,11 @@ old_block = """Promise.all([
 ]).then(([D, geoData]) => {
   echarts.registerMap('HK', geoData);
   renderMap(D.chart_map);
+  if (D.t2_synced) renderT2Synced(D.t2_synced);
 }).catch(() => {
   fetch('viz_data.json').then(r => r.json()).then(D => {
     renderMapFallback(D.chart_map);
+    if (D.t2_synced) renderT2Synced(D.t2_synced);
   });
 });"""
 
@@ -33,6 +35,7 @@ const _geoHK = {geo_json};
 echarts.registerMap('HK', _geoHK);
 requestAnimationFrame(function() {{
   renderMap(D.chart_map);
+  if (D.t2_synced) renderT2Synced(D.t2_synced);
 }});"""
 
 if old_block not in html:

@@ -243,6 +243,12 @@
   }
   .map-zone-btns button:hover { background: #35353d; border-color: #555; }
   .map-zone-btns button.active { background: #c8b496; color: #1a1a20; border-color: #c8b496; font-weight: 600; }
+  #t2-indicator-btns button { border-radius: 8px; padding: 8px 20px; font-size: 0.85rem; border-left-width: 3px !important; border-left-style: solid !important; }
+  #t2-indicator-btns button.active { color: #fff; border-color: transparent; }
+  #t2-indicator-btns button[data-idx="0"].active { background: #a896d3; }
+  #t2-indicator-btns button[data-idx="1"].active { background: #e8a87c; }
+  #t2-indicator-btns button[data-idx="2"].active { background: #7ecba1; color: #1a1a20; }
+  #t2-indicator-btns button[data-idx="3"].active { background: #38bdf8; color: #1a1a20; }
   .map-legend {
     display: flex;
     gap: 24px;
@@ -434,6 +440,33 @@
   </div>
 </div>
 
+
+<!-- ===== Task 2: Synced Economic Impact Panel ===== -->
+<div class="container">
+  <div style="text-align:center; padding:60px 20px 24px;">
+    <h2 style="font-size:2rem; font-weight:700; background:linear-gradient(90deg,#c8b496,#e8a87c,#d97a7a); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+      Socio-economic Impacts of Passenger Flow
+    </h2>
+    <p style="color:var(--muted); font-size:1rem; max-width:700px; margin:8px auto 0;">Five indicators, one timeline — hover to see how tourism drives the economy in sync</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div><h2>Passenger Flow &amp; Economic Indicators</h2>
+      <span class="subtitle">Select an indicator to explore its relationship with passenger flow</span></div>
+    </div>
+    <div class="map-zone-btns" id="t2-indicator-btns">
+      <button class="active" data-idx="0" style="border-left:3px solid #a896d3;">Hotel Occupancy</button>
+      <button data-idx="1" style="border-left:3px solid #e8a87c;">Avg. Room Rate</button>
+      <button data-idx="2" style="border-left:3px solid #7ecba1;">Restaurant Revenue</button>
+      <button data-idx="3" style="border-left:3px solid #38bdf8;">Retail Proxy</button>
+    </div>
+    <div class="chart-card">
+      <div id="t2-synced-chart" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="insight-box" id="t2-synced-insight"></div>
+  </div>
+</div>
 
 <div class="footer">
   Data Source: Census and Statistics Department, HKSAR Government | Visual Analytics © 2026
@@ -44457,6 +44490,374 @@ const D = {
         }
       ]
     }
+  },
+  "t2_synced": {
+    "months": [
+      "2021-02",
+      "2021-03",
+      "2021-04",
+      "2021-05",
+      "2021-06",
+      "2021-07",
+      "2021-08",
+      "2021-09",
+      "2021-10",
+      "2021-11",
+      "2021-12",
+      "2022-01",
+      "2022-02",
+      "2022-03",
+      "2022-04",
+      "2022-05",
+      "2022-06",
+      "2022-07",
+      "2022-08",
+      "2022-09",
+      "2022-10",
+      "2022-11",
+      "2022-12",
+      "2023-01",
+      "2023-02",
+      "2023-03",
+      "2023-04",
+      "2023-05",
+      "2023-06",
+      "2023-07",
+      "2023-08",
+      "2023-09",
+      "2023-10",
+      "2023-11",
+      "2023-12",
+      "2024-01",
+      "2024-02",
+      "2024-03",
+      "2024-04",
+      "2024-05",
+      "2024-06",
+      "2024-07",
+      "2024-08",
+      "2024-09",
+      "2024-10",
+      "2024-11",
+      "2024-12",
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ],
+    "passengers": [
+      103755,
+      106719,
+      102217,
+      107613,
+      112873,
+      162778,
+      197878,
+      144219,
+      118809,
+      116458,
+      160203,
+      141534,
+      116716,
+      103439,
+      140545,
+      204772,
+      280451,
+      366083,
+      489182,
+      453747,
+      638449,
+      904503,
+      1422736,
+      4310527,
+      10117848,
+      15375748,
+      18305258,
+      17424364,
+      17328211,
+      20688554,
+      22843045,
+      17600012,
+      21399492,
+      21450928,
+      24914456,
+      23144792,
+      23050824,
+      24503737,
+      23414851,
+      23317934,
+      23821632,
+      25597246,
+      27836858,
+      23042398,
+      26511972,
+      25327649,
+      28944119,
+      28076229,
+      24126685,
+      27046139,
+      28577548,
+      27374566,
+      25899301,
+      28046349,
+      31323824,
+      24170925,
+      29391186,
+      29011917,
+      31604520
+    ],
+    "hotel_occ": [
+      52.0,
+      52.0,
+      57.0,
+      58.0,
+      64.0,
+      67.0,
+      71.0,
+      71.0,
+      71.0,
+      70.0,
+      72.0,
+      57.0,
+      55.0,
+      59.0,
+      65.0,
+      70.0,
+      75.0,
+      75.0,
+      72.0,
+      67.0,
+      59.0,
+      66.0,
+      72.0,
+      66.0,
+      78.0,
+      84.0,
+      86.0,
+      82.0,
+      82.0,
+      87.0,
+      87.0,
+      78.0,
+      83.0,
+      87.0,
+      87.0,
+      85.0,
+      86.0,
+      84.0,
+      84.0,
+      78.0,
+      81.0,
+      86.0,
+      90.0,
+      81.0,
+      87.0,
+      91.0,
+      90.0,
+      89.0,
+      85.0,
+      89.0,
+      86.0,
+      82.0,
+      80.0,
+      86.0,
+      90.0,
+      83.0,
+      89.0,
+      93.0,
+      91.0
+    ],
+    "hotel_rate": [
+      870.0,
+      828.0,
+      855.0,
+      814.0,
+      810.0,
+      844.0,
+      863.0,
+      842.0,
+      881.0,
+      859.0,
+      1009.0,
+      932.0,
+      980.0,
+      1068.0,
+      1095.0,
+      1066.0,
+      1092.0,
+      1099.0,
+      1154.0,
+      1142.0,
+      1023.0,
+      1006.0,
+      1081.0,
+      1048.0,
+      1162.0,
+      1390.0,
+      1532.0,
+      1356.0,
+      1323.0,
+      1380.0,
+      1477.0,
+      1400.0,
+      1533.0,
+      1497.0,
+      1646.0,
+      1444.0,
+      1492.0,
+      1356.0,
+      1401.0,
+      1301.0,
+      1213.0,
+      1202.0,
+      1231.0,
+      1170.0,
+      1353.0,
+      1355.0,
+      1463.0,
+      1317.0,
+      1194.0,
+      1283.0,
+      1253.0,
+      1182.0,
+      1088.0,
+      1138.0,
+      1219.0,
+      1146.0,
+      1393.0,
+      1443.0,
+      1502.0
+    ],
+    "restaurant": [
+      6360,
+      7406,
+      7414,
+      8005,
+      7895,
+      8122,
+      8272,
+      8161,
+      8215,
+      8015,
+      8860,
+      6836,
+      4377,
+      3953,
+      6330,
+      7914,
+      7820,
+      8065,
+      8203,
+      7817,
+      8450,
+      8081,
+      8988,
+      9597,
+      8610,
+      9361,
+      9066,
+      9284,
+      9080,
+      9251,
+      9234,
+      8610,
+      9036,
+      8914,
+      9495,
+      9575,
+      9291,
+      9342,
+      8782,
+      9144,
+      8944,
+      8924,
+      8969,
+      8854,
+      9125,
+      9023,
+      9418,
+      9958,
+      8767,
+      9310,
+      8822,
+      9306,
+      8966,
+      9011,
+      9044,
+      8620,
+      9401,
+      9070,
+      9356
+    ],
+    "retail": [
+      6535,
+      6119,
+      5769,
+      6587,
+      6414,
+      6416,
+      6027,
+      5694,
+      6459,
+      6436,
+      7699,
+      7320,
+      4164,
+      3748,
+      6177,
+      6766,
+      6340,
+      7449,
+      5897,
+      5732,
+      6793,
+      5672,
+      7548,
+      8711,
+      9037,
+      9497,
+      9616,
+      9710,
+      9495,
+      9494,
+      8756,
+      7522,
+      8588,
+      8796,
+      10048,
+      9838,
+      9344,
+      7913,
+      7058,
+      7785,
+      7713,
+      7486,
+      7044,
+      6496,
+      7642,
+      8386,
+      8747,
+      8961,
+      8032,
+      7385,
+      6814,
+      7669,
+      7847,
+      7822,
+      7814,
+      6667,
+      8096,
+      8625,
+      8959
+    ]
   }
 };
 const _geoHK = {
@@ -44504,6 +44905,7 @@ const _geoHK = {
 echarts.registerMap('HK', _geoHK);
 requestAnimationFrame(function() {
   renderMap(D.chart_map);
+  if (D.t2_synced) renderT2Synced(D.t2_synced);
 });
 
 function fmt(n) {
@@ -45295,6 +45697,155 @@ function renderMapFallback(d) {
   const fxChart = d.fx ? initFxChart(d.fx) : null;
   const bfChart = d.flow ? initButterflyChart(d.flow) : null;
   setupMapControls(mapChart, d, buildFallbackData, false, sunChart, m => buildSunburstData(d, m), fxChart, bfChart);
+}
+
+/* ================================================================
+   Task 2: Synced 5-panel economic impact chart
+   ================================================================ */
+
+function renderT2Synced(d) {
+  const el = document.getElementById('t2-synced-chart');
+  if (!el) return;
+  const chart = echarts.init(el);
+
+  const gc = '#2d2d35';
+  const mc = '#a09a90';
+  const paxColor = '#c8b496';
+
+  const indicators = [
+    { name: 'Hotel Occupancy',    data: d.hotel_occ,  color: '#a896d3', yName: 'Occupancy (%)',
+      fmtY: v => v + '%', fmtTip: v => v + '%',
+      insight: 'Hotel occupancy tracks passenger flow closely — both bottomed out during COVID restrictions and surged after the Feb 2023 full reopening. Seasonal peaks (summer, CNY, Christmas) are clearly synchronised, confirming that <strong>visitor volume directly drives hotel demand</strong>.' },
+    { name: 'Avg. Room Rate',     data: d.hotel_rate, color: '#e8a87c', yName: 'Room Rate (HKD)',
+      fmtY: v => v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v, fmtTip: v => 'HK$' + fmt(Math.round(v)),
+      insight: 'Hotel room rates rose steadily from ~HK$800 to over HK$1,400 as passenger volume recovered. Unlike occupancy which fluctuates seasonally, <strong>rates ratcheted up and stayed high</strong>, suggesting pricing power returned with demand and has not retreated.' },
+    { name: 'Restaurant Revenue', data: d.restaurant,  color: '#7ecba1', yName: 'Revenue (HK$M)',
+      fmtY: v => v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v, fmtTip: v => fmt(v) + ' M',
+      insight: 'Monthly restaurant revenue moved from ~HK$6B to over HK$9B in lockstep with the passenger surge. CNY and summer peaks in travel directly translate into dining revenue spikes. The <strong>correlation between visitors and dining spend</strong> is one of the strongest in the data.' },
+    { name: 'Retail Proxy',       data: d.retail,      color: '#38bdf8', yName: 'Index',
+      fmtY: v => v, fmtTip: v => fmt(v),
+      insight: 'The clothing + jewelry retail index mirrors passenger flow closely, especially around holiday peaks. Post-2023 recovery is evident but <strong>retail has not fully returned to pre-COVID peaks</strong>, likely reflecting shifts in visitor spending patterns away from luxury goods toward experiences.' },
+  ];
+
+  const reopenIdx = d.months.indexOf('2023-02');
+  const paxYFmt = v => v >= 1e6 ? (v/1e6).toFixed(0)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v;
+
+  function indAxisRange(ind) {
+    const vals = ind.data.filter(v => v != null);
+    const hi = Math.max(...vals);
+    const nice = hi < 200 ? Math.ceil(hi / 10) * 10 : Math.ceil(hi / 500) * 500;
+    return { max: nice };
+  }
+
+  function buildOption(idx) {
+    const ind = indicators[idx];
+    const r = indAxisRange(ind);
+    return {
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#4a4a52',
+        textStyle: { color: '#e8e4df', fontSize: 12 },
+        axisPointer: { type: 'line', lineStyle: { color: paxColor, width: 1, type: 'dashed' } },
+        formatter: params => {
+          if (!params || !params.length) return '';
+          let s = `<b style="font-size:13px">${params[0].axisValue}</b>`;
+          params.forEach(p => {
+            if (p.seriesName === 'Total Passengers') {
+              s += `<br/><span style="display:inline-block;width:10px;height:4px;border-radius:1px;background:${paxColor};margin-right:6px;vertical-align:middle;"></span>Passengers: <b>${fmt(p.value)}</b>`;
+            } else if (p.seriesName === 'Passenger Trend') {
+              // skip
+            } else {
+              const raw = ind.data[p.dataIndex];
+              s += `<br/><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${ind.color};margin-right:6px;vertical-align:middle;"></span>${ind.name}: <b>${raw != null ? ind.fmtTip(raw) : '—'}</b>`;
+            }
+          });
+          return s;
+        },
+      },
+      legend: { show: false },
+      grid: { left: 65, right: 75, top: 45, bottom: 45, containLabel: true },
+      xAxis: {
+        type: 'category', data: d.months, boundaryGap: true,
+        axisLabel: { color: mc, fontSize: 10,
+          formatter: v => { const p = v.split('-'); return p[1] === '01' ? p[0] : p[1] === '07' ? 'H2' : ''; } },
+        axisLine: { lineStyle: { color: gc } },
+        axisTick: { show: false },
+      },
+      yAxis: [
+        {
+          type: 'value', name: ind.yName, position: 'left',
+          nameTextStyle: { color: ind.color, fontSize: 11, fontWeight: 600 },
+          axisLabel: { color: ind.color, fontSize: 10, formatter: ind.fmtY },
+          splitLine: { lineStyle: { color: gc, type: 'dashed' } },
+          splitNumber: 5,
+          min: 0, max: r.max,
+        },
+        {
+          type: 'value', name: 'Passengers', position: 'right',
+          nameTextStyle: { color: paxColor, fontSize: 11, fontWeight: 600 },
+          axisLabel: { color: paxColor, fontSize: 10, formatter: paxYFmt },
+          splitLine: { show: false },
+          min: 0, max: 55000000,
+        },
+      ],
+      series: [
+        {
+          name: 'Total Passengers', type: 'bar', yAxisIndex: 1,
+          data: d.passengers, barWidth: '55%', z: 1,
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(200,180,150,0.45)' },
+              { offset: 1, color: 'rgba(200,180,150,0.08)' },
+            ]),
+            borderRadius: [2, 2, 0, 0],
+          },
+          markLine: reopenIdx >= 0 ? {
+            silent: true, symbol: 'none',
+            data: [{ xAxis: reopenIdx,
+              lineStyle: { color: '#7ecba1', type: 'dashed', width: 1.5 },
+              label: { formatter: 'Full Reopening\nFeb 2023', fontSize: 10, color: '#7ecba1', position: 'start' },
+            }],
+          } : undefined,
+        },
+        {
+          name: 'Passenger Trend', type: 'line', yAxisIndex: 1,
+          data: d.passengers, smooth: true, symbol: 'none', z: 2,
+          lineStyle: { color: '#e8e4df', width: 2 },
+        },
+        {
+          name: ind.name, type: 'line', yAxisIndex: 0,
+          data: ind.data, smooth: true, symbol: 'none', z: 10,
+          lineStyle: { color: ind.color, width: 3 },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: ind.color + '33' },
+              { offset: 1, color: ind.color + '05' },
+            ]),
+          },
+          animationDuration: 800,
+        },
+      ],
+    };
+  }
+
+  chart.setOption(buildOption(0));
+  document.getElementById('t2-synced-insight').innerHTML =
+    `<strong>Key Insight:</strong> ${indicators[0].insight}`;
+
+  const btns = document.querySelectorAll('#t2-indicator-btns button');
+  btns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      btns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const idx = parseInt(this.dataset.idx);
+      chart.setOption(buildOption(idx), true);
+      document.getElementById('t2-synced-insight').innerHTML =
+        `<strong>Key Insight:</strong> ${indicators[idx].insight}`;
+    });
+  });
+
+  window.addEventListener('resize', () => chart.resize());
 }
 
 

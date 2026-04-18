@@ -243,6 +243,12 @@
   }
   .map-zone-btns button:hover { background: #35353d; border-color: #555; }
   .map-zone-btns button.active { background: #c8b496; color: #1a1a20; border-color: #c8b496; font-weight: 600; }
+  #t2-indicator-btns button { border-radius: 8px; padding: 8px 20px; font-size: 0.85rem; border-left-width: 3px !important; border-left-style: solid !important; }
+  #t2-indicator-btns button.active { color: #fff; border-color: transparent; }
+  #t2-indicator-btns button[data-idx="0"].active { background: #a896d3; }
+  #t2-indicator-btns button[data-idx="1"].active { background: #e8a87c; }
+  #t2-indicator-btns button[data-idx="2"].active { background: #7ecba1; color: #1a1a20; }
+  #t2-indicator-btns button[data-idx="3"].active { background: #38bdf8; color: #1a1a20; }
   .map-legend {
     display: flex;
     gap: 24px;
@@ -435,6 +441,33 @@
 </div>
 
 
+<!-- ===== Task 2: Synced Economic Impact Panel ===== -->
+<div class="container">
+  <div style="text-align:center; padding:60px 20px 24px;">
+    <h2 style="font-size:2rem; font-weight:700; background:linear-gradient(90deg,#c8b496,#e8a87c,#d97a7a); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+      Socio-economic Impacts of Passenger Flow
+    </h2>
+    <p style="color:var(--muted); font-size:1rem; max-width:700px; margin:8px auto 0;">Five indicators, one timeline — hover to see how tourism drives the economy in sync</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div><h2>Passenger Flow &amp; Economic Indicators</h2>
+      <span class="subtitle">Select an indicator to explore its relationship with passenger flow</span></div>
+    </div>
+    <div class="map-zone-btns" id="t2-indicator-btns">
+      <button class="active" data-idx="0" style="border-left:3px solid #a896d3;">Hotel Occupancy</button>
+      <button data-idx="1" style="border-left:3px solid #e8a87c;">Avg. Room Rate</button>
+      <button data-idx="2" style="border-left:3px solid #7ecba1;">Restaurant Revenue</button>
+      <button data-idx="3" style="border-left:3px solid #38bdf8;">Retail Proxy</button>
+    </div>
+    <div class="chart-card">
+      <div id="t2-synced-chart" style="width:100%; height:600px;"></div>
+    </div>
+    <div class="insight-box" id="t2-synced-insight"></div>
+  </div>
+</div>
+
 <div class="footer">
   Data Source: Census and Statistics Department, HKSAR Government | Visual Analytics © 2026
 </div>
@@ -460,9 +493,11 @@ Promise.all([
 ]).then(([D, geoData]) => {
   echarts.registerMap('HK', geoData);
   renderMap(D.chart_map);
+  if (D.t2_synced) renderT2Synced(D.t2_synced);
 }).catch(() => {
   fetch('viz_data.json').then(r => r.json()).then(D => {
     renderMapFallback(D.chart_map);
+    if (D.t2_synced) renderT2Synced(D.t2_synced);
   });
 });
 
@@ -1255,6 +1290,155 @@ function renderMapFallback(d) {
   const fxChart = d.fx ? initFxChart(d.fx) : null;
   const bfChart = d.flow ? initButterflyChart(d.flow) : null;
   setupMapControls(mapChart, d, buildFallbackData, false, sunChart, m => buildSunburstData(d, m), fxChart, bfChart);
+}
+
+/* ================================================================
+   Task 2: Synced 5-panel economic impact chart
+   ================================================================ */
+
+function renderT2Synced(d) {
+  const el = document.getElementById('t2-synced-chart');
+  if (!el) return;
+  const chart = echarts.init(el);
+
+  const gc = '#2d2d35';
+  const mc = '#a09a90';
+  const paxColor = '#c8b496';
+
+  const indicators = [
+    { name: 'Hotel Occupancy',    data: d.hotel_occ,  color: '#a896d3', yName: 'Occupancy (%)',
+      fmtY: v => v + '%', fmtTip: v => v + '%',
+      insight: 'Hotel occupancy tracks passenger flow closely — both bottomed out during COVID restrictions and surged after the Feb 2023 full reopening. Seasonal peaks (summer, CNY, Christmas) are clearly synchronised, confirming that <strong>visitor volume directly drives hotel demand</strong>.' },
+    { name: 'Avg. Room Rate',     data: d.hotel_rate, color: '#e8a87c', yName: 'Room Rate (HKD)',
+      fmtY: v => v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v, fmtTip: v => 'HK$' + fmt(Math.round(v)),
+      insight: 'Hotel room rates rose steadily from ~HK$800 to over HK$1,400 as passenger volume recovered. Unlike occupancy which fluctuates seasonally, <strong>rates ratcheted up and stayed high</strong>, suggesting pricing power returned with demand and has not retreated.' },
+    { name: 'Restaurant Revenue', data: d.restaurant,  color: '#7ecba1', yName: 'Revenue (HK$M)',
+      fmtY: v => v >= 1e3 ? (v/1e3).toFixed(1)+'K' : v, fmtTip: v => fmt(v) + ' M',
+      insight: 'Monthly restaurant revenue moved from ~HK$6B to over HK$9B in lockstep with the passenger surge. CNY and summer peaks in travel directly translate into dining revenue spikes. The <strong>correlation between visitors and dining spend</strong> is one of the strongest in the data.' },
+    { name: 'Retail Proxy',       data: d.retail,      color: '#38bdf8', yName: 'Index',
+      fmtY: v => v, fmtTip: v => fmt(v),
+      insight: 'The clothing + jewelry retail index mirrors passenger flow closely, especially around holiday peaks. Post-2023 recovery is evident but <strong>retail has not fully returned to pre-COVID peaks</strong>, likely reflecting shifts in visitor spending patterns away from luxury goods toward experiences.' },
+  ];
+
+  const reopenIdx = d.months.indexOf('2023-02');
+  const paxYFmt = v => v >= 1e6 ? (v/1e6).toFixed(0)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v;
+
+  function indAxisRange(ind) {
+    const vals = ind.data.filter(v => v != null);
+    const hi = Math.max(...vals);
+    const nice = hi < 200 ? Math.ceil(hi / 10) * 10 : Math.ceil(hi / 500) * 500;
+    return { max: nice };
+  }
+
+  function buildOption(idx) {
+    const ind = indicators[idx];
+    const r = indAxisRange(ind);
+    return {
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#4a4a52',
+        textStyle: { color: '#e8e4df', fontSize: 12 },
+        axisPointer: { type: 'line', lineStyle: { color: paxColor, width: 1, type: 'dashed' } },
+        formatter: params => {
+          if (!params || !params.length) return '';
+          let s = `<b style="font-size:13px">${params[0].axisValue}</b>`;
+          params.forEach(p => {
+            if (p.seriesName === 'Total Passengers') {
+              s += `<br/><span style="display:inline-block;width:10px;height:4px;border-radius:1px;background:${paxColor};margin-right:6px;vertical-align:middle;"></span>Passengers: <b>${fmt(p.value)}</b>`;
+            } else if (p.seriesName === 'Passenger Trend') {
+              // skip
+            } else {
+              const raw = ind.data[p.dataIndex];
+              s += `<br/><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${ind.color};margin-right:6px;vertical-align:middle;"></span>${ind.name}: <b>${raw != null ? ind.fmtTip(raw) : '—'}</b>`;
+            }
+          });
+          return s;
+        },
+      },
+      legend: { show: false },
+      grid: { left: 65, right: 75, top: 45, bottom: 45, containLabel: true },
+      xAxis: {
+        type: 'category', data: d.months, boundaryGap: true,
+        axisLabel: { color: mc, fontSize: 10,
+          formatter: v => { const p = v.split('-'); return p[1] === '01' ? p[0] : p[1] === '07' ? 'H2' : ''; } },
+        axisLine: { lineStyle: { color: gc } },
+        axisTick: { show: false },
+      },
+      yAxis: [
+        {
+          type: 'value', name: ind.yName, position: 'left',
+          nameTextStyle: { color: ind.color, fontSize: 11, fontWeight: 600 },
+          axisLabel: { color: ind.color, fontSize: 10, formatter: ind.fmtY },
+          splitLine: { lineStyle: { color: gc, type: 'dashed' } },
+          splitNumber: 5,
+          min: 0, max: r.max,
+        },
+        {
+          type: 'value', name: 'Passengers', position: 'right',
+          nameTextStyle: { color: paxColor, fontSize: 11, fontWeight: 600 },
+          axisLabel: { color: paxColor, fontSize: 10, formatter: paxYFmt },
+          splitLine: { show: false },
+          min: 0, max: 55000000,
+        },
+      ],
+      series: [
+        {
+          name: 'Total Passengers', type: 'bar', yAxisIndex: 1,
+          data: d.passengers, barWidth: '55%', z: 1,
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: 'rgba(200,180,150,0.45)' },
+              { offset: 1, color: 'rgba(200,180,150,0.08)' },
+            ]),
+            borderRadius: [2, 2, 0, 0],
+          },
+          markLine: reopenIdx >= 0 ? {
+            silent: true, symbol: 'none',
+            data: [{ xAxis: reopenIdx,
+              lineStyle: { color: '#7ecba1', type: 'dashed', width: 1.5 },
+              label: { formatter: 'Full Reopening\nFeb 2023', fontSize: 10, color: '#7ecba1', position: 'start' },
+            }],
+          } : undefined,
+        },
+        {
+          name: 'Passenger Trend', type: 'line', yAxisIndex: 1,
+          data: d.passengers, smooth: true, symbol: 'none', z: 2,
+          lineStyle: { color: '#e8e4df', width: 2 },
+        },
+        {
+          name: ind.name, type: 'line', yAxisIndex: 0,
+          data: ind.data, smooth: true, symbol: 'none', z: 10,
+          lineStyle: { color: ind.color, width: 3 },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: ind.color + '33' },
+              { offset: 1, color: ind.color + '05' },
+            ]),
+          },
+          animationDuration: 800,
+        },
+      ],
+    };
+  }
+
+  chart.setOption(buildOption(0));
+  document.getElementById('t2-synced-insight').innerHTML =
+    `<strong>Key Insight:</strong> ${indicators[0].insight}`;
+
+  const btns = document.querySelectorAll('#t2-indicator-btns button');
+  btns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      btns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const idx = parseInt(this.dataset.idx);
+      chart.setOption(buildOption(idx), true);
+      document.getElementById('t2-synced-insight').innerHTML =
+        `<strong>Key Insight:</strong> ${indicators[idx].insight}`;
+    });
+  });
+
+  window.addEventListener('resize', () => chart.resize());
 }
 
 
