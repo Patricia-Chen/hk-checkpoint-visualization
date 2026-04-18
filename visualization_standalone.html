@@ -134,7 +134,18 @@
     font-size: 0.8rem;
     font-weight: 500;
   }
+  .map-main {
+    position: relative;
+  }
   #map-container { width: 100%; height: 700px; }
+  #sunburst-container {
+    position: absolute; left: 16px; bottom: 16px;
+    width: 250px; height: 250px;
+    background: rgba(26,26,32,0.75);
+    border-radius: 12px;
+    z-index: 10;
+    pointer-events: auto;
+  }
   .map-controls {
     display: flex;
     align-items: center;
@@ -316,6 +327,7 @@
     .chart-row { grid-template-columns: 1fr; }
     .hero h1 { font-size: 1.6rem; }
     #map-container { height: 450px; }
+    #sunburst-container { width: 160px; height: 160px; }
     .map-month-label { font-size: 1.2rem; min-width: 80px; }
   }
 </style>
@@ -348,7 +360,10 @@
       <span><i class="dot" style="background:#a896d3"></i> Sea Ports</span>
       <span style="margin-left:8px; color:#706b63;">● Ripple size = Total Passengers</span>
     </div>
-    <div id="map-container"></div>
+    <div class="map-main">
+      <div id="map-container"></div>
+      <div id="sunburst-container"></div>
+    </div>
     <div class="map-popup-overlay" id="popup-overlay"></div>
     <div class="map-popup" id="map-popup">
       <div class="map-popup-header">
@@ -6440,6 +6455,7 @@ const D = {
   },
   "chart5": {
     "months": [
+      "2021-01",
       "2021-02",
       "2021-03",
       "2021-04",
@@ -6505,6 +6521,7 @@ const D = {
       "2026-04"
     ],
     "fx_rate": [
+      0.8287,
       0.8345,
       0.8428,
       0.8333,
@@ -6567,9 +6584,10 @@ const D = {
       0.8897,
       0.8767,
       0.88,
-      0.8782
+      0.8705
     ],
     "mainland_visitors": [
+      7032,
       5485,
       7695,
       6907,
@@ -6892,7 +6910,7 @@ const D = {
       },
       {
         "month": "2026-04",
-        "fx_change": -0.2,
+        "fx_change": -1.08,
         "mainland_change": -87.0
       }
     ]
@@ -43889,6 +43907,108 @@ const TYPE_COLORS = {
   'Sea':       '#a896d3',
 };
 
+const PAX_COLORS = { hk: '#e8a87c', mainland: '#d97a7a', other: '#a896d3' };
+const TYPE_ORDER = ['Land', 'Aviation', 'HK-Zhuhai-Macao Bridge', 'XRL West Kowloon', 'Sea'];
+const SB_SHORT = {
+  'Airport': 'HKIA', 'HK-Zhuhai-Macao Bridge': 'HZMB', 'XRL West Kowloon': 'XRL',
+  'Lo Wu': 'LW', 'Lok Ma Chau Spur Line': 'LMCSL', 'Lok Ma Chau': 'LMC',
+  'Shenzhen Bay': 'SZB', 'Heung Yuen Wai': 'HYW', 'Man Kam To': 'MKT',
+  'Sha Tau Kok': 'STK', 'Hung Hom': 'HUH',
+  'HK-Macau Ferry Terminal': 'MFT', 'China Ferry Terminal': 'CFT',
+  'Tuen Mun Ferry Terminal': 'TMFT', 'Kai Tak Cruise Terminal': 'KTCT',
+  'Harbour Control': 'HC',
+  'Aviation': 'Air', 'Land': 'Land', 'Sea': 'Sea',
+};
+const LAND_HIGHLIGHT = ['Lo Wu', 'Lok Ma Chau Spur Line', 'Shenzhen Bay'];
+const SEA_HIGHLIGHT = ['HK-Macau Ferry Terminal'];
+
+function initSunburstChart() {
+  const sc = echarts.init(document.getElementById('sunburst-container'));
+  sc.setOption({
+    backgroundColor: 'transparent',
+    tooltip: {
+      trigger: 'item',
+      backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#4a4a52',
+      textStyle: { color: '#e8e4df', fontSize: 12 },
+      formatter: p => {
+        if (!p.data || !p.data.name) return '';
+        const full = p.data._full || p.data.name;
+        const pct = p.percent ? p.percent.toFixed(1) + '%' : '';
+        return `<b>${full}</b><br/>${fmt(p.data.value)}` + (pct ? ` (${pct})` : '');
+      },
+    },
+    series: [{
+      type: 'sunburst', radius: ['26%', '92%'], center: ['50%', '50%'],
+      data: [], sort: null, nodeClick: false,
+      itemStyle: { borderWidth: 1.5, borderColor: '#1a1a20', borderRadius: 4 },
+      label: { fontSize: 11, color: '#e8e4df', minAngle: 6,
+        fontFamily: 'Georgia, "Times New Roman", serif' },
+      levels: [ {},
+        { label: { fontSize: 13, fontWeight: 700, minAngle: 10 }, itemStyle: { borderWidth: 2 } },
+        { label: { fontSize: 11, fontWeight: 500, minAngle: 5 }, itemStyle: { opacity: 0.85 } },
+      ],
+      animationDurationUpdate: 500, animationEasingUpdate: 'cubicInOut',
+    }],
+  });
+  return sc;
+}
+
+function buildSunburstData(d, monthIdx) {
+  const m = d.months[monthIdx];
+  const entries = d.data[m] || [];
+  const groups = {};
+  TYPE_ORDER.forEach(t => { groups[t] = []; });
+  entries.forEach(e => {
+    const t = e.type || 'Other';
+    if (!groups[t]) groups[t] = [];
+    groups[t].push(e);
+  });
+
+  function groupChildren(list, highlights, baseColor) {
+    const hi = [], lo = [];
+    list.filter(e => e.total > 0).forEach(e => {
+      (highlights.includes(e.name) ? hi : lo).push(e);
+    });
+    hi.sort((a, b) => b.total - a.total);
+    const children = hi.map(e => ({
+      name: SB_SHORT[e.name] || e.name, _full: e.name,
+      value: e.total, itemStyle: { color: baseColor },
+    }));
+    const othersTotal = lo.reduce((s, e) => s + e.total, 0);
+    if (othersTotal > 0) {
+      children.push({
+        name: 'Others', _full: 'Others (' + lo.map(e => SB_SHORT[e.name] || e.name).join(', ') + ')',
+        value: othersTotal, itemStyle: { color: baseColor, opacity: 0.55 },
+      });
+    }
+    return children;
+  }
+
+  const sbData = TYPE_ORDER.filter(t => groups[t] && groups[t].length > 0).map(typeName => {
+    const baseColor = TYPE_COLORS[typeName] || '#5a5a62';
+    let children;
+    if (typeName === 'Land') {
+      children = groupChildren(groups[typeName], LAND_HIGHLIGHT, baseColor);
+    } else if (typeName === 'Sea') {
+      children = groupChildren(groups[typeName], SEA_HIGHLIGHT, baseColor);
+    } else {
+      children = groups[typeName].filter(e => e.total > 0)
+        .sort((a, b) => b.total - a.total)
+        .map(e => ({
+          name: SB_SHORT[e.name] || e.name, _full: e.name,
+          value: e.total, itemStyle: { color: baseColor },
+        }));
+    }
+    return {
+      name: SB_SHORT[typeName] || typeName, _full: typeName,
+      value: undefined, itemStyle: { color: baseColor }, children,
+    };
+  });
+
+  const total = entries.reduce((s, e) => s + e.total, 0);
+  return { sbData, total };
+}
+
 const LABEL_OFFSETS = {
   'Airport':         [-60, -20],
   'HK-Zhuhai-Macao Bridge':   [-30, 18],
@@ -43929,7 +44049,7 @@ const MAP_ZONES_FALLBACK = {
   central: { xMin: 114.12, xMax: 114.24, yMin: 22.27, yMax: 22.32 },
 };
 
-function setupMapControls(mapChart, d, buildFn, useGeo) {
+function setupMapControls(mapChart, d, buildFn, useGeo, sunChart, buildSunFn) {
   const months = d.months;
   const slider = document.getElementById('map-slider');
   const label = document.getElementById('map-month-label');
@@ -43950,6 +44070,28 @@ function setupMapControls(mapChart, d, buildFn, useGeo) {
       title: { text: result.month, subtext: `Monthly Total Passengers: ${fmt(result.totalThisMonth)}` },
       series: seriesUpdate,
     });
+    if (sunChart && buildSunFn) {
+      const sb = buildSunFn(idx);
+      sunChart.setOption({
+        graphic: [{
+          type: 'group', left: 'center', top: 'center',
+          children: [
+            { type: 'text', style: {
+              text: sb.total >= 1e6 ? (sb.total/1e6).toFixed(1)+'M' : sb.total >= 1e3 ? (sb.total/1e3).toFixed(0)+'K' : sb.total,
+              fill: '#e8e4df', fontSize: 16, fontWeight: 700,
+              fontFamily: 'Georgia, "Times New Roman", serif',
+              textAlign: 'center', textVerticalAlign: 'bottom', y: -1,
+            }},
+            { type: 'text', style: {
+              text: 'Total', fill: '#706b63', fontSize: 10,
+              fontFamily: 'Georgia, "Times New Roman", serif',
+              textAlign: 'center', textVerticalAlign: 'top', y: 2,
+            }},
+          ],
+        }],
+        series: [{ data: sb.sbData }],
+      });
+    }
   }
   function play() {
     if (timer) return;
@@ -43999,7 +44141,10 @@ function setupMapControls(mapChart, d, buildFn, useGeo) {
     }
   });
 
-  window.addEventListener('resize', () => mapChart.resize());
+  window.addEventListener('resize', () => {
+    mapChart.resize();
+    if (sunChart) sunChart.resize();
+  });
 }
 
 function renderMap(d) {
@@ -44091,7 +44236,8 @@ function renderMap(d) {
     return { effectData: allData, deadData: [], totalThisMonth, month: m };
   }
 
-  setupMapControls(mapChart, d, buildSeriesData, true);
+  const sunChart = initSunburstChart();
+  setupMapControls(mapChart, d, buildSeriesData, true, sunChart, m => buildSunburstData(d, m));
 }
 
 function renderMapFallback(d) {
@@ -44171,7 +44317,8 @@ function renderMapFallback(d) {
     return { effectData: allData, deadData: [], totalThisMonth, month: m };
   }
 
-  setupMapControls(mapChart, d, buildFallbackData, false);
+  const sunChart = initSunburstChart();
+  setupMapControls(mapChart, d, buildFallbackData, false, sunChart, m => buildSunburstData(d, m));
 }
 
 /* ===== Chart 1: Stacked Area ===== */

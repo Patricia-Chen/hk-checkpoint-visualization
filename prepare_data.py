@@ -250,7 +250,7 @@ output['chart4'] = {
 # ============================================================
 # Chart 5: Exchange rate vs mainland visitors
 # ============================================================
-df_fx = pd.read_csv('港元人民币历史汇率.csv')
+df_fx = pd.read_csv('HKD_CNY历史数据.csv')
 df_fx.columns = [c.strip().strip('"') for c in df_fx.columns]
 for c in df_fx.columns:
     df_fx[c] = df_fx[c].astype(str).str.strip('"')
