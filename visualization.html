@@ -548,6 +548,32 @@ function showMapPopup(cpName, month, detail) {
   Object.values(_popupCharts).forEach(c => c.dispose());
   _popupCharts = {};
 
+  const paxEl = document.getElementById('popup-chart-pax');
+  const dirEl = document.getElementById('popup-chart-dir');
+  const vehEl = document.getElementById('popup-chart-vehicle');
+  const gridEl = paxEl.parentElement;
+
+  if (d._totalOnly) {
+    gridEl.style.display = 'none';
+    vehEl.style.display = 'none';
+    let simple = document.getElementById('popup-simple');
+    if (!simple) {
+      simple = document.createElement('div');
+      simple.id = 'popup-simple';
+      simple.style.cssText = 'text-align:center; padding:30px 0;';
+      vehEl.parentElement.insertBefore(simple, gridEl);
+    }
+    simple.style.display = 'block';
+    simple.innerHTML =
+      `<div style="font-size:0.85rem; color:#a09a90; margin-bottom:8px;">Monthly Total Passengers (Inbound + Outbound)</div>` +
+      `<div style="font-size:2.4rem; font-weight:700; color:#e8e4df;">${fmt(d._total)}</div>`;
+    return;
+  }
+
+  const simpleEl = document.getElementById('popup-simple');
+  if (simpleEl) simpleEl.style.display = 'none';
+  gridEl.style.display = 'grid';
+
   const hkTotal = (d.in_hk || 0) + (d.out_hk || 0);
   const mainlandTotal = (d.in_mainland || 0) + (d.out_mainland || 0);
   const otherTotal = (d.in_other || 0) + (d.out_other || 0);
@@ -621,7 +647,6 @@ function showMapPopup(cpName, month, detail) {
   });
 
   // Chart 3: Vehicle stacked bar (only if has_vehicle)
-  const vehEl = document.getElementById('popup-chart-vehicle');
   if (d.has_vehicle) {
     vehEl.style.display = 'block';
     const c3 = echarts.init(vehEl);
@@ -744,10 +769,13 @@ function setupMapControls(mapChart, d, buildFn, useGeo) {
     currentIdx = idx;
     slider.value = idx;
     label.textContent = months[idx];
-    const { effectData, deadData, totalThisMonth, month } = buildFn(idx);
+    const result = buildFn(idx);
+    const seriesUpdate = result.deadData && result.deadData.length > 0
+      ? [{ data: result.effectData }, { data: result.deadData }]
+      : [{ data: result.effectData }];
     mapChart.setOption({
-      title: { text: month, subtext: `Monthly Total Passengers: ${fmt(totalThisMonth)}` },
-      series: [{ data: effectData }, { data: deadData }],
+      title: { text: result.month, subtext: `Monthly Total Passengers: ${fmt(result.totalThisMonth)}` },
+      series: seriesUpdate,
     });
   }
   function play() {
@@ -782,12 +810,18 @@ function setupMapControls(mapChart, d, buildFn, useGeo) {
   });
 
   mapChart.on('click', function(params) {
-    if (params.name && d.detail) {
-      const month = months[currentIdx];
-      const cpDetail = (d.detail[month] || {})[params.name];
-      if (cpDetail) {
+    if (!params.name) return;
+    const month = months[currentIdx];
+    const cpDetail = d.detail ? (d.detail[month] || {})[params.name] : null;
+    if (cpDetail) {
+      pause();
+      showMapPopup(params.name, month, cpDetail);
+    } else {
+      const entries = d.data[month] || [];
+      const entry = entries.find(e => e.name === params.name);
+      if (entry && entry.total > 0) {
         pause();
-        showMapPopup(params.name, month, cpDetail);
+        showMapPopup(params.name, month, { _totalOnly: true, _total: entry.total });
       }
     }
   });
@@ -828,6 +862,8 @@ function renderMap(d) {
       textStyle: { color: '#e8e4df', fontSize: 28, fontWeight: 700 },
       subtextStyle: { color: '#a09a90', fontSize: 14 },
     },
+    animationDurationUpdate: 500,
+    animationEasingUpdate: 'cubicInOut',
     series: [
       { name: 'pulse', type: 'effectScatter', coordinateSystem: 'geo', data: [], showEffectOn: 'render',
         rippleEffect: { brushType: 'stroke', scale: 4, period: 5, number: 2 },
@@ -837,48 +873,49 @@ function renderMap(d) {
           textShadowOffsetX: 1, textShadowOffsetY: 1,
           textBorderColor: 'rgba(0,0,0,0.4)', textBorderWidth: 2 },
         labelLayout: { hideOverlap: false },
+        animationDurationUpdate: 500,
         z: 10 },
-      { name: 'idle', type: 'scatter', coordinateSystem: 'geo', data: [], symbolSize: 5,
-        itemStyle: { color: '#5a5a62', borderColor: '#7a7a82', borderWidth: 1, opacity: 0.7 },
-        label: { show: true, formatter: '{b}', color: '#8a857d', fontSize: 11, fontWeight: 500,
-          fontFamily: 'Georgia, "Times New Roman", serif',
-          textShadowColor: 'rgba(0,0,0,0.6)', textShadowBlur: 4,
-          textBorderColor: 'rgba(0,0,0,0.3)', textBorderWidth: 1.5 },
-        labelLayout: { hideOverlap: false },
-        z: 5 },
     ],
   });
 
+  const allCheckpoints = Object.keys(d.coords);
+  const cpTypes = {};
+  Object.values(d.data).forEach(arr => arr.forEach(e => { if (e.type) cpTypes[e.name] = e.type; }));
+
   function buildSeriesData(monthIdx) {
     const m = d.months[monthIdx];
-    const entries = d.data[m] || [];
+    const entryMap = {};
+    (d.data[m] || []).forEach(e => { entryMap[e.name] = e; });
     const maxR = 55, minR = 6;
 
-    const effectData = entries.filter(e => e.total > 0).map(e => {
-      const ratio = e.total / allMaxTotal;
-      const off = LABEL_OFFSETS[e.name] || [15, 0];
-      const short = LABEL_SHORT[e.name];
+    const allData = allCheckpoints.map(cp => {
+      const e = entryMap[cp];
+      const coord = d.coords[cp];
+      const off = LABEL_OFFSETS[cp] || [15, 0];
+      const short = LABEL_SHORT[cp];
+      const hasTraffic = e && e.total > 0;
+      const ratio = hasTraffic ? e.total / allMaxTotal : 0;
+      const typeColor = TYPE_COLORS[cpTypes[cp]] || '#5a5a62';
       return {
-        name: e.name,
-        value: [...e.coord, e.total, e.hk, e.mainland, e.other],
-        symbolSize: minR + ratio * (maxR - minR),
-        itemStyle: { color: TYPE_COLORS[e.type] || '#5a5a62',
-          shadowBlur: 12 + ratio * 20, shadowColor: TYPE_COLORS[e.type] || '#5a5a62' },
-        label: { offset: off, formatter: short ? short : '{b}' },
+        id: cp, name: cp,
+        value: [...coord, hasTraffic ? e.total : 0, hasTraffic ? e.hk : 0, hasTraffic ? e.mainland : 0, hasTraffic ? e.other : 0],
+        symbolSize: hasTraffic ? minR + Math.sqrt(ratio) * (maxR - minR) : 3,
+        itemStyle: hasTraffic
+          ? { color: typeColor, shadowBlur: 12 + ratio * 20, shadowColor: typeColor }
+          : { color: '#5a5a62', shadowBlur: 0, shadowColor: 'transparent' },
+        rippleEffect: hasTraffic
+          ? { brushType: 'stroke', scale: 4, period: 5, number: 2 }
+          : { brushType: 'stroke', scale: 1, period: 10, number: 0 },
+        label: {
+          offset: off, formatter: short ? short : '{b}',
+          color: hasTraffic ? '#f0ece6' : '#8a857d',
+          fontWeight: hasTraffic ? 600 : 500,
+        },
       };
     });
 
-    const deadData = entries.filter(e => e.total === 0).map(e => {
-      const off = LABEL_OFFSETS[e.name] || [15, 0];
-      const short = LABEL_SHORT[e.name];
-      return {
-        name: e.name, value: [...e.coord, 0, 0, 0, 0],
-        label: { offset: off, formatter: short ? short : '{b}' },
-      };
-    });
-
-    const totalThisMonth = entries.reduce((s, e) => s + e.total, 0);
-    return { effectData, deadData, totalThisMonth, month: m };
+    const totalThisMonth = Object.values(entryMap).reduce((s, e) => s + e.total, 0);
+    return { effectData: allData, deadData: [], totalThisMonth, month: m };
   }
 
   setupMapControls(mapChart, d, buildSeriesData, true);
@@ -906,6 +943,8 @@ function renderMapFallback(d) {
     },
     xAxis: { min: 113.88, max: 114.28, show: false },
     yAxis: { min: 22.26, max: 22.57, show: false },
+    animationDurationUpdate: 500,
+    animationEasingUpdate: 'cubicInOut',
     series: [
       { type: 'effectScatter', data: [], encode: { x: 0, y: 1 }, showEffectOn: 'render',
         rippleEffect: { brushType: 'stroke', scale: 4, period: 5, number: 2 },
@@ -914,44 +953,49 @@ function renderMapFallback(d) {
           textShadowColor: 'rgba(0,0,0,0.85)', textShadowBlur: 6,
           textShadowOffsetX: 1, textShadowOffsetY: 1,
           textBorderColor: 'rgba(0,0,0,0.4)', textBorderWidth: 2 },
-        labelLayout: { hideOverlap: false } },
-      { type: 'scatter', data: [], encode: { x: 0, y: 1 }, symbolSize: 5,
-        itemStyle: { color: '#5a5a62', borderColor: '#7a7a82', borderWidth: 1, opacity: 0.7 },
-        label: { show: true, formatter: '{b}', color: '#8a857d', fontSize: 11, fontWeight: 500,
-          fontFamily: 'Georgia, "Times New Roman", serif',
-          textShadowColor: 'rgba(0,0,0,0.6)', textShadowBlur: 4,
-          textBorderColor: 'rgba(0,0,0,0.3)', textBorderWidth: 1.5 },
-        labelLayout: { hideOverlap: false } },
+        labelLayout: { hideOverlap: false },
+        animationDurationUpdate: 500 },
     ],
   });
 
+  const allCheckpoints = Object.keys(d.coords);
+  const cpTypes = {};
+  Object.values(d.data).forEach(arr => arr.forEach(e => { if (e.type) cpTypes[e.name] = e.type; }));
+
   function buildFallbackData(monthIdx) {
     const m = d.months[monthIdx];
-    const entries = d.data[m] || [];
+    const entryMap = {};
+    (d.data[m] || []).forEach(e => { entryMap[e.name] = e; });
     const maxR = 50, minR = 6;
 
-    const effectData = entries.filter(e => e.total > 0).map(e => {
-      const ratio = e.total / allMaxTotal;
-      const off = LABEL_OFFSETS[e.name] || [15, 0];
-      const short = LABEL_SHORT[e.name];
+    const allData = allCheckpoints.map(cp => {
+      const e = entryMap[cp];
+      const coord = d.coords[cp];
+      const off = LABEL_OFFSETS[cp] || [15, 0];
+      const short = LABEL_SHORT[cp];
+      const hasTraffic = e && e.total > 0;
+      const ratio = hasTraffic ? e.total / allMaxTotal : 0;
+      const typeColor = TYPE_COLORS[cpTypes[cp]] || '#5a5a62';
       return {
-        name: e.name,
-        value: [e.coord[0], e.coord[1], e.total, e.hk, e.mainland, e.other],
-        symbolSize: minR + ratio * (maxR - minR),
-        itemStyle: { color: TYPE_COLORS[e.type] || '#5a5a62',
-          shadowBlur: 12 + ratio * 20, shadowColor: TYPE_COLORS[e.type] || '#5a5a62' },
-        label: { offset: off, formatter: short ? short : '{b}' },
+        id: cp, name: cp,
+        value: [coord[0], coord[1], hasTraffic ? e.total : 0, hasTraffic ? e.hk : 0, hasTraffic ? e.mainland : 0, hasTraffic ? e.other : 0],
+        symbolSize: hasTraffic ? minR + Math.sqrt(ratio) * (maxR - minR) : 3,
+        itemStyle: hasTraffic
+          ? { color: typeColor, shadowBlur: 12 + ratio * 20, shadowColor: typeColor }
+          : { color: '#5a5a62', shadowBlur: 0, shadowColor: 'transparent' },
+        rippleEffect: hasTraffic
+          ? { brushType: 'stroke', scale: 4, period: 5, number: 2 }
+          : { brushType: 'stroke', scale: 1, period: 10, number: 0 },
+        label: {
+          offset: off, formatter: short ? short : '{b}',
+          color: hasTraffic ? '#f0ece6' : '#8a857d',
+          fontWeight: hasTraffic ? 600 : 500,
+        },
       };
     });
 
-    const deadData = entries.filter(e => e.total === 0).map(e => {
-      const off = LABEL_OFFSETS[e.name] || [15, 0];
-      const short = LABEL_SHORT[e.name];
-      return { name: e.name, value: [e.coord[0], e.coord[1], 0, 0, 0, 0], label: { offset: off, formatter: short ? short : '{b}' } };
-    });
-
-    const totalThisMonth = entries.reduce((s, e) => s + e.total, 0);
-    return { effectData, deadData, totalThisMonth, month: m };
+    const totalThisMonth = Object.values(entryMap).reduce((s, e) => s + e.total, 0);
+    return { effectData: allData, deadData: [], totalThisMonth, month: m };
   }
 
   setupMapControls(mapChart, d, buildFallbackData, false);

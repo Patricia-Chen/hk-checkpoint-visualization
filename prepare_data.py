@@ -359,6 +359,33 @@ output['chart6'] = {
 # ============================================================
 # Chart 0 (Map): Checkpoint geo-located passenger pulse
 # ============================================================
+CP_CN_TO_EN = {
+    '机场':         'Airport',
+    '港珠澳大桥':   'HK-Zhuhai-Macao Bridge',
+    '高铁西九龙':   'XRL West Kowloon',
+    '红磡':         'Hung Hom',
+    '罗湖':         'Lo Wu',
+    '落马洲支线':   'Lok Ma Chau Spur Line',
+    '落马洲':       'Lok Ma Chau',
+    '文锦渡':       'Man Kam To',
+    '沙头角':       'Sha Tau Kok',
+    '深圳湾':       'Shenzhen Bay',
+    '香园围':       'Heung Yuen Wai',
+    '港澳客轮码头': 'HK-Macau Ferry Terminal',
+    '中国客运码头': 'China Ferry Terminal',
+    '屯门客运码头': 'Tuen Mun Ferry Terminal',
+    '启德邮轮码头': 'Kai Tak Cruise Terminal',
+    '港口管制':     'Harbour Control',
+}
+
+TYPE_CN_TO_EN = {
+    '航空':       'Aviation',
+    '港珠澳大桥': 'HK-Zhuhai-Macao Bridge',
+    '高铁西九龙': 'XRL West Kowloon',
+    '陆路':       'Land',
+    '海路':       'Sea',
+}
+
 checkpoint_coords = {
     '机场':         [113.9185, 22.3080],
     '港珠澳大桥':   [113.9516, 22.3180],
@@ -397,11 +424,13 @@ checkpoint_types = {
     '港口管制':     '海路',
 }
 
-map_months = sorted(df['年月'].unique().tolist())
+# Use the merged file that includes 2019-2020 data
+df_map = pd.read_csv('日常旅客出入境统计_合并副本.csv')
+map_months = sorted(df_map['年月'].unique().tolist())
 
 map_data = {}
 for m in map_months:
-    month_df = df[df['年月'] == m]
+    month_df = df_map[df_map['年月'] == m]
     cp_agg = month_df.groupby('管制站').agg({
         '香港居民': 'sum', '内地访客': 'sum', '其他访客': 'sum', '总计': 'sum'
     }).reset_index()
@@ -409,10 +438,12 @@ for m in map_months:
     for _, row in cp_agg.iterrows():
         cp = row['管制站']
         if cp in checkpoint_coords:
+            en_name = CP_CN_TO_EN.get(cp, cp)
+            en_type = TYPE_CN_TO_EN.get(checkpoint_types.get(cp, ''), 'Other')
             entries.append({
-                'name': cp,
+                'name': en_name,
                 'coord': checkpoint_coords[cp],
-                'type': checkpoint_types.get(cp, '其他'),
+                'type': en_type,
                 'total': int(row['总计']),
                 'hk': int(row['香港居民']),
                 'mainland': int(row['内地访客']),
@@ -421,9 +452,9 @@ for m in map_months:
     map_data[m] = entries
 
 # Load detail data for map popup
-# Source 1: passenger breakdown (HK residents, mainland, other)
-df_pax = pd.read_csv('日常旅客入出境统计_月度.csv', encoding='utf-8-sig')
-# Source 2: vehicle + growth rates
+# Source 1: passenger breakdown from merged file (covers 2019+)
+df_pax = df_map
+# Source 2: vehicle + growth rates (only covers 2021+)
 df_detail = pd.read_csv('passenger_vehicle_integrated_enhanced_cn.csv', encoding='utf-8-sig')
 df_detail['年月'] = df_detail['年份'].astype(str) + '-' + df_detail['月份'].astype(str).str.zfill(2)
 
@@ -438,6 +469,7 @@ for m in map_months:
     enh_m = df_detail[df_detail['年月'] == m]
     month_detail = {}
     for cp in checkpoint_coords:
+        en_name = CP_CN_TO_EN.get(cp, cp)
         pax_cp = pax_m[pax_m['管制站'] == cp]
         pax_in = pax_cp[pax_cp['入境 / 出境'] == '入境']
         pax_out = pax_cp[pax_cp['入境 / 出境'] == '出境']
@@ -501,12 +533,15 @@ for m in map_months:
             entry['vehicle_mom'] = round((total_v - prev_m_v) / prev_m_v * 100, 2) if prev_m_v and prev_m_v > 0 else None
             entry['vehicle_yoy'] = round((total_v - prev_y_v) / prev_y_v * 100, 2) if prev_y_v and prev_y_v > 0 else None
 
-        month_detail[cp] = entry
+        month_detail[en_name] = entry
     map_detail[m] = month_detail
+
+# Build coords dict with English keys
+coords_en = {CP_CN_TO_EN.get(k, k): v for k, v in checkpoint_coords.items()}
 
 output['chart_map'] = {
     'months': map_months,
-    'coords': {k: v for k, v in checkpoint_coords.items()},
+    'coords': coords_en,
     'data': map_data,
     'detail': map_detail,
 }
