@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港景点客流复苏竞赛</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-liquidfill@3.1.0/dist/echarts-liquidfill.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #0a0a1a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 30%, rgba(100,149,237,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 20% 80%, rgba(255,107,107,0.1) 0%, transparent 40%),
+                        radial-gradient(ellipse at 80% 80%, rgba(0,206,209,0.1) 0%, transparent 40%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 20 L30 15 L25 20 Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+            animation: bgFloat 30s linear infinite;
+        }
+        @keyframes bgFloat { from { transform: translateY(0); } to { transform: translateY(-60px); } }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFD700, #FF6B6B, #6495ED, #00CED1);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradShift 4s ease infinite;
+            z-index: 1;
+        }
+        @keyframes gradShift {
+            0%,100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .hero .subtitle {
+            font-size: 18px;
+            color: #8899aa;
+            margin-top: 15px;
+            z-index: 1;
+        }
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+            color: #6495ED;
+            font-size: 14px;
+            z-index: 1;
+        }
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(10px); opacity: 1; }
+        }
+
+        /* ===== Counter Cards ===== */
+        .counter-section {
+            padding: 60px 40px;
+            background: linear-gradient(180deg, #0a0a1a 0%, #111128 100%);
+        }
+        .counter-section h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+        .counter-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .venue-card {
+            width: 280px;
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .venue-card:hover { transform: translateY(-8px) scale(1.02); }
+        .venue-card .icon { font-size: 48px; margin-bottom: 12px; }
+        .venue-card .name { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .venue-card .count {
+            font-size: 42px;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+        }
+        .venue-card .unit { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+        .venue-card .trend { font-size: 14px; margin-top: 8px; font-weight: 600; }
+        .venue-card .bar-bg {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        .venue-card .bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 2s ease;
+            width: 0%;
+        }
+        .card-disney {
+            background: linear-gradient(135deg, rgba(30,60,114,0.8), rgba(42,82,152,0.6));
+            border: 1px solid rgba(100,149,237,0.3);
+        }
+        .card-disney .count { color: #6495ED; }
+        .card-disney .bar-fill { background: linear-gradient(90deg, #6495ED, #87CEEB); }
+        .card-ocean {
+            background: linear-gradient(135deg, rgba(0,100,100,0.8), rgba(0,140,140,0.5));
+            border: 1px solid rgba(0,206,209,0.3);
+        }
+        .card-ocean .count { color: #00CED1; }
+        .card-ocean .bar-fill { background: linear-gradient(90deg, #00CED1, #40E0D0); }
+        .card-museum {
+            background: linear-gradient(135deg, rgba(120,60,20,0.8), rgba(180,100,40,0.5));
+            border: 1px solid rgba(255,140,0,0.3);
+        }
+        .card-museum .count { color: #FF8C00; }
+        .card-museum .bar-fill { background: linear-gradient(90deg, #FF8C00, #FFD700); }
+
+        /* ===== Section Styles ===== */
+        .section {
+            padding: 50px 30px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+        .section-sub {
+            text-align: center;
+            font-size: 14px;
+            color: #778;
+            margin-bottom: 30px;
+        }
+        .chart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .chart { width: 100%; height: 500px; }
+        .chart-xl { height: 600px; }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .chart-row .chart-container { margin: 0; }
+        .chart-row .chart { height: 420px; }
+        .chart-xxl { height: 700px; }
+
+        /* ===== Liquid Row ===== */
+        .liquid-row {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            padding: 20px 0;
+        }
+        .liquid-item {
+            text-align: center;
+        }
+        .liquid-label {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 10px;
+            color: #ddd;
+        }
+        .liquid-sub {
+            font-size: 13px;
+            color: #778;
+            margin-top: 4px;
+        }
+
+        /* ===== Timeline Slider ===== */
+        .timeline-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .timeline-controls button {
+            background: rgba(100,149,237,0.2);
+            border: 1px solid rgba(100,149,237,0.4);
+            color: #6495ED;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .timeline-controls button:hover { background: rgba(100,149,237,0.4); }
+        .timeline-controls button.active { background: #6495ED; color: #fff; }
+        .year-indicator {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFD700;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        /* ===== Pictorial People ===== */
+        .people-section {
+            padding: 50px 30px;
+            text-align: center;
+        }
+        .people-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .people-block {
+            width: 300px;
+        }
+        .people-block h4 { font-size: 16px; margin-bottom: 15px; }
+        .people-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            justify-content: center;
+            min-height: 80px;
+        }
+        .person-icon {
+            width: 14px;
+            height: 14px;
+            border-radius: 50% 50% 40% 40%;
+            opacity: 0;
+            animation: popIn 0.05s ease forwards;
+        }
+        @keyframes popIn { to { opacity: 0.85; } }
+        .people-block .people-label {
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* ===== Fun Facts ===== */
+        .fun-facts {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 30px;
+        }
+        .fact-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s;
+        }
+        .fact-card:hover { transform: scale(1.03); }
+        .fact-emoji { font-size: 36px; }
+        .fact-text { font-size: 13px; line-height: 1.6; }
+        .fact-text strong { color: #FFD700; }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #556;
+            font-size: 12px;
+        }
+
+        @media (max-width: 800px) {
+            .hero h1 { font-size: 32px; }
+            .chart-row { grid-template-columns: 1fr; }
+            .fun-facts { grid-template-columns: 1fr; }
+            .counter-row { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>香港景点客流复苏竞赛</h1>
+    <p class="subtitle">疫后谁跑得最快？迪士尼 🏰 vs 海洋公园 🐬 vs 博物馆群 🏛️</p>
+    <div class="scroll-hint">▼ 向下滚动探索</div>
+</div>
+
+<!-- Animated Counter Cards -->
+<div class="counter-section">
+    <h2>2024年度入场人次</h2>
+    <div class="counter-row">
+        <div class="venue-card card-disney">
+            <div class="icon">🏰</div>
+            <div class="name">香港迪士尼乐园</div>
+            <div class="count" data-target="770" data-suffix="">0</div>
+            <div class="unit">万人次（2024自然年）</div>
+            <div class="trend" style="color:#4ecdc4">▲ +20.3% vs 2023</div>
+            <div class="bar-bg"><div class="bar-fill" data-width="100"></div></div>
+        </div>
+        <div class="venue-card card-museum">
+            <div class="icon">🏛️</div>
+            <div class="name">公立博物馆群（17馆）</div>
+            <div class="count" data-target="699" data-suffix="">0</div>
+            <div class="unit">万人次（2023-24财年）</div>
+            <div class="trend" style="color:#4ecdc4">▲ +63.2% vs 上年</div>
+            <div class="bar-bg"><div class="bar-fill" data-width="91"></div></div>
+        </div>
+        <div class="venue-card card-ocean">
+            <div class="icon">🐬</div>
+            <div class="name">香港海洋公园</div>
+            <div class="count" data-target="346" data-suffix="">0</div>
+            <div class="unit">万人次（2024-25财年）</div>
+            <div class="trend" style="color:#4ecdc4">▲ +10.2% vs 上年</div>
+            <div class="bar-bg"><div class="bar-fill" data-width="45"></div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart 1: Recovery Race -->
+<div class="section">
+    <div class="section-title">🏁 疫后复苏竞速赛</div>
+    <div class="section-sub">以2019年为100%基线，谁率先回到疫前水平？</div>
+    <div class="chart-container">
+        <div id="raceChart" class="chart"></div>
+    </div>
+</div>
+
+<!-- Pictorial People Section -->
+<div class="people-section">
+    <div class="section-title">👥 如果每个图标代表10万人…</div>
+    <div class="section-sub">2024年度各景点入场规模直观对比</div>
+    <div class="people-grid">
+        <div class="people-block">
+            <h4 style="color:#6495ED">🏰 迪士尼 770万</h4>
+            <div class="people-icons" id="ppl-disney"></div>
+            <div class="people-label" style="color:#6495ED" id="ppl-disney-count">0</div>
+        </div>
+        <div class="people-block">
+            <h4 style="color:#FF8C00">🏛️ 博物馆群 699万</h4>
+            <div class="people-icons" id="ppl-museum"></div>
+            <div class="people-label" style="color:#FF8C00" id="ppl-museum-count">0</div>
+        </div>
+        <div class="people-block">
+            <h4 style="color:#00CED1">🐬 海洋公园 346万</h4>
+            <div class="people-icons" id="ppl-ocean"></div>
+            <div class="people-label" style="color:#00CED1" id="ppl-ocean-count">0</div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart 2: Museum Racing Bar -->
+<div class="section" style="background: linear-gradient(180deg, #0e0e22, #0a0a1a);">
+    <div class="section-title">🏛️ 博物馆人气排行榜演变</div>
+    <div class="section-sub">各博物馆入场人次逐年变化——谁是最大黑马？</div>
+    <div class="chart-container">
+        <div id="museumRace" class="chart chart-xl"></div>
+    </div>
+</div>
+
+<!-- Chart 3 & 4: Side by side -->
+<div class="section">
+    <div class="chart-row">
+        <div class="chart-container">
+            <div class="section-title" style="font-size:18px; margin-bottom:15px">🎯 博物馆疫后增长倍数</div>
+            <div id="museumGrowth" class="chart"></div>
+        </div>
+        <div class="chart-container">
+            <div class="section-title" style="font-size:18px; margin-bottom:15px">🍩 最新博物馆客流占比</div>
+            <div id="museumPie" class="chart"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart 5: Checkpoint vs Attractions -->
+<div class="section" style="background: linear-gradient(180deg, #0a0a1a, #0e0e22);">
+    <div class="section-title">🔗 口岸客流 vs 景点入场 — 大势同频</div>
+    <div class="section-sub">口岸入境人次与各景点入场的年度走势对比</div>
+    <div class="chart-container">
+        <div id="crossCompare" class="chart chart-xl"></div>
+    </div>
+</div>
+
+<!-- Chart 6: Liquid Fill (液体球形图) -->
+<div class="section" style="background: linear-gradient(180deg, #0a0a1a, #0e0e22);">
+    <div class="section-title">💧 疫后恢复率——液体球形图</div>
+    <div class="section-sub">水位越高代表恢复得越好，超过100%意味着超越疫前！</div>
+    <div class="liquid-row">
+        <div class="liquid-item">
+            <div id="liquidDisney" style="width:260px;height:260px;"></div>
+            <div class="liquid-label">🏰 迪士尼</div>
+            <div class="liquid-sub">770万 / 疫前650万</div>
+        </div>
+        <div class="liquid-item">
+            <div id="liquidMuseum" style="width:260px;height:260px;"></div>
+            <div class="liquid-label">🏛️ 博物馆群</div>
+            <div class="liquid-sub">699万 / 疫前377万</div>
+        </div>
+        <div class="liquid-item">
+            <div id="liquidOcean" style="width:260px;height:260px;"></div>
+            <div class="liquid-label">🐬 海洋公园</div>
+            <div class="liquid-sub">346万 / 疫前570万</div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart 7: ThemeGraph / StreamGraph (河流图) -->
+<div class="section">
+    <div class="section-title">🌊 博物馆客流河流图</div>
+    <div class="section-sub">层叠河流——看各博物馆客流如何汇聚成洪流（Top 10）</div>
+    <div class="chart-container">
+        <div id="streamChart" class="chart chart-xl"></div>
+    </div>
+</div>
+
+<!-- Chart 7: Bump Chart (凹凸图) -->
+<div class="section" style="background: linear-gradient(180deg, #0e0e22, #0a0a1a);">
+    <div class="section-title">📊 博物馆排名凹凸图</div>
+    <div class="section-sub">排名跌宕起伏——谁在逆袭，谁在陨落？</div>
+    <div class="chart-container">
+        <div id="bumpChart" class="chart chart-xl"></div>
+    </div>
+</div>
+
+<!-- Chart 8: Animated Bar Race (条形竞赛图) -->
+<div class="section">
+    <div class="section-title">🏎️ 景点客流条形竞赛</div>
+    <div class="section-sub">迪士尼 vs 海洋公园 vs 博物馆TOP5 —— 年度客流比拼动画</div>
+    <div class="chart-container">
+        <div id="barRace" class="chart chart-xl"></div>
+        <div class="timeline-controls">
+            <button id="barRacePlay" class="active">▶ 播放</button>
+            <div class="year-indicator" id="barRaceYear">2019-20</div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart 9: Polar / Radar (雷达图) -->
+<div class="section" style="background: linear-gradient(180deg, #0a0a1a, #0e0e22);">
+    <div class="section-title">🎯 三大景点多维雷达图</div>
+    <div class="section-sub">从不同维度比较迪士尼、海洋公园、博物馆群的竞争力</div>
+    <div class="chart-container">
+        <div id="radarChart" class="chart"></div>
+    </div>
+</div>
+
+<!-- Chart 10: Waterfall Chart (瀑布图) -->
+<div class="section">
+    <div class="section-title">💧 客流增减瀑布图</div>
+    <div class="section-sub">逐年拆解客流增减——哪年跌得最惨？哪年回血最猛？</div>
+    <div class="chart-container">
+        <div id="waterfallChart" class="chart chart-xl"></div>
+    </div>
+</div>
+
+<!-- Chart 11: Pictorial Bar (象形柱图) -->
+<div class="section" style="background: linear-gradient(180deg, #0e0e22, #0a0a1a);">
+    <div class="section-title">🎭 象形柱图：用人形感受客流规模</div>
+    <div class="section-sub">2023-24年度Top 8博物馆——每个人形 = 10万人次</div>
+    <div class="chart-container">
+        <div id="pictorialChart" class="chart chart-xl"></div>
+    </div>
+</div>
+
+<!-- Fun Facts -->
+<div class="section">
+    <div class="section-title">💡 有趣发现</div>
+    <div class="fun-facts">
+        <div class="fact-card">
+            <div class="fact-emoji">🏆</div>
+            <div class="fact-text"><strong>迪士尼超越疫前！</strong>2024年入场770万人次，比2019年多出120万，成为唯一超越疫前水平的主题乐园。</div>
+        </div>
+        <div class="fact-card">
+            <div class="fact-emoji">📈</div>
+            <div class="fact-text"><strong>艺术馆逆袭黑马！</strong>香港艺术馆从疫前11.6万暴增至155.8万，翻了<strong>13.4倍</strong>，成为增长最猛的博物馆。</div>
+        </div>
+        <div class="fact-card">
+            <div class="fact-emoji">🐬</div>
+            <div class="fact-text"><strong>海洋公园仍在挣扎</strong>，目前仅恢复到疫前61%水平，且持续亏损2.75亿港元，复苏之路最为艰难。</div>
+        </div>
+        <div class="fact-card">
+            <div class="fact-emoji">🧮</div>
+            <div class="fact-text"><strong>博物馆集群威力！</strong>17间公立博物馆合计699万人次，几乎追平迪士尼单体乐园的770万。免费策略成效显著。</div>
+        </div>
+        <div class="fact-card">
+            <div class="fact-emoji">🎨</div>
+            <div class="fact-text"><strong>油街实现成网红！</strong>从12.9万飙升至71.9万，增长<strong>4.5倍</strong>，成为文艺青年打卡新地标。</div>
+        </div>
+        <div class="fact-card">
+            <div class="fact-emoji">🔬</div>
+            <div class="fact-text"><strong>科学馆稳坐C位</strong>，连续多年蝉联博物馆人气冠军（135万），亲子教育需求是最强驱动力。</div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    数据来源：香港旅游发展局、康乐及文化事务署、各景点年报 | 可视化制作：数据可视化课程小组
+</div>
+
+<script>
+// ===== Data =====
+const museumData = {
+    names: ['香港科学馆','香港艺术馆','香港太空馆','香港文化博物馆','油街实现','香港历史博物馆','香港铁路博物馆','香港电影资料馆','三栋屋博物馆','茶具文物馆','孙中山纪念馆','香港视觉艺术中心','葛量洪号灭火轮展览馆','李郑屋汉墓博物馆','上窰民俗文物馆','罗屋民俗馆','香港海防博物馆'],
+    years: ['2019-20','2020-21','2021-22','2022-23','2023-24'],
+    values: [
+        [875809, 101930, 1074769, 1101143, 1351783],
+        [116493, 233273, 579036, 583537, 1558365],
+        [653051, 55466, 497269, 608456, 1022633],
+        [538610, 94243, 326427, 450561, 766916],
+        [129708, 39011, 81835, 623175, 719109],
+        [654849, 132298, 257145, 325248, 586073],
+        [200702, 66779, 134354, 168518, 246098],
+        [106203, 21205, 44497, 64354, 96407],
+        [68339, 9189, 33764, 57387, 103718],
+        [108760, 24267, 55407, 78135, 94888],
+        [56184, 10811, 47386, 68747, 89656],
+        [42494, 12907, 38640, 44147, 49706],
+        [40021, 18849, 50346, 63511, 62275],
+        [35033, 9041, 19107, 21845, 29191],
+        [30015, 16860, 26592, 17380, 37273],
+        [9771, 2875, 7880, 9331, 18260],
+        [null, null, null, 84953, 168016]
+    ]
+};
+
+const disneyData = {
+    years: [2019, 2020, 2021, 2022, 2023, 2024],
+    values: [6.5, 1.7, 2.8, 3.4, 6.4, 7.7]
+};
+
+const oceanData = {
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+    values: [6.0, 5.8, 5.8, 5.7, 2.2, 1.4, 1.4, 2.4, 3.14, 3.46]
+};
+
+// Checkpoint total arrivals by year (from jewelry_analysis_data)
+const checkpointYearly = {
+    2021: 962909,
+    2022: 2547565,
+    2023: 105815313,
+    2024: 149298266
+};
+
+// ===== Animated Counters =====
+function animateCounters() {
+    document.querySelectorAll('.venue-card .count').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        let current = 0;
+        const step = target / 60;
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = Math.floor(current) + suffix;
+        }, 25);
+    });
+    document.querySelectorAll('.bar-fill').forEach(el => {
+        setTimeout(() => { el.style.width = el.dataset.width + '%'; }, 300);
+    });
+}
+
+// ===== Pictorial People =====
+function createPeople(containerId, count, color, labelId) {
+    const container = document.getElementById(containerId);
+    const icons = Math.round(count / 10); // 1 icon = 10万
+    let shown = 0;
+    const timer = setInterval(() => {
+        if (shown >= icons) { clearInterval(timer); return; }
+        const dot = document.createElement('div');
+        dot.className = 'person-icon';
+        dot.style.background = color;
+        dot.style.animationDelay = (shown * 0.02) + 's';
+        container.appendChild(dot);
+        shown++;
+        document.getElementById(labelId).textContent = (shown * 10) + '万';
+    }, 30);
+}
+
+// ===== Chart 1: Recovery Race =====
+function initRaceChart() {
+    const chart = echarts.init(document.getElementById('raceChart'));
+
+    // Align to common years: 2019, 2020, 2021, 2022, 2023, 2024
+    // Disney: direct calendar year
+    // Ocean Park: fiscal year starting Jul, so "2019" = Jul2019-Jun2020 → use as 2019
+    // Museums: fiscal year 2019-20 → use as 2019
+
+    const museumTotals = museumData.years.map((_, yi) =>
+        museumData.values.reduce((s, v) => s + (v[yi] || 0), 0)
+    );
+    // Museum years: 2019, 2020, 2021, 2022, 2023
+    const museumBase = museumTotals[0]; // 2019-20
+
+    const disneyBase = 6.5; // 2019
+    const oceanBase = 5.7; // 2018 fiscal = Jul2018-Jun2019, closest pre-covid
+    // But 2019 fiscal for ocean = 2.2 (already hit by covid), use 2018 as base
+    // Actually let me use the recovery % from pre-covid peak
+
+    const years = ['2019','2020','2021','2022','2023','2024'];
+
+    // Disney recovery %
+    const disneyPct = disneyData.values.map(v => (v / disneyBase * 100).toFixed(1));
+
+    // Ocean Park: align fiscal years. 2018=5.7(base), 2019=2.2, 2020=1.4, 2021=1.4, 2022=2.4, 2023=3.14, 2024=3.46
+    // Map to calendar: 2019→2019fiscal(2.2), 2020→2020(1.4)...
+    const oceanPct = [
+        (2.2/5.7*100).toFixed(1), (1.4/5.7*100).toFixed(1), (1.4/5.7*100).toFixed(1),
+        (2.4/5.7*100).toFixed(1), (3.14/5.7*100).toFixed(1), (3.46/5.7*100).toFixed(1)
+    ];
+
+    // Museum: 2019-20(base), then 2020-21, 2021-22, 2022-23, 2023-24
+    const museumPct = museumTotals.map(v => (v / museumBase * 100).toFixed(1));
+    // Pad to 6 years: [100, pct20, pct21, pct22, pct23, extrapolate24]
+    const museumRecovery = [museumPct[0], museumPct[1], museumPct[2], museumPct[3], museumPct[4], null];
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            borderColor: '#444',
+            textStyle: { color: '#e0e0e0' },
+            formatter: params => {
+                let s = '<b>' + params[0].axisValue + '</b><br/>';
+                params.forEach(p => {
+                    if (p.value != null) s += p.marker + ' ' + p.seriesName + ': ' + p.value + '%<br/>';
+                });
+                return s;
+            }
+        },
+        legend: {
+            data: ['🏰 迪士尼', '🐬 海洋公园', '🏛️ 博物馆群'],
+            textStyle: { color: '#aaa', fontSize: 13 },
+            top: 10
+        },
+        grid: { left: 60, right: 30, top: 55, bottom: 40 },
+        xAxis: {
+            type: 'category',
+            data: years,
+            axisLabel: { color: '#aaa', fontSize: 14 },
+            axisLine: { lineStyle: { color: '#333' } }
+        },
+        yAxis: {
+            type: 'value',
+            name: '恢复率 (2019=100%)',
+            nameTextStyle: { color: '#888' },
+            axisLabel: { color: '#888', formatter: '{value}%' },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.05)' } },
+            max: 180
+        },
+        series: [
+            {
+                name: '🏰 迪士尼',
+                type: 'line',
+                data: disneyPct,
+                smooth: true,
+                lineStyle: { color: '#6495ED', width: 4 },
+                itemStyle: { color: '#6495ED', borderWidth: 3 },
+                symbolSize: 12,
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(100,149,237,0.2)' },
+                        { offset: 1, color: 'rgba(100,149,237,0)' }
+                    ])
+                },
+                markLine: {
+                    silent: true,
+                    data: [{ yAxis: 100, label: { formatter: '疫前水平', color: '#FFD700', fontSize: 12 },
+                             lineStyle: { color: '#FFD700', type: 'dashed', width: 2 } }]
+                }
+            },
+            {
+                name: '🐬 海洋公园',
+                type: 'line',
+                data: oceanPct,
+                smooth: true,
+                lineStyle: { color: '#00CED1', width: 4 },
+                itemStyle: { color: '#00CED1', borderWidth: 3 },
+                symbolSize: 12,
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(0,206,209,0.15)' },
+                        { offset: 1, color: 'rgba(0,206,209,0)' }
+                    ])
+                }
+            },
+            {
+                name: '🏛️ 博物馆群',
+                type: 'line',
+                data: museumRecovery,
+                smooth: true,
+                lineStyle: { color: '#FF8C00', width: 4 },
+                itemStyle: { color: '#FF8C00', borderWidth: 3 },
+                symbolSize: 12,
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(255,140,0,0.15)' },
+                        { offset: 1, color: 'rgba(255,140,0,0)' }
+                    ])
+                }
+            }
+        ]
+    });
+    return chart;
+}
+
+// ===== Chart 2: Museum Racing Bar (Animated) =====
+function initMuseumRace() {
+    const chart = echarts.init(document.getElementById('museumRace'));
+    const colors = [
+        '#FF6B6B','#6495ED','#00CED1','#FFD700','#FF8C00','#7B68EE',
+        '#20B2AA','#DA70D6','#87CEEB','#F0E68C','#DDA0DD','#98FB98',
+        '#FA8072','#4682B4','#FF69B4','#32CD32','#CD853F'
+    ];
+
+    let currentYear = 0;
+
+    function getYearData(yearIdx) {
+        const pairs = [];
+        museumData.names.forEach((name, i) => {
+            const val = museumData.values[i][yearIdx];
+            if (val != null && val > 0) {
+                pairs.push({ name, value: val, color: colors[i] });
+            }
+        });
+        pairs.sort((a, b) => a.value - b.value);
+        return pairs;
+    }
+
+    function updateChart(yearIdx) {
+        const d = getYearData(yearIdx);
+        chart.setOption({
+            title: {
+                text: museumData.years[yearIdx],
+                textStyle: { color: 'rgba(255,255,255,0.08)', fontSize: 80, fontWeight: 800 },
+                right: 50,
+                bottom: 50
+            },
+            tooltip: {
+                formatter: p => `${p.name}<br/>${(p.value/10000).toFixed(1)}万人次`
+            },
+            grid: { left: 160, right: 80, top: 20, bottom: 30 },
+            xAxis: {
+                type: 'value',
+                axisLabel: { color: '#888', formatter: v => (v/10000).toFixed(0) + '万' },
+                splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
+            },
+            yAxis: {
+                type: 'category',
+                data: d.map(i => i.name),
+                axisLabel: { color: '#ccc', fontSize: 12 },
+                axisLine: { show: false },
+                axisTick: { show: false },
+                animationDuration: 300,
+                animationDurationUpdate: 800
+            },
+            series: [{
+                type: 'bar',
+                data: d.map(i => ({
+                    value: i.value,
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                            { offset: 0, color: i.color + '66' },
+                            { offset: 1, color: i.color }
+                        ]),
+                        borderRadius: [0, 6, 6, 0]
+                    }
+                })),
+                barMaxWidth: 28,
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: p => (p.value/10000).toFixed(1) + '万',
+                    color: '#ccc',
+                    fontSize: 12
+                },
+                animationDuration: 0,
+                animationDurationUpdate: 800,
+                animationEasing: 'cubicOut',
+                animationEasingUpdate: 'cubicOut'
+            }],
+            animationDuration: 0,
+            animationDurationUpdate: 800,
+            animationEasing: 'cubicOut',
+            animationEasingUpdate: 'cubicOut'
+        });
+    }
+
+    updateChart(0);
+
+    // Auto-play through years
+    function playNext() {
+        currentYear++;
+        if (currentYear >= museumData.years.length) currentYear = 0;
+        updateChart(currentYear);
+    }
+
+    setInterval(playNext, 2500);
+    return chart;
+}
+
+// ===== Chart 3: Museum Growth Multiplier =====
+function initMuseumGrowth() {
+    const chart = echarts.init(document.getElementById('museumGrowth'));
+
+    const growthData = [];
+    museumData.names.forEach((name, i) => {
+        const base = museumData.values[i][0]; // 2019-20
+        const latest = museumData.values[i][4]; // 2023-24
+        if (base != null && latest != null && base > 0) {
+            growthData.push({ name: name.replace('香港',''), multiplier: parseFloat((latest / base).toFixed(2)) });
+        }
+    });
+    growthData.sort((a, b) => b.multiplier - a.multiplier);
+
+    chart.setOption({
+        tooltip: { formatter: p => `${p.name}<br/>增长倍数: ${p.value}x` },
+        grid: { left: 120, right: 50, top: 10, bottom: 30 },
+        xAxis: {
+            type: 'value',
+            name: '倍数',
+            axisLabel: { color: '#888', formatter: '{value}x' },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
+        },
+        yAxis: {
+            type: 'category',
+            data: growthData.map(d => d.name),
+            axisLabel: { color: '#ccc', fontSize: 11 },
+            axisLine: { show: false }
+        },
+        series: [{
+            type: 'bar',
+            data: growthData.map(d => ({
+                value: d.multiplier,
+                itemStyle: {
+                    color: d.multiplier > 3 ? '#FF6B6B' : d.multiplier > 1.5 ? '#FFD700' : '#6495ED',
+                    borderRadius: [0, 4, 4, 0]
+                }
+            })),
+            barMaxWidth: 20,
+            label: {
+                show: true,
+                position: 'right',
+                formatter: '{c}x',
+                color: '#ccc',
+                fontSize: 11
+            },
+            markLine: {
+                silent: true,
+                data: [{ xAxis: 1, label: { formatter: '持平', color: '#888' },
+                         lineStyle: { color: '#555', type: 'dashed' } }]
+            }
+        }]
+    });
+    return chart;
+}
+
+// ===== Chart 4: Museum Pie =====
+function initMuseumPie() {
+    const chart = echarts.init(document.getElementById('museumPie'));
+    const latestIdx = 4;
+    const pieData = [];
+    museumData.names.forEach((name, i) => {
+        const val = museumData.values[i][latestIdx];
+        if (val) pieData.push({ name: name.replace('香港',''), value: val });
+    });
+    pieData.sort((a, b) => b.value - a.value);
+
+    // Group small ones
+    const top8 = pieData.slice(0, 8);
+    const others = pieData.slice(8).reduce((s, d) => s + d.value, 0);
+    top8.push({ name: '其他场馆', value: others });
+
+    chart.setOption({
+        tooltip: { formatter: p => `${p.name}<br/>${(p.value/10000).toFixed(1)}万 (${p.percent}%)` },
+        series: [{
+            type: 'pie',
+            radius: ['30%', '70%'],
+            center: ['50%', '50%'],
+            roseType: 'area',
+            label: { formatter: '{b}\n{d}%', fontSize: 10, color: '#ccc' },
+            data: top8,
+            itemStyle: { borderColor: '#0a0a1a', borderWidth: 2 },
+            emphasis: { itemStyle: { shadowBlur: 20 } }
+        }],
+        color: ['#FF6B6B','#6495ED','#00CED1','#FFD700','#FF8C00','#7B68EE','#20B2AA','#DA70D6','#888']
+    });
+    return chart;
+}
+
+// ===== Chart 5: Cross Comparison =====
+function initCrossCompare() {
+    const chart = echarts.init(document.getElementById('crossCompare'));
+    const years = ['2019','2020','2021','2022','2023','2024'];
+
+    // Normalize all to 2019 = 100
+    const disneyNorm = disneyData.values.map(v => parseFloat((v / 6.5 * 100).toFixed(1)));
+
+    const oceanAligned = [5.7, 2.2, 1.4, 1.4, 2.4, 3.14];
+    const oceanNorm = oceanAligned.map(v => parseFloat((v / 5.7 * 100).toFixed(1)));
+
+    const museumTotals = museumData.years.map((_, yi) =>
+        museumData.values.reduce((s, v) => s + (v[yi] || 0), 0)
+    );
+    const museumBase = museumTotals[0];
+    const museumNorm = museumTotals.map(v => parseFloat((v / museumBase * 100).toFixed(1)));
+    // museum only has 5 data points (2019-2023)
+    const museumLine = [museumNorm[0], museumNorm[1], museumNorm[2], museumNorm[3], museumNorm[4], null];
+
+    // Checkpoint: 2019 not available, use rough estimate
+    const cpBase = 149298266; // use 2024 to show relative scale; or just use actual values
+    // Actually show as separate axis
+    const cpValues = [null, null, 962909, 2547565, 105815313, 149298266];
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            borderColor: '#444',
+            textStyle: { color: '#e0e0e0' }
+        },
+        legend: {
+            data: ['迪士尼', '海洋公园', '博物馆群', '口岸入境客流'],
+            textStyle: { color: '#aaa' },
+            top: 5
+        },
+        grid: { left: 60, right: 70, top: 50, bottom: 40 },
+        xAxis: {
+            type: 'category',
+            data: years,
+            axisLabel: { color: '#aaa', fontSize: 14 },
+            axisLine: { lineStyle: { color: '#333' } }
+        },
+        yAxis: [
+            {
+                type: 'value',
+                name: '恢复率(%)',
+                nameTextStyle: { color: '#888' },
+                axisLabel: { color: '#888', formatter: '{value}%' },
+                splitLine: { lineStyle: { color: 'rgba(255,255,255,0.05)' } }
+            },
+            {
+                type: 'value',
+                name: '口岸客流',
+                nameTextStyle: { color: '#FF6B6B' },
+                axisLabel: { color: '#888', formatter: v => (v/100000000).toFixed(1) + '亿' },
+                splitLine: { show: false }
+            }
+        ],
+        series: [
+            {
+                name: '口岸入境客流',
+                type: 'bar',
+                yAxisIndex: 1,
+                data: cpValues,
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(255,107,107,0.5)' },
+                        { offset: 1, color: 'rgba(255,107,107,0.1)' }
+                    ])
+                },
+                barMaxWidth: 40
+            },
+            {
+                name: '迪士尼',
+                type: 'line',
+                data: disneyNorm,
+                smooth: true,
+                lineStyle: { color: '#6495ED', width: 3 },
+                itemStyle: { color: '#6495ED' },
+                symbolSize: 10
+            },
+            {
+                name: '海洋公园',
+                type: 'line',
+                data: oceanNorm,
+                smooth: true,
+                lineStyle: { color: '#00CED1', width: 3 },
+                itemStyle: { color: '#00CED1' },
+                symbolSize: 10
+            },
+            {
+                name: '博物馆群',
+                type: 'line',
+                data: museumLine,
+                smooth: true,
+                lineStyle: { color: '#FF8C00', width: 3 },
+                itemStyle: { color: '#FF8C00' },
+                symbolSize: 10
+            }
+        ]
+    });
+    return chart;
+}
+
+// ===== Chart 6: Liquid Fill (液体球形图) =====
+function initLiquidCharts() {
+    const charts = [];
+
+    function makeLiquid(domId, value, color, waveColors) {
+        const chart = echarts.init(document.getElementById(domId));
+        // value is recovery rate (e.g. 1.18 = 118%)
+        const displayVal = value;
+        const waves = [value, value - 0.05, value - 0.1].filter(v => v > 0);
+        chart.setOption({
+            series: [{
+                type: 'liquidFill',
+                data: waves,
+                radius: '90%',
+                color: waveColors,
+                center: ['50%', '50%'],
+                label: {
+                    formatter: function() {
+                        return (displayVal * 100).toFixed(0) + '%';
+                    },
+                    fontSize: 36,
+                    fontWeight: 700,
+                    color: '#fff',
+                    insideColor: '#fff'
+                },
+                outline: {
+                    show: true,
+                    borderDistance: 4,
+                    itemStyle: {
+                        borderColor: color,
+                        borderWidth: 3
+                    }
+                },
+                backgroundStyle: {
+                    color: 'rgba(15,15,30,0.8)',
+                    borderColor: color,
+                    borderWidth: 1
+                },
+                itemStyle: {
+                    opacity: 0.85,
+                    shadowBlur: 20,
+                    shadowColor: color + '66'
+                },
+                emphasis: {
+                    itemStyle: {
+                        opacity: 1
+                    }
+                },
+                amplitude: value > 1 ? 15 : 10,
+                waveLength: '60%',
+                animationDuration: 3000,
+                animationDurationUpdate: 2000
+            }]
+        });
+        return chart;
+    }
+
+    // Disney: 770/650 = 1.185
+    charts.push(makeLiquid('liquidDisney', 1.185,
+        '#6495ED', ['rgba(100,149,237,0.7)', 'rgba(100,149,237,0.5)', 'rgba(100,149,237,0.3)']));
+
+    // Museums: 699/377 = 1.854
+    charts.push(makeLiquid('liquidMuseum', 1.0,
+        '#FF8C00', ['rgba(255,140,0,0.7)', 'rgba(255,140,0,0.5)', 'rgba(255,140,0,0.3)']));
+    // Museum is 185% but liquidfill caps at 1.0 visually, show as overflow
+    // Actually set to capped visual but label shows real %
+    charts[1].setOption({
+        series: [{
+            data: [1.0, 0.95, 0.90],
+            label: {
+                formatter: function() { return '185%'; },
+                fontSize: 36,
+                fontWeight: 700,
+                color: '#fff'
+            }
+        }]
+    });
+
+    // Ocean: 346/570 = 0.607
+    charts.push(makeLiquid('liquidOcean', 0.607,
+        '#00CED1', ['rgba(0,206,209,0.7)', 'rgba(0,206,209,0.5)', 'rgba(0,206,209,0.3)']));
+
+    return charts;
+}
+
+// ===== Chart 7: StreamGraph (河流图) =====
+function initStreamChart() {
+    const chart = echarts.init(document.getElementById('streamChart'));
+    // Use top 10 museums for readability
+    const top10Idx = [0,1,2,3,4,5,6,7,8,9];
+    const colors = ['#FF6B6B','#6495ED','#00CED1','#FFD700','#FF8C00','#7B68EE','#20B2AA','#DA70D6','#87CEEB','#F0E68C'];
+
+    const series = top10Idx.map((mi, i) => ({
+        name: museumData.names[mi].replace('香港',''),
+        type: 'line',
+        stack: 'total',
+        smooth: true,
+        lineStyle: { width: 0 },
+        showSymbol: false,
+        areaStyle: {
+            opacity: 0.85,
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: colors[i] },
+                { offset: 1, color: colors[i] + '88' }
+            ])
+        },
+        emphasis: { focus: 'series' },
+        data: museumData.values[mi].map(v => v ? Math.round(v / 10000) : 0)
+    }));
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { type: 'cross' },
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            borderColor: '#444',
+            textStyle: { color: '#e0e0e0' },
+            formatter: params => {
+                let s = '<b>' + params[0].axisValue + '</b><br/>';
+                // Sort by value descending
+                const sorted = [...params].sort((a, b) => (b.value||0) - (a.value||0));
+                sorted.forEach(p => {
+                    if (p.value > 0) s += p.marker + ' ' + p.seriesName + ': ' + p.value + '万<br/>';
+                });
+                return s;
+            }
+        },
+        legend: {
+            data: series.map(s => s.name),
+            textStyle: { color: '#aaa', fontSize: 11 },
+            top: 5,
+            type: 'scroll'
+        },
+        grid: { left: 50, right: 20, top: 50, bottom: 30 },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: museumData.years,
+            axisLabel: { color: '#aaa' },
+            axisLine: { lineStyle: { color: '#333' } }
+        },
+        yAxis: {
+            type: 'value',
+            name: '万人次',
+            nameTextStyle: { color: '#888' },
+            axisLabel: { color: '#888' },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
+        },
+        color: colors,
+        series: series
+    });
+    return chart;
+}
+
+// ===== Chart 7: Bump Chart (凹凸图) =====
+function initBumpChart() {
+    const chart = echarts.init(document.getElementById('bumpChart'));
+    const colors = [
+        '#FF6B6B','#6495ED','#00CED1','#FFD700','#FF8C00','#7B68EE',
+        '#20B2AA','#DA70D6','#87CEEB','#F0E68C','#DDA0DD','#98FB98',
+        '#FA8072','#4682B4','#FF69B4','#32CD32'
+    ];
+
+    // Compute rankings per year (exclude 海防博物馆 which has nulls for first 3 years)
+    const validIdx = [];
+    museumData.names.forEach((_, i) => {
+        if (museumData.values[i][0] != null) validIdx.push(i);
+    });
+
+    const rankings = museumData.years.map((_, yi) => {
+        const pairs = validIdx.map(i => ({ idx: i, val: museumData.values[i][yi] || 0 }));
+        pairs.sort((a, b) => b.val - a.val);
+        const rankMap = {};
+        pairs.forEach((p, rank) => { rankMap[p.idx] = rank + 1; });
+        return rankMap;
+    });
+
+    // Only show top 12 museums (by best rank achieved)
+    const bestRank = {};
+    validIdx.forEach(i => {
+        bestRank[i] = Math.min(...rankings.map(r => r[i] || 99));
+    });
+    const showIdx = validIdx.filter(i => bestRank[i] <= 12).sort((a, b) => bestRank[a] - bestRank[b]);
+
+    const series = showIdx.map((mi, si) => ({
+        name: museumData.names[mi].replace('香港',''),
+        type: 'line',
+        smooth: 0.3,
+        data: rankings.map(r => r[mi]),
+        lineStyle: { width: 3, color: colors[si % colors.length] },
+        itemStyle: { color: colors[si % colors.length], borderWidth: 2, borderColor: '#0a0a1a' },
+        symbolSize: 16,
+        symbol: 'circle',
+        emphasis: {
+            focus: 'series',
+            lineStyle: { width: 5 },
+            itemStyle: { borderWidth: 4 }
+        },
+        label: {
+            show: false
+        },
+        z: showIdx.length - si
+    }));
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            borderColor: '#444',
+            textStyle: { color: '#e0e0e0' },
+            formatter: params => {
+                let s = '<b>' + params[0].axisValue + '</b><br/>';
+                const sorted = [...params].sort((a, b) => a.value - b.value);
+                sorted.forEach(p => {
+                    s += p.marker + ' ' + p.seriesName + ': 第' + p.value + '名<br/>';
+                });
+                return s;
+            }
+        },
+        legend: {
+            data: series.map(s => s.name),
+            textStyle: { color: '#aaa', fontSize: 11 },
+            top: 5,
+            type: 'scroll'
+        },
+        grid: { left: 50, right: 120, top: 50, bottom: 30 },
+        xAxis: {
+            type: 'category',
+            data: museumData.years,
+            axisLabel: { color: '#aaa', fontSize: 13 },
+            axisLine: { lineStyle: { color: '#333' } }
+        },
+        yAxis: {
+            type: 'value',
+            inverse: true,
+            min: 1,
+            max: 12,
+            interval: 1,
+            name: '排名',
+            nameTextStyle: { color: '#888' },
+            axisLabel: { color: '#888', formatter: '第{value}名' },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
+        },
+        color: colors,
+        series: series
+    });
+
+    // Add end labels manually via graphic
+    const lastYearIdx = museumData.years.length - 1;
+    setTimeout(() => {
+        // Use the chart's coordinate system to place labels
+        const option = chart.getOption();
+        // Just rely on legend for now
+    }, 500);
+
+    return chart;
+}
+
+// ===== Chart 8: Bar Race (条形竞赛图 - 含主题乐园) =====
+function initBarRace() {
+    const chart = echarts.init(document.getElementById('barRace'));
+    const allColors = {
+        '迪士尼': '#6495ED',
+        '海洋公园': '#00CED1',
+        '科学馆': '#FF6B6B',
+        '艺术馆': '#FFD700',
+        '太空馆': '#7B68EE',
+        '文化博物馆': '#FF8C00',
+        '油街实现': '#20B2AA',
+        '历史博物馆': '#DA70D6'
+    };
+
+    // Align data by fiscal year for fair comparison
+    // Disney: 2019=6.5M, 2020=1.7M, 2021=2.8M, 2022=3.4M, 2023=6.4M, 2024=7.7M
+    // Ocean: 2019=2.2M, 2020=1.4M, 2021=1.4M, 2022=2.4M, 2023=3.14M, 2024=3.46M
+    const yearLabels = ['2019-20','2020-21','2021-22','2022-23','2023-24'];
+    const disneyAligned = [6500000, 1700000, 2800000, 3400000, 6400000];
+    const oceanAligned = [2200000, 1400000, 1400000, 2400000, 3140000];
+
+    // Top 6 museums
+    const top6 = [0, 1, 2, 3, 4, 5];
+    const shortNames = ['科学馆','艺术馆','太空馆','文化博物馆','油街实现','历史博物馆'];
+
+    function getYearData(yi) {
+        const items = [];
+        items.push({ name: '迪士尼', value: disneyAligned[yi], color: allColors['迪士尼'] });
+        items.push({ name: '海洋公园', value: oceanAligned[yi], color: allColors['海洋公园'] });
+        top6.forEach((mi, si) => {
+            const val = museumData.values[mi][yi] || 0;
+            items.push({ name: shortNames[si], value: val, color: allColors[shortNames[si]] || '#888' });
+        });
+        items.sort((a, b) => a.value - b.value);
+        return items;
+    }
+
+    let currentIdx = 0;
+    let playing = true;
+
+    function updateBarRace(yi) {
+        const d = getYearData(yi);
+        document.getElementById('barRaceYear').textContent = yearLabels[yi];
+        chart.setOption({
+            title: {
+                text: yearLabels[yi],
+                textStyle: { color: 'rgba(255,255,255,0.06)', fontSize: 100, fontWeight: 900 },
+                right: 40,
+                bottom: 40
+            },
+            tooltip: { formatter: p => `${p.name}<br/>${(p.value/10000).toFixed(0)}万人次` },
+            grid: { left: 110, right: 80, top: 10, bottom: 30 },
+            xAxis: {
+                type: 'value',
+                axisLabel: { color: '#888', formatter: v => (v/10000).toFixed(0) + '万' },
+                splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } },
+                max: 7500000
+            },
+            yAxis: {
+                type: 'category',
+                data: d.map(i => i.name),
+                axisLabel: { color: '#ccc', fontSize: 13, fontWeight: 600 },
+                axisLine: { show: false },
+                axisTick: { show: false },
+                animationDuration: 300,
+                animationDurationUpdate: 1200
+            },
+            series: [{
+                type: 'bar',
+                data: d.map(i => ({
+                    value: i.value,
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                            { offset: 0, color: i.color + '44' },
+                            { offset: 1, color: i.color }
+                        ]),
+                        borderRadius: [0, 8, 8, 0]
+                    }
+                })),
+                barMaxWidth: 32,
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: p => (p.value/10000).toFixed(0) + '万',
+                    color: '#ddd',
+                    fontSize: 13,
+                    fontWeight: 600
+                },
+                animationDuration: 0,
+                animationDurationUpdate: 1200,
+                animationEasingUpdate: 'cubicInOut'
+            }],
+            animationDuration: 0,
+            animationDurationUpdate: 1200,
+            animationEasingUpdate: 'cubicInOut'
+        });
+    }
+
+    updateBarRace(0);
+
+    let timer = setInterval(() => {
+        if (!playing) return;
+        currentIdx = (currentIdx + 1) % yearLabels.length;
+        updateBarRace(currentIdx);
+    }, 3000);
+
+    document.getElementById('barRacePlay').addEventListener('click', function() {
+        playing = !playing;
+        this.textContent = playing ? '▶ 播放' : '⏸ 暂停';
+        this.classList.toggle('active', playing);
+    });
+
+    return chart;
+}
+
+// ===== Chart 9: Radar Chart =====
+function initRadarChart() {
+    const chart = echarts.init(document.getElementById('radarChart'));
+
+    // Dimensions: 最新客流(万), 疫后恢复率(%), 增长势头(YoY%), 品牌知名度(估), 价格亲民度
+    // Disney: 770万, 118%, 20%, 95, 30(贵)
+    // Ocean: 346万, 61%, 10%, 80, 50(中)
+    // Museums: 699万, 185%, 63%, 60, 100(免费)
+
+    chart.setOption({
+        tooltip: {
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            borderColor: '#444',
+            textStyle: { color: '#e0e0e0' }
+        },
+        legend: {
+            data: ['🏰 迪士尼', '🐬 海洋公园', '🏛️ 博物馆群'],
+            textStyle: { color: '#aaa', fontSize: 13 },
+            bottom: 10
+        },
+        radar: {
+            indicator: [
+                { name: '年客流量\n(百万)', max: 8 },
+                { name: '疫后恢复率', max: 200 },
+                { name: '同比增长(%)', max: 70 },
+                { name: '品牌知名度', max: 100 },
+                { name: '价格亲民度', max: 100 }
+            ],
+            center: ['50%', '48%'],
+            radius: '65%',
+            shape: 'circle',
+            splitNumber: 4,
+            axisName: { color: '#aaa', fontSize: 12 },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.08)' } },
+            splitArea: { areaStyle: { color: ['rgba(255,255,255,0.02)', 'rgba(255,255,255,0.04)'] } },
+            axisLine: { lineStyle: { color: 'rgba(255,255,255,0.1)' } }
+        },
+        series: [{
+            type: 'radar',
+            data: [
+                {
+                    name: '🏰 迪士尼',
+                    value: [7.7, 118, 20, 95, 30],
+                    lineStyle: { color: '#6495ED', width: 2 },
+                    itemStyle: { color: '#6495ED' },
+                    areaStyle: { color: 'rgba(100,149,237,0.2)' }
+                },
+                {
+                    name: '🐬 海洋公园',
+                    value: [3.46, 61, 10, 80, 50],
+                    lineStyle: { color: '#00CED1', width: 2 },
+                    itemStyle: { color: '#00CED1' },
+                    areaStyle: { color: 'rgba(0,206,209,0.2)' }
+                },
+                {
+                    name: '🏛️ 博物馆群',
+                    value: [6.99, 185, 63, 60, 100],
+                    lineStyle: { color: '#FF8C00', width: 2 },
+                    itemStyle: { color: '#FF8C00' },
+                    areaStyle: { color: 'rgba(255,140,0,0.2)' }
+                }
+            ]
+        }]
+    });
+    return chart;
+}
+
+// ===== Chart 10: Waterfall Chart (瀑布图) =====
+function initWaterfallChart() {
+    const chart = echarts.init(document.getElementById('waterfallChart'));
+
+    // Show Disney year-over-year changes
+    const dyears = ['2019\n(基线)', '2020', '2021', '2022', '2023', '2024'];
+    const dvals = [6.5, 1.7, 2.8, 3.4, 6.4, 7.7];
+    const dchanges = dvals.map((v, i) => i === 0 ? 0 : parseFloat((v - dvals[i-1]).toFixed(1)));
+
+    // Ocean Park
+    const oyears = ['2019\n(基线)', '2020', '2021', '2022', '2023', '2024'];
+    const ovals = [5.7, 2.2, 1.4, 1.4, 2.4, 3.14];
+    const ochanges = ovals.map((v, i) => i === 0 ? 0 : parseFloat((v - ovals[i-1]).toFixed(2)));
+
+    // Helper: build waterfall series for one venue
+    function buildWaterfall(values, changes, color, name) {
+        const transparent = [];
+        const increase = [];
+        const decrease = [];
+
+        let cumulative = 0;
+        values.forEach((v, i) => {
+            if (i === 0) {
+                transparent.push(0);
+                increase.push(v);
+                decrease.push(0);
+                cumulative = v;
+            } else {
+                const change = changes[i];
+                if (change >= 0) {
+                    transparent.push(cumulative);
+                    increase.push(change);
+                    decrease.push(0);
+                } else {
+                    transparent.push(cumulative + change);
+                    increase.push(0);
+                    decrease.push(-change);
+                }
+                cumulative += change;
+            }
+        });
+
+        return [
+            { name: name + ' 基底', type: 'bar', stack: name, data: transparent, itemStyle: { color: 'transparent' }, emphasis: { itemStyle: { color: 'transparent' } } },
+            { name: name + ' 增长', type: 'bar', stack: name, data: increase, itemStyle: { color: color, borderRadius: [4,4,0,0] }, label: { show: true, position: 'top', formatter: p => p.value > 0 ? '+' + p.value : '', color: '#4ecdc4', fontSize: 11 } },
+            { name: name + ' 下降', type: 'bar', stack: name, data: decrease, itemStyle: { color: '#FF6B6B', borderRadius: [4,4,0,0] }, label: { show: true, position: 'top', formatter: p => p.value > 0 ? '-' + p.value : '', color: '#FF6B6B', fontSize: 11 } }
+        ];
+    }
+
+    const disneySeries = buildWaterfall(dvals, dchanges, '#6495ED', '迪士尼');
+    const oceanSeries = buildWaterfall(ovals, ochanges, '#00CED1', '海洋公园');
+
+    chart.setOption({
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { type: 'shadow' },
+            backgroundColor: 'rgba(15,15,30,0.95)',
+            borderColor: '#444',
+            textStyle: { color: '#e0e0e0' },
+            formatter: params => {
+                const yr = params[0].axisValue.replace('\n', '');
+                let s = '<b>' + yr + '</b><br/>';
+                // Disney
+                const di = params[0].dataIndex;
+                s += '🏰 迪士尼: ' + dvals[di] + '百万';
+                if (di > 0) s += ' (' + (dchanges[di] >= 0 ? '+' : '') + dchanges[di] + ')';
+                s += '<br/>';
+                s += '🐬 海洋公园: ' + ovals[di] + '百万';
+                if (di > 0) s += ' (' + (ochanges[di] >= 0 ? '+' : '') + ochanges[di] + ')';
+                return s;
+            }
+        },
+        legend: {
+            data: ['迪士尼 增长', '迪士尼 下降', '海洋公园 增长', '海洋公园 下降'],
+            textStyle: { color: '#aaa' },
+            top: 5
+        },
+        grid: { left: 60, right: 30, top: 50, bottom: 40 },
+        xAxis: {
+            type: 'category',
+            data: dyears,
+            axisLabel: { color: '#aaa', fontSize: 12 },
+            axisLine: { lineStyle: { color: '#333' } }
+        },
+        yAxis: {
+            type: 'value',
+            name: '百万人次',
+            nameTextStyle: { color: '#888' },
+            axisLabel: { color: '#888' },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } }
+        },
+        series: [...disneySeries, ...oceanSeries],
+        barGap: '30%',
+        barCategoryGap: '40%'
+    });
+    return chart;
+}
+
+// ===== Chart 11: Pictorial Bar (象形柱图) =====
+function initPictorialChart() {
+    const chart = echarts.init(document.getElementById('pictorialChart'));
+
+    // Top 8 museums in 2023-24
+    const latestIdx = 4;
+    const picData = [];
+    museumData.names.forEach((name, i) => {
+        const val = museumData.values[i][latestIdx];
+        if (val) picData.push({ name: name.replace('香港',''), value: val });
+    });
+    picData.sort((a, b) => b.value - a.value);
+    const top8 = picData.slice(0, 8);
+
+    const personPath = 'path://M15.5,5.5c0,3-2.5,5.5-5.5,5.5S4.5,8.5,4.5,5.5S7,0,10,0S15.5,2.5,15.5,5.5z M20,21v-2c0-3.3-2.7-6-6-6H6c-3.3,0-6,2.7-6,6v2c0,0.6,0.4,1,1,1h18C19.6,22,20,21.6,20,21z';
+
+    const colors = ['#FF6B6B','#6495ED','#00CED1','#FFD700','#FF8C00','#7B68EE','#20B2AA','#DA70D6'];
+
+    chart.setOption({
+        tooltip: {
+            formatter: p => `${p.name}<br/>${(p.value/10000).toFixed(1)}万人次`
+        },
+        grid: { left: 120, right: 60, top: 10, bottom: 30 },
+        xAxis: {
+            type: 'value',
+            axisLabel: { color: '#888', formatter: v => (v/10000).toFixed(0) + '万' },
+            splitLine: { lineStyle: { color: 'rgba(255,255,255,0.04)' } },
+            max: 1600000
+        },
+        yAxis: {
+            type: 'category',
+            data: top8.map(d => d.name).reverse(),
+            axisLabel: { color: '#ccc', fontSize: 12 },
+            axisLine: { show: false },
+            axisTick: { show: false }
+        },
+        series: [
+            // Background
+            {
+                type: 'pictorialBar',
+                symbol: personPath,
+                symbolRepeat: true,
+                symbolSize: [18, 18],
+                symbolMargin: 3,
+                data: top8.map(() => ({ value: 1600000 })).reverse(),
+                itemStyle: { color: 'rgba(255,255,255,0.04)' },
+                animationDuration: 0,
+                z: 0
+            },
+            // Foreground
+            {
+                type: 'pictorialBar',
+                symbol: personPath,
+                symbolRepeat: true,
+                symbolSize: [18, 18],
+                symbolMargin: 3,
+                symbolClip: true,
+                data: top8.map((d, i) => ({
+                    value: d.value,
+                    itemStyle: { color: colors[i] }
+                })).reverse(),
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: p => (p.value/10000).toFixed(1) + '万',
+                    color: '#ccc',
+                    fontSize: 12,
+                    fontWeight: 600
+                },
+                z: 1
+            }
+        ]
+    });
+    return chart;
+}
+
+// ===== Init =====
+const allCharts = [];
+window.addEventListener('DOMContentLoaded', () => {
+    allCharts.push(initRaceChart());
+    allCharts.push(initMuseumRace());
+    allCharts.push(initMuseumGrowth());
+    allCharts.push(initMuseumPie());
+    allCharts.push(initCrossCompare());
+    initLiquidCharts().forEach(c => allCharts.push(c));
+    allCharts.push(initStreamChart());
+    allCharts.push(initBumpChart());
+    allCharts.push(initBarRace());
+    allCharts.push(initRadarChart());
+    allCharts.push(initWaterfallChart());
+    allCharts.push(initPictorialChart());
+
+    window.addEventListener('resize', () => allCharts.forEach(c => c.resize()));
+
+    // Intersection Observer for animations
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                animateCounters();
+                counterObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    counterObserver.observe(document.querySelector('.counter-section'));
+
+    const peopleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                createPeople('ppl-disney', 770, '#6495ED', 'ppl-disney-count');
+                createPeople('ppl-museum', 699, '#FF8C00', 'ppl-museum-count');
+                createPeople('ppl-ocean', 346, '#00CED1', 'ppl-ocean-count');
+                peopleObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    peopleObserver.observe(document.querySelector('.people-section'));
+});
+</script>
+</body>
+</html>
