@@ -146,6 +146,22 @@
     z-index: 10;
     pointer-events: auto;
   }
+  #butterfly-container {
+    position: absolute; left: 16px; bottom: 466px;
+    width: 320px; height: 130px;
+    background: rgba(26,26,32,0.75);
+    border-radius: 12px;
+    z-index: 10;
+    pointer-events: auto;
+  }
+  #fx-chart-container {
+    position: absolute; left: 16px; bottom: 276px;
+    width: 320px; height: 180px;
+    background: rgba(26,26,32,0.75);
+    border-radius: 12px;
+    z-index: 10;
+    pointer-events: auto;
+  }
   .map-controls {
     display: flex;
     align-items: center;
@@ -328,6 +344,8 @@
     .hero h1 { font-size: 1.6rem; }
     #map-container { height: 450px; }
     #sunburst-container { width: 160px; height: 160px; }
+    #butterfly-container { width: 220px; height: 90px; bottom: 340px; }
+    #fx-chart-container { width: 220px; height: 130px; }
     .map-month-label { font-size: 1.2rem; min-width: 80px; }
   }
 </style>
@@ -363,6 +381,8 @@
     <div class="map-main">
       <div id="map-container"></div>
       <div id="sunburst-container"></div>
+      <div id="butterfly-container"></div>
+      <div id="fx-chart-container"></div>
     </div>
     <div class="map-popup-overlay" id="popup-overlay"></div>
     <div class="map-popup" id="map-popup">
@@ -777,6 +797,146 @@ function initSunburstChart() {
   return sc;
 }
 
+function initFxChart(fxData) {
+  const fc = echarts.init(document.getElementById('fx-chart-container'));
+  fc.setOption({
+    backgroundColor: 'transparent',
+    title: {
+      text: 'HKD/CNY', left: 12, top: 6,
+      textStyle: { color: '#c8b496', fontSize: 11, fontWeight: 600,
+        fontFamily: 'Georgia, "Times New Roman", serif' },
+    },
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#4a4a52',
+      textStyle: { color: '#e8e4df', fontSize: 11 },
+      formatter: p => p[0] ? `<b>${p[0].axisValue}</b><br/>Rate: ${p[0].value}` : '',
+    },
+    grid: { left: 40, right: 16, top: 30, bottom: 20 },
+    xAxis: {
+      type: 'category', data: fxData.months, boundaryGap: false,
+      axisLabel: { show: false },
+      axisLine: { lineStyle: { color: '#3d3d45' } },
+      axisTick: { show: false },
+    },
+    yAxis: {
+      type: 'value', scale: true,
+      splitNumber: 3,
+      axisLabel: { fontSize: 9, color: '#706b63', formatter: v => v.toFixed(2) },
+      splitLine: { lineStyle: { color: 'rgba(60,60,68,0.4)' } },
+    },
+    series: [{
+      type: 'line', data: [], smooth: true, symbol: 'none',
+      lineStyle: { color: '#c8b496', width: 2 },
+      areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+        { offset: 0, color: 'rgba(200,180,150,0.3)' },
+        { offset: 1, color: 'rgba(200,180,150,0.02)' },
+      ])},
+      animationDuration: 0,
+      animationDurationUpdate: 400,
+      animationEasingUpdate: 'cubicInOut',
+    }],
+  });
+  fc._fxData = fxData;
+  return fc;
+}
+
+function updateFxChart(fc, mapMonth) {
+  if (!fc || !fc._fxData) return;
+  const fx = fc._fxData;
+  const fxIdx = fx.months.indexOf(mapMonth);
+  const cutIdx = fxIdx >= 0 ? fxIdx : fx.months.length - 1;
+  const data = fx.rates.map((v, i) => i <= cutIdx ? v : null);
+  const curRate = fx.rates[cutIdx];
+  fc.setOption({
+    series: [{
+      data: data,
+      markPoint: {
+        symbol: 'circle', symbolSize: 8,
+        data: [{ coord: [fx.months[cutIdx], curRate] }],
+        itemStyle: { color: '#c8b496', borderColor: '#e8e4df', borderWidth: 2 },
+        label: {
+          show: true, position: 'top', fontSize: 10, color: '#e8e4df',
+          fontFamily: 'Georgia, "Times New Roman", serif',
+          formatter: () => curRate.toFixed(4),
+        },
+      },
+    }],
+  });
+}
+
+function initButterflyChart(flowData) {
+  let allMax = 0;
+  Object.values(flowData).forEach(f => {
+    if (f.inbound > allMax) allMax = f.inbound;
+    if (f.outbound > allMax) allMax = f.outbound;
+  });
+  const bc = echarts.init(document.getElementById('butterfly-container'));
+  bc.setOption({
+    backgroundColor: 'transparent',
+    title: {
+      text: 'Inbound / Outbound', subtext: 'Monthly Total: --', left: 'center', top: 2,
+      textStyle: { color: '#c8b496', fontSize: 14, fontWeight: 600,
+        fontFamily: 'Georgia, "Times New Roman", serif' },
+      subtextStyle: { color: '#e8e4df', fontSize: 13, fontWeight: 700,
+        fontFamily: 'Georgia, "Times New Roman", serif' },
+      itemGap: 6,
+    },
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: 'rgba(30,30,36,0.95)', borderColor: '#4a4a52',
+      textStyle: { color: '#e8e4df', fontSize: 11 },
+      formatter: p => {
+        const vals = p.map(s => `${s.marker} ${s.seriesName}: <b>${fmt(Math.abs(s.value))}</b>`).join('<br/>');
+        return vals;
+      },
+    },
+    grid: { left: 55, right: 55, top: 50, bottom: 14 },
+    xAxis: {
+      type: 'value', max: allMax, min: -allMax,
+      axisLabel: { show: false }, axisTick: { show: false },
+      axisLine: { show: false }, splitLine: { show: false },
+    },
+    yAxis: {
+      type: 'category', data: [''],
+      axisLine: { show: false }, axisTick: { show: false },
+      axisLabel: { show: false },
+    },
+    series: [
+      { name: 'Outbound', type: 'bar', stack: 'flow', data: [0], barWidth: 32,
+        itemStyle: { color: 'rgba(120,160,210,0.7)', borderRadius: [4, 0, 0, 4] },
+        label: { show: true, position: 'left', fontSize: 10, color: '#8ab4e0',
+          fontFamily: 'Georgia, "Times New Roman", serif', formatter: p => fmt(Math.abs(p.value)) },
+      },
+      { name: 'Inbound', type: 'bar', stack: 'flow', data: [0], barWidth: 32,
+        itemStyle: { color: 'rgba(232,168,124,0.7)', borderRadius: [0, 4, 4, 0] },
+        label: { show: true, position: 'right', fontSize: 10, color: '#e8a87c',
+          fontFamily: 'Georgia, "Times New Roman", serif', formatter: p => fmt(p.value) },
+      },
+    ],
+    animationDurationUpdate: 400, animationEasingUpdate: 'cubicInOut',
+  });
+  bc._flowData = flowData;
+  return bc;
+}
+
+function updateButterflyChart(bc, mapMonth) {
+  if (!bc || !bc._flowData) return;
+  const f = bc._flowData[mapMonth];
+  if (!f || f.total === 0) {
+    bc.setOption({ series: [{ data: [0] }, { data: [0] }], title: { subtext: 'Monthly Total: --' } });
+    return;
+  }
+  const totalStr = f.total.toLocaleString();
+  bc.setOption({
+    series: [
+      { data: [-f.outbound] },
+      { data: [f.inbound] },
+    ],
+    title: { subtext: 'Monthly Total: ' + totalStr },
+  });
+}
+
 function buildSunburstData(d, monthIdx) {
   const m = d.months[monthIdx];
   const entries = d.data[m] || [];
@@ -873,7 +1033,7 @@ const MAP_ZONES_FALLBACK = {
   central: { xMin: 114.12, xMax: 114.24, yMin: 22.27, yMax: 22.32 },
 };
 
-function setupMapControls(mapChart, d, buildFn, useGeo, sunChart, buildSunFn) {
+function setupMapControls(mapChart, d, buildFn, useGeo, sunChart, buildSunFn, fxChart, butterflyChart) {
   const months = d.months;
   const slider = document.getElementById('map-slider');
   const label = document.getElementById('map-month-label');
@@ -891,7 +1051,7 @@ function setupMapControls(mapChart, d, buildFn, useGeo, sunChart, buildSunFn) {
       ? [{ data: result.effectData }, { data: result.deadData }]
       : [{ data: result.effectData }];
     mapChart.setOption({
-      title: { text: result.month, subtext: `Monthly Total Passengers: ${fmt(result.totalThisMonth)}` },
+      title: { text: result.month, subtext: '' },
       series: seriesUpdate,
     });
     if (sunChart && buildSunFn) {
@@ -916,6 +1076,8 @@ function setupMapControls(mapChart, d, buildFn, useGeo, sunChart, buildSunFn) {
         series: [{ data: sb.sbData }],
       });
     }
+    updateFxChart(fxChart, months[idx]);
+    updateButterflyChart(butterflyChart, months[idx]);
   }
   function play() {
     if (timer) return;
@@ -968,6 +1130,8 @@ function setupMapControls(mapChart, d, buildFn, useGeo, sunChart, buildSunFn) {
   window.addEventListener('resize', () => {
     mapChart.resize();
     if (sunChart) sunChart.resize();
+    if (fxChart) fxChart.resize();
+    if (butterflyChart) butterflyChart.resize();
   });
 }
 
@@ -1061,7 +1225,9 @@ function renderMap(d) {
   }
 
   const sunChart = initSunburstChart();
-  setupMapControls(mapChart, d, buildSeriesData, true, sunChart, m => buildSunburstData(d, m));
+  const fxChart = d.fx ? initFxChart(d.fx) : null;
+  const bfChart = d.flow ? initButterflyChart(d.flow) : null;
+  setupMapControls(mapChart, d, buildSeriesData, true, sunChart, m => buildSunburstData(d, m), fxChart, bfChart);
 }
 
 function renderMapFallback(d) {
@@ -1142,7 +1308,9 @@ function renderMapFallback(d) {
   }
 
   const sunChart = initSunburstChart();
-  setupMapControls(mapChart, d, buildFallbackData, false, sunChart, m => buildSunburstData(d, m));
+  const fxChart = d.fx ? initFxChart(d.fx) : null;
+  const bfChart = d.flow ? initButterflyChart(d.flow) : null;
+  setupMapControls(mapChart, d, buildFallbackData, false, sunChart, m => buildSunburstData(d, m), fxChart, bfChart);
 }
 
 /* ===== Chart 1: Stacked Area ===== */

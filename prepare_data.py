@@ -539,11 +539,25 @@ for m in map_months:
 # Build coords dict with English keys
 coords_en = {CP_CN_TO_EN.get(k, k): v for k, v in checkpoint_coords.items()}
 
+fx_sorted = df_fx[['年月', '收盘']].dropna().sort_values('年月')
+fx_months = fx_sorted['年月'].tolist()
+fx_rates = fx_sorted['收盘'].tolist()
+
+flow_data = {}
+for m in map_months:
+    mdf = df_map[df_map['年月'] == m]
+    dir_agg = mdf.groupby('入境 / 出境')['总计'].sum()
+    inb = int(dir_agg.get('入境', 0))
+    outb = int(dir_agg.get('出境', 0))
+    flow_data[m] = {'inbound': inb, 'outbound': outb, 'total': inb + outb}
+
 output['chart_map'] = {
     'months': map_months,
     'coords': coords_en,
     'data': map_data,
     'detail': map_detail,
+    'fx': { 'months': fx_months, 'rates': fx_rates },
+    'flow': flow_data,
 }
 
 # Write JSON
