@@ -26,21 +26,6 @@
     color: var(--text);
     line-height: 1.6;
   }
-  .hero {
-    text-align: center;
-    padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #141416 0%, #1e1e22 40%, #24211e 60%, #141416 100%);
-    border-bottom: 1px solid var(--border);
-  }
-  .hero h1 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    background: linear-gradient(90deg, #c8b496, #e8a87c, #d97a7a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
-  }
-  .hero p { color: var(--muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
   .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
   .section {
     margin: 48px 0;
@@ -370,7 +355,6 @@
   }
   @media (max-width: 900px) {
     .chart-row { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 1.6rem; }
     #map-container { height: 450px; }
     #sunburst-container { width: 160px; height: 160px; }
     #news-ticker { max-width: 300px; }
@@ -383,11 +367,6 @@
 </style>
 </head>
 <body>
-
-<div class="hero">
-  <h1>The Pulse of Hong Kong Tourism</h1>
-  <p>From Passenger Flow to Economic Impact — A Multi-dimensional Visual Analysis of Hong Kong Immigration and Industry Data (2021–2026)</p>
-</div>
 
 <!-- ===== Interactive Map ===== -->
 <div class="map-section">
